@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noEmitOnError": false,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "noResolve": false,
+    "moduleResolution": "node",
+    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "alwaysStrict": true,
+    "baseUrl": "source/nodeserver",
+    "rootDir": "source",
+    "outDir": "server",
+    "paths": {
+    },
+    "types": [
+      "node"
+    ]
+  }
+}
