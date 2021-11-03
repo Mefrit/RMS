@@ -1,12 +1,16 @@
-import * as React from 'react'
+import * as React from "react"
 
 export default ({ message }) => {
+    console.log("message ===> ", message);
     return (
-        <div className="card">
-            <div className="card-body">
-                <h5 className="card-title">{message.content}</h5>
+        <li className="list-group-item row">
 
-            </div>
-        </div>
+
+            <span className=" col-sm">{message.question}</span>
+            <div className=" col-sm" >{message.is_answered == "true" ? new Date(message.time_answering).toUTCString() : "x"}</div>
+            <div className=" col-sm">{message.time_receipt ? new Date(message.time_receipt).toUTCString() : "y"}</div>
+            {/* <div>{message.time_answering ? new Date(message.time_answering).toUTCString() : "y"}</div> */}
+
+        </li>
     )
 }

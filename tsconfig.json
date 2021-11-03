@@ -2,7 +2,9 @@
     "compilerOptions": {
         "jsx": "react",
         "target": "es5",
+
         "module": "amd",
+
         "noImplicitAny": false,
         "removeComments": true,
         "noEmitOnError": false,
@@ -13,28 +15,14 @@
         "noUnusedParameters": false,
         "noUnusedLocals": true,
         "alwaysStrict": true,
+
         "baseUrl": "source/typescript/",
         "paths": {
-            "whiteboard/*": [
-                "whiteboard/svg/*"
-            ],
-            "abstract/*": [
-                "whiteboard/abstract/*"
-            ]
+            "whiteboard/*": ["whiteboard/svg/*"],
+            "abstract/*": ["whiteboard/abstract/*"]
         },
-        "types": [
-            "react",
-            "react-dom",
-            "requirejs"
-        ],
-        "lib": [
-            "es5",
-            "es6",
-            "es2015",
-            "es2017",
-            "dom",
-            "es2015.core",
-            "es2015.promise"
-        ]
-    }
+        "types": ["react", "react-dom", "requirejs"],
+        "lib": ["es5", "es6", "es2015", "es2017", "dom", "es2015.core", "es2015.promise"]
+    },
+    "exclude": ["./node_modules"]
 }

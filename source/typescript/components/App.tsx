@@ -1,97 +1,91 @@
-import * as React from "react";
-
+import * as React from "react"
+import { useEffect, useState } from "react";
 import List from "./list/List"
 
 import { connect } from 'react-redux';
-import { addMessage, showLoader, hideLoader } from '../redux_project/actions/actionsList'
+import { addMessage, showLoader, hideLoader, setCacheMessages } from '../redux_project/actions/actionsList'
 import { postJSON } from "../lib/query"
+// REACT.MEME
+// REACT.useCallBack
+// React.useMeme
+// React.lazy
+// React.windows -библиотека
+function App(props) {
 
-class App extends React.Component<any, any> {
-    constructor(props) {
-        super(props)
-        this.state = {
-            content: '',
-            messages: []
-        }
-    }
-    componentDidMount() {
-        // let cache_test = ["1", "2", "3", "4"].map(content => {
-        //     return {
-        //         content: content,
-        //         id: Date.now().toString() + Math.random() * 10
-        //     }
-        // })
-        this.props.showLoader();
-        postJSON("/?module=registration&action=Enter", {
-            test: "123"
-        }).then((result) => {
-            console.log('result', result);
-        });
+    const [content, setContent] = useState("");
+    // const [messages, setMessages] = useState([]);
+    console.log('props APP', props);
+    // == componentDidMount
+    useEffect(() => {
+        props.showLoader();
+        const fetchData = async () => {
+            postJSON("/?module=App&action=getList", {
+                page: 1,
+                on_page: 20,
+                order: "time_receipt"
+            }).then((answer) => {
+                props.hideLoader();
+                console.log("result FORM SERVER", answer);
+                if (answer.result) {
 
-        // setTimeout(() => {
-        //     this.props.addMessage(cache_test);
-        //     this.props.hideLoader();
-        //     this.setState(prev => ({
-        //         ...prev, ...{
-        //             messages: cache_test
-        //         }
-        //     }))
-        // }, 4000);
-    }
-    changeInputHandler = event => {
-        event.persist()
-        this.setState(prev => ({
-            ...prev, ...{
-                [event.target.name]: event.target.value
-            }
-        }))
-    }
-    addMessage = event => {
+                    props.hideLoader();
+                    props.setCacheMessages(answer.list);
+
+
+                } else {
+                    alert(answer.message);
+                }
+                answer.list.fo
+                setContent('');
+            });
+
+        };
+        fetchData();
+    }, []);
+
+    function addMessage(event) {
         event.preventDefault();
-        const { content } = this.state;
         const new_message = [{
             content: content,
             id: Date.now().toString()
         }];
-        console.log("addMessage", new_message);
         // редукс уже передал в пропсы эту функцию
-        this.props.addMessage(new_message);
-        this.setState({ content: '' });
-
+        props.addMessage(new_message);
+        setContent('');
     }
-    render() {
-        return (
-            <div className="container" >
-                <div className="row">
-                    <List />
-                    <div className="col-sm input-group">
-                        <div>
-                            <input
-                                type="text"
-                                className=" form-control"
-                                id="content"
-                                value={this.state.content}
-                                name="content"
-                                onChange={this.changeInputHandler}
-                            />
-                            <input
-                                type="button"
-                                className="btn btn-primary"
-                                id="content"
-                                value="add mesage"
-                                name="add"
-                                onClick={this.addMessage}
 
-                            />
-                        </div>
+    return (
+        <div className="container" >
+            <div className="column">
+                <List />
+                <div className="col-sm input-group">
+                    <div>
+                        <input
+                            type="text"
+                            className=" form-control"
+                            id="content"
+                            value={content}
+                            name="content"
+                            onChange={(ev) => { setContent(ev.target.value) }}
+                        />
+                        <input
+                            type="button"
+                            className="btn btn-primary"
+                            id="content"
+                            value="add mesage"
+                            name="add"
+                            onClick={addMessage}
+
+                        />
                     </div>
                 </div>
-            </div >);
-    }
+            </div>
+        </div >);
+
 }
 // прокидывания функций в компонент
 const mapDispatchToProps = {
-    addMessage, showLoader, hideLoader
+    addMessage, showLoader, hideLoader, setCacheMessages
 }
 // инициализация state в компоненте
 const mapStateToProps = state => ({
@@ -100,3 +94,76 @@ const mapStateToProps = state => ({
 })
 // связка данных and exports
 export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+
+// class App extends React.Component<any, any> {
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             content: '',
+//             messages: []
+//         }
+//     }
+//     componentDidMount() {
+//         this.props.showLoader();
+//         postJSON("/?module=App&action=getList", {
+//             page: 1,
+//             on_page: 20,
+//             order: "time_receipt"
+//         }).then((result) => {
+//             this.props.hideLoader();
+//             console.log('result', result);
+//         });
+//     }
+//     changeInputHandler = event => {
+//         event.persist()
+//         this.setState(prev => ({
+//             ...prev, ...{
+//                 [event.target.name]: event.target.value
+//             }
+//         }));
+//     }
+
+//     addMessage = event => {
+//         event.preventDefault();
+//         const { content } = this.state;
+//         const new_message = [{
+//             content: content,
+//             id: Date.now().toString()
+//         }];
+
+//         // редукс уже передал в пропсы эту функцию
+//         this.props.addMessage(new_message);
+//         this.setState({ content: '' });
+
+//     }
+//     render() {
+//         return (
+//             <div className="container" >
+//                 <div className="row">
+//                     <List />
+//                     <div className="col-sm input-group">
+//                         <div>
+//                             <input
+//                                 type="text"
+//                                 className=" form-control"
+//                                 id="content"
+//                                 value={this.state.content}
+//                                 name="content"
+//                                 onChange={this.changeInputHandler}
+//                             />
+//                             <input
+//                                 type="button"
+//                                 className="btn btn-primary"
+//                                 id="content"
+//                                 value="add mesage"
+//                                 name="add"
+//                                 onClick={this.addMessage}
+
+//                             />
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div >);
+//     }
+// }

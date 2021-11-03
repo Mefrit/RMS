@@ -1,5 +1,4 @@
 export function getJSON(url) {
-
     return fetch(url).then((data: any) => {
         try {
             return JSON.parse(data);
@@ -10,20 +9,20 @@ export function getJSON(url) {
     });
 }
 export function postJSON(url, args) {
-
-    return fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(args),
-    }).then((data: any) => {
-        try {
-            console.log("data", data, data.text);
-            return JSON.parse(data);
-        } catch (err) {
-            alert("Error11 " + err.toString());
-            return null;
-        }
-    });
+    try {
+        return fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify(args),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                return data;
+            });
+    } catch (err) {
+        alert("Error11 " + err.toString());
+        return null;
+    }
 }

@@ -1,47 +1,32 @@
 "use strict";
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const url = require('url');
-const mimeTypes = {
-    '.html': 'text/html',
-    '.js': 'text/javascript',
-    '.css': 'text/css',
-    '.ico': 'image/x-icon',
-    '.png': 'image/png',
-    '.jpg': 'image/jpeg',
-    '.gif': 'image/gif',
-    '.svg': 'image/svg+xml',
-    '.json': 'application/json',
-    '.woff': 'font/woff',
-    '.woff2': 'font/woff2',
-    '.map': "application/json"
-};
-function load_static_file(request, response, uri) {
-    response.setHeader("Content-Type", "text/html; charset=utf-8;");
-    const filePath = request.url.substr(1);
-    fs.readFile(filePath, function (error, data) {
-        const parsedUrl = new URL(filePath, 'https://node-http.glitch.me/');
-        let pathName = parsedUrl.pathname;
-        let ext = path.extname(pathName);
-        if (error) {
-            response.statusCode = 404;
-            response.end('Resourse not found!');
-        }
-        else {
-            response.setHeader('Content-Type', mimeTypes[ext]);
-            response.end(data);
-        }
-    });
-}
+Object.defineProperty(exports, "__esModule", { value: true });
+const http = require("http");
+const url = require("url");
+const Application_1 = require("./Application");
+const functions_1 = require("./modules/lib/functions");
+const path2db = "./database.db3";
+const application = new Application_1.Application(path2db);
 http.createServer(function (request, response) {
-    var uri = url.parse(request.url);
+    var uri = url.parse(request.url), post_data = "";
     if (uri.pathname == "/") {
-        response.writeHead(200, { 'Content-Type': 'application/json' });
-        response.json(JSON.stringify({ result: "ok111111111" }));
+        response.writeHead(200, { "Content-Type": "application/json" });
+        request.on("data", (data) => {
+            post_data += data;
+        });
+        request.on("end", () => {
+            console.log("post_data \n\n", JSON.parse(post_data));
+            post_data = JSON.parse(post_data);
+            const module_info = (0, functions_1.getUrlInfo)(uri.query);
+            console.log("module_info \n\n", module_info);
+            application.loadModule(module_info, post_data).then((data) => {
+                console.log("!loadModule ======>>>>>>>> ", data);
+                response.write(JSON.stringify(data));
+                response.end();
+            });
+        });
     }
     else {
-        load_static_file(request, response, uri);
+        (0, functions_1.load_static_file)(request, response, uri);
     }
 }).listen(3000);
 
