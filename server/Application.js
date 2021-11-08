@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Application = void 0;
 const DataBase_1 = require("./modules/lib/DataBase");
 const ModuleApp_1 = require("./modules/ModuleApp");
+const ModuleTeacher_1 = require("./modules/ModuleTeacher");
 class Application {
     constructor(path2db) {
         this.db_obj = new DataBase_1.DataBase();
@@ -12,6 +13,8 @@ class Application {
         switch (module_name) {
             case "App":
                 return ModuleApp_1.Module_App;
+            case "Teacher":
+                return ModuleTeacher_1.Module_Teacher;
             default:
                 return undefined;
         }
@@ -24,12 +27,11 @@ class Application {
                     if (Module) {
                         const obj = new Module({ db_obj: this.db_obj });
                         obj.runtAction(module_info.action, post_data).then((answer) => {
-                            console.log("answer ======>>>>>> ", answer);
                             resolve(answer);
                         });
                     }
                     else {
-                        resolve({ result: false, message: "Произошла ошибка при загрузке модуля." });
+                        resolve({ result: false, message: "Произошла ошибка при загрузке модуля. Модуль не найден" });
                     }
                 }
                 else {

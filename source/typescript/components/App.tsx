@@ -19,7 +19,7 @@ function App(props) {
     useEffect(() => {
         props.showLoader();
         const fetchData = async () => {
-            postJSON("/?module=App&action=getList", {
+            postJSON("/?module=App&action=GetList", {
                 page: 1,
                 on_page: 20,
                 order: "time_receipt"
@@ -28,14 +28,14 @@ function App(props) {
                 console.log("result FORM SERVER", answer);
                 if (answer.result) {
 
-                    props.hideLoader();
+
                     props.setCacheMessages(answer.list);
 
 
                 } else {
                     alert(answer.message);
                 }
-                answer.list.fo
+
                 setContent('');
             });
 
@@ -57,8 +57,9 @@ function App(props) {
     return (
         <div className="container" >
             <div className="column">
+
                 <List />
-                <div className="col-sm input-group">
+                {/* <div className="col-sm input-group">
                     <div>
                         <input
                             type="text"
@@ -78,7 +79,7 @@ function App(props) {
 
                         />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div >);
 

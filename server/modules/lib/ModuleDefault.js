@@ -6,7 +6,7 @@ class Module_Default {
         this.db_obj = props.db_obj;
     }
     runtAction(name_action, data) {
-        return this[name_action](data);
+        return this["action" + name_action](data);
     }
 }
 exports.Module_Default = Module_Default;

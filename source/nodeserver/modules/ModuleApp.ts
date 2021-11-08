@@ -1,7 +1,7 @@
 import { Module_Default } from "./lib/ModuleDefault";
 
 export class Module_App extends Module_Default {
-    getList = (post_data: any) => {
+    actionGetList = (post_data: any) => {
         return new Promise((resolve, reject) => {
             let answer: any = { result: true };
             const database = this.db_obj.getDB();

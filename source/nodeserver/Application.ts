@@ -1,6 +1,6 @@
 import { DataBase } from "./modules/lib/DataBase";
 import { Module_App } from "./modules/ModuleApp";
-
+import { Module_Teacher } from "./modules/ModuleTeacher";
 export class Application {
     db_obj: any;
     path2db: string;
@@ -12,6 +12,8 @@ export class Application {
         switch (module_name) {
             case "App":
                 return Module_App;
+            case "Teacher":
+                return Module_Teacher;
 
             default:
                 return undefined;
@@ -27,11 +29,10 @@ export class Application {
                     if (Module) {
                         const obj = new Module({ db_obj: this.db_obj });
                         obj.runtAction(module_info.action, post_data).then((answer) => {
-                            console.log("answer ======>>>>>> ", answer);
                             resolve(answer);
                         });
                     } else {
-                        resolve({ result: false, message: "Произошла ошибка при загрузке модуля." });
+                        resolve({ result: false, message: "Произошла ошибка при загрузке модуля. Модуль не найден" });
                     }
                 } else {
                     resolve(answ);

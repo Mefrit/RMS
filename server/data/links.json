@@ -1,0 +1,211 @@
+[{
+        "title": "Авторизация",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=login",
+        "description": "Содержит информацию о процессе авторизации для начала работы с сайтом."
+    },
+    {
+        "title": "Редактор страниц",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor",
+        "description": "Как создать страницу сайта, как вставить, отредактировать, изменить оформление текста, ссылки, изображения, таблицы на странице сайта."
+    },
+    {
+        "title": "Компоненты",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_components",
+        "description": "Информация о компонентах CMS."
+    },
+    {
+        "title": "Список ссылок страницы",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_links",
+        "description": "В данном разделе вы узнаете о механизме создания и редактирования списка ссылок ссылок в CMS."
+    },
+    {
+        "title": "Часто задаваемые вопросы",
+        "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
+        "description": "В данном разделе вы узнаете о наиболее часто встречающихся вопросах в CMS."
+    },
+    {
+        "title": "Работа нескольких пользователей одновременно",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_users",
+        "description": "В данном разделе рассматривается вопрос о работе нескольких пользователей в CMS."
+    },
+    {
+        "title": "Сетка содержимого",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=blockeditor",
+        "description": "В данном разделе объясняется тема разделения контента страницы на различные смысловые блоки, для последующего корректного отображения в мобильной версии сайта"
+    },
+    {
+        "title": "Ошибки",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=errors",
+        "description": "В данном разделе об ошибках в CMS."
+    },
+    {
+        "title": "Вставка баннеров\/счетчиков",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_banner",
+        "description": "Показывается, как добавить баннер к себе на страницу."
+    },
+    {
+        "title": "Фотогалереи",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_photo",
+        "description": "В данном разделе вы узнаете о механизме публикации изображений на сайт."
+    },
+    {
+        "title": "Изображения",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=images",
+        "description": "Ссылка на раздел, который описывает работу с изображениями в CMS."
+    },
+    {
+        "title": "Документы",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=documents",
+        "description": "Ссылка на раздел, который описывает работу с документами в CMS."
+    },
+    {
+        "title": "Новости (компонент)",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_news",
+        "description": "В данном разделе описывается механизм загрузки новостей из CMS на страницу сайта."
+    },
+    {
+        "title": "Новости (модуль)",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=iblock",
+        "description": "Как создать коллекцию новостей для сайта, как отредактировать, опубликовать,  изменить контент новости норвости на сайте."
+    },
+    {
+        "title": "Видео",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_video",
+        "description": "В данном разделе описывается механизм загрузки видео из CMS на страницу сайта."
+    },
+    {
+        "title": "Яндекс карты",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_ymap",
+        "description": ""
+    },
+    {
+        "title": "История сайта",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_history",
+        "description": ""
+    },
+    {
+        "title": "История страниц",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=history",
+        "description": ""
+    },
+    {
+        "title": "Карта сайта",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_components",
+        "description": "Информация о компоненте вывода доступных пользователю страниц сайта."
+    },
+    {
+        "title": "Добавление подписанного электронной подписью (ЭП) документа на страницу",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_signeddoc",
+        "description": "Информаця о механихзмах работы с подписанными ЭП документами в рамках CMS."
+    },
+    {
+        "title": "Календарь новостей",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_news_calendar",
+        "description": "Информация о компоненте вывода новостей в формате календаря."
+    },
+    {
+        "title": "Менеджер тегов",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=tag_manager",
+        "description": "Информация о компоненте вывода ресурсов по определенным тегам."
+    },
+    {
+        "title": "Структура сайта",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=sitetreev2",
+        "description": "Раздел, который содержит информацию об управлении структурой сатйа, а так же позволяет в виде дерева страниц работать и изменять струтуру."
+    },
+    {
+        "title": "Опросы",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=polls",
+        "description": "Данный раздел рассказывает о механизмах, создания голосования, а так же о взаимодействии с результатами голосвания."
+    },
+    {
+        "title": "Обязательные разделы",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=requiredcontent",
+        "description": "Инфорамия о разделе, который помогает проверить, соответствует ли ваш сайт ряду обязательных требований, а также позволяет внести требования на сайт."
+    },
+    {
+        "title": "Сотрудники",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=employees",
+        "description": "Документация о модуле, который позволяет упростить хранение, обновление и вывод информации о руководстве и педагогическом составе учреждения."
+    },
+    {
+        "title": "Стили и скрипты",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=assets",
+        "description": "Информация о реализации слбственный скриптов и стилей для страницы в CMS."
+    },
+    {
+        "title": "Шаблоны сайта",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=templates",
+        "description": "Ссылка на раздел, который позволяет выбрать шаблон сайта в CMS."
+    },
+    {
+        "title": "Настройки сайта",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=sitesetup",
+        "description": "В разделе 'Настройки сайта' задаются общие параметры для всех страниц сайта."
+    },
+    {
+        "title": "Статистика",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=stats",
+        "description": ""
+    },
+    {
+        "title": "Проверка орфографии",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_spellingcheck",
+        "description": ""
+    },
+    {
+        "title": "Оптимизатор картинок на сайте",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_optimizerimage",
+        "description": "Ссылка на раздел, который описывает поведение модуля для оптимизации изображений на сайте."
+    },
+    {
+        "title": "НП «Образование»",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=education",
+        "description": "Раздел, который описывает работу модуля для создания и ведения информационного раздела на сайте образовательной организации, посвященной участию Вашей организации в мероприятиях Национального проекта «Образование»."
+    },
+    {
+        "title": "Пользователи",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=users",
+        "description": ""
+    },
+    {
+        "title": "Формы",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=forms",
+        "description": "Как создать форму, как вставить, отредактировать, добавить элементы формы в CMS."
+    },
+    {
+        "title": "Репост новостной записи в социальные сети",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=news_repost",
+        "description": "Вы узнаете, как пересылать новости из CMS в социальные сети."
+    },
+    {
+        "title": "Обращения граждан",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=appeals",
+        "description": "Инструкция для работы с разделом «Обращения граждан»."
+    },
+    {
+        "title": "Дополнительные возможности",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=advanced",
+        "description": "Дополнительные возможности работы с шаблонами."
+    },
+    {
+        "title": "Страницы сайта",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=pages",
+        "description": "Вы узнаете, о методах работы со страницами сайта."
+    },
+    {
+        "title": "Инструкция по работе с горячим питанием в школе",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/goryachee_pitanie_v_shkole.html",
+        "description": "Вы узнаете, о работе с горячим питанием в школе."
+    },
+    {
+        "title": "Компонент 'Список документов'",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_docs",
+        "description": "Вы узнаете, о работе с компонентом  'Список документов'."
+    },
+    {
+        "title": "Видео",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=videos",
+        "description": "Вы узнаете, о работе фидеофайлами в CMS."
+    }
+]

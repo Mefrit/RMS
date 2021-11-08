@@ -5,7 +5,7 @@ const ModuleDefault_1 = require("./lib/ModuleDefault");
 class Module_App extends ModuleDefault_1.Module_Default {
     constructor() {
         super(...arguments);
-        this.getList = (post_data) => {
+        this.actionGetList = (post_data) => {
             return new Promise((resolve, reject) => {
                 let answer = { result: true };
                 const database = this.db_obj.getDB();

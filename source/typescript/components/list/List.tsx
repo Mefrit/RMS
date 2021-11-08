@@ -22,7 +22,6 @@ const mapStateToProps = state => {
     // установка начальных значений
     return {
         messages: state.app.messages,
-
         loading: false
     }
 }

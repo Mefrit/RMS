@@ -1,0 +1,208 @@
+
+
+
+import * as React from "react"
+import { useEffect, useState } from "react";
+// import List from "./list/List"
+import Loader from '../components/loader'
+import { connect, useSelector } from 'react-redux'
+import { showLoader, hideLoader } from '../redux_project/actions/actionTeacher'
+import { postJSON } from "../lib/query"
+// REACT.MEME
+// REACT.useCallBack
+// React.useMeme
+// React.lazy
+// React.windows -библиотека
+function Teacher(props) {
+    console.log("Teacher props", props);
+    // const [content, setContent] = useState("");
+    const [docs_list, setDocsList] = useState([]);
+    const [type_resource, setTypeResource] = useState(props.type_resource);
+    const [letter, setLetter] = useState("Добрый день!  На сайте МДОУ № 15 «Аленушка» ЯМР  показывает ошибку загрузки документа, хотя все раньше работало!  В чем может быть причина? Почему одни ссылки работают, а другие нет?");
+
+    // 
+    // == componentDidMount,
+    const loading = useSelector((state: any): any => state.teacher.loading);
+    console.log('props Teacher', props, "loading", loading, "type_resource", type_resource);
+    const fetchData = async () => {
+
+        postJSON("/?module=Teacher&action=GetDocsList", {
+            type_resource: type_resource
+        }).then((answer) => {
+            props.hideLoader();
+            console.log("result FORM SERVER TEACHER", answer);
+            if (answer.result) {
+
+
+                // props.setCacheMessages(answer.list);
+                console.log("answer.list", answer.docs_links);
+                setDocsList(answer.docs_links);
+            } else {
+                alert(answer.message);
+                setDocsList([]);
+            }
+            // answer.list.fo
+            // setContent('');
+        });
+
+    };
+    useEffect(() => {
+        console.log("useEffect", type_resource);
+        props.showLoader();
+        fetchData();
+    }, [type_resource]);
+
+    // function addMessage(event) {
+    //     event.preventDefault();
+    //     const new_message = [{
+    //         content: content,
+    //         id: Date.now().toString()
+    //     }];
+    //     // редукс уже передал в пропсы эту функцию
+    //     props.addMessage(new_message);
+    //     setContent('');
+    // }
+    function renderDocsList(data) {
+        console.log('data', data);
+        return data.map(elem => {
+            return <option key={elem.url + elem.title} value={elem.link} title={elem.description}>{elem.title}</option>
+        })
+    }
+    const train = () => {
+        console.log("train", letter)
+        postJSON("/?module=Teacher&action=Train", {
+            letter: letter,
+            docs_link: []
+        }).then((answer) => {
+            props.hideLoader();
+            console.log("result FORM SERVER TEACHER", answer);
+            if (answer.result) {
+
+
+                // props.setCacheMessages(answer.list);
+                console.log("answer.list", answer.docs_links);
+                setDocsList(answer.docs_links);
+            } else {
+                alert(answer.message);
+                setDocsList([]);
+            }
+            // answer.list.fo
+            // setContent('');
+        });
+    }
+    if (loading) {
+        return <Loader />
+    } else
+        return (
+            <form className="container px-4 min-vh-100" >
+
+                <div className="row">
+                    <textarea className="col-sm form-control" value={letter} rows={4} name="" id="" onChange={(ev) => { setLetter(ev.target.value) }}></textarea>
+                </div>
+                <div className="row ">
+                    <select className=" col-sm form-select gy-2" multiple>
+                        {renderDocsList(docs_list)}
+                    </select>
+                </div>
+
+                <span className="row">Выбор ссылок документации из различных ресурсов.</span>
+
+                <div className="row gy-1 ">
+                    <a href="#" onClick={() => { setTypeResource("cms"); }} className={type_resource == "cms" ? "col-2 btn disabled" : "col-1  btn"}>CMS</a>
+                    <a href="#" onClick={() => { setTypeResource("cis"); }} className={type_resource == "cms" ? "col-2 btn " : "col-1  btn disabled"}>CIS</a>
+                </div>
+                <div className="row justify-content-md-center">
+                    <input type="button" className="col-2 btn btn-primary" onClick={train} value="Обучить алгоритм" />
+                </div>
+
+
+            </form >);
+
+
+}
+// прокидывания функций в компонент
+const mapDispatchToProps = {
+    showLoader, hideLoader
+}
+// инициализация state в компоненте
+const mapStateToProps = state => ({
+    docs_links: state.teacher.docs_links,
+    loading: false,
+    type_resource: "cms"
+})
+// связка данных and exports
+export default connect(mapStateToProps, mapDispatchToProps)(Teacher)
+
+
+// class App extends React.Component<any, any> {
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             content: '',
+//             messages: []
+//         }
+//     }
+//     componentDidMount() {
+//         this.props.showLoader();
+//         postJSON("/?module=App&action=getList", {
+//             page: 1,
+//             on_page: 20,
+//             order: "time_receipt"
+//         }).then((result) => {
+//             this.props.hideLoader();
+//             console.log('result', result);
+//         });
+//     }
+//     changeInputHandler = event => {
+//         event.persist()
+//         this.setState(prev => ({
+//             ...prev, ...{
+//                 [event.target.name]: event.target.value
+//             }
+//         }));
+//     }
+
+//     addMessage = event => {
+//         event.preventDefault();
+//         const { content } = this.state;
+//         const new_message = [{
+//             content: content,
+//             id: Date.now().toString()
+//         }];
+
+//         // редукс уже передал в пропсы эту функцию
+//         this.props.addMessage(new_message);
+//         this.setState({ content: '' });
+
+//     }
+//     render() {
+//         return (
+//             <div className="container" >
+//                 <div className="row">
+//                     <List />
+//                     <div className="col-sm input-group">
+//                         <div>
+//                             <input
+//                                 type="text"
+//                                 className=" form-control"
+//                                 id="content"
+//                                 value={this.state.content}
+//                                 name="content"
+//                                 onChange={this.changeInputHandler}
+//                             />
+//                             <input
+//                                 type="button"
+//                                 className="btn btn-primary"
+//                                 id="content"
+//                                 value="add mesage"
+//                                 name="add"
+//                                 onClick={this.addMessage}
+
+//                             />
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div >);
+//     }
+// }
+//fix me Props interface

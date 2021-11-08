@@ -1,5 +1,7 @@
-import { combineReducers } from 'redux'
-import { appReducer } from './appReducer'
+import { combineReducers } from "redux";
+import { teacherReducer } from "./teacherReducer";
+import { appReducer } from "./appReducer";
 export const rootReducer = combineReducers({
-    app: appReducer
-})
+    app: appReducer,
+    teacher: teacherReducer,
+});

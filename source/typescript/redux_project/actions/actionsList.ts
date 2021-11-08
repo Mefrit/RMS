@@ -13,7 +13,6 @@ export function setCacheMessages(message) {
     };
 }
 export function showLoader() {
-    console.log("Start showLoader");
     return {
         type: SHOW_LOADER,
     };

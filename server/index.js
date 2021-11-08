@@ -14,12 +14,9 @@ http.createServer(function (request, response) {
             post_data += data;
         });
         request.on("end", () => {
-            console.log("post_data \n\n", JSON.parse(post_data));
             post_data = JSON.parse(post_data);
             const module_info = (0, functions_1.getUrlInfo)(uri.query);
-            console.log("module_info \n\n", module_info);
             application.loadModule(module_info, post_data).then((data) => {
-                console.log("!loadModule ======>>>>>>>> ", data);
                 response.write(JSON.stringify(data));
                 response.end();
             });
@@ -29,5 +26,6 @@ http.createServer(function (request, response) {
         (0, functions_1.load_static_file)(request, response, uri);
     }
 }).listen(3000);
+console.log("run server on 3000 port");
 
 //# sourceMappingURL=maps/index.js.map
