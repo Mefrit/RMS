@@ -43,43 +43,21 @@ function App(props) {
         fetchData();
     }, []);
 
-    function addMessage(event) {
-        event.preventDefault();
-        const new_message = [{
-            content: content,
-            id: Date.now().toString()
-        }];
-        // редукс уже передал в пропсы эту функцию
-        props.addMessage(new_message);
-        setContent('');
-    }
+    // function addMessage(event) {
+    //     event.preventDefault();
+    //     const new_message = [{
+    //         content: content,
+    //         id: Date.now().toString()
+    //     }];
+    //     // редукс уже передал в пропсы эту функцию
+    //     props.addMessage(new_message);
+    //     setContent('');
+    // }
 
     return (
         <div className="container" >
             <div className="column">
-
                 <List />
-                {/* <div className="col-sm input-group">
-                    <div>
-                        <input
-                            type="text"
-                            className=" form-control"
-                            id="content"
-                            value={content}
-                            name="content"
-                            onChange={(ev) => { setContent(ev.target.value) }}
-                        />
-                        <input
-                            type="button"
-                            className="btn btn-primary"
-                            id="content"
-                            value="add mesage"
-                            name="add"
-                            onClick={addMessage}
-
-                        />
-                    </div>
-                </div> */}
             </div>
         </div >);
 
