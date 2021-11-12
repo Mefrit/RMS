@@ -16,38 +16,48 @@ const List = (props) => {
     const messages = useSelector((state: any): any => state.app.messages);
     let init = false;
     const loading = useSelector((state: any): any => state.app.loading);
-    let reverce;
-    if (reverce === undefined) {
-        reverce = false
-    }
+    // let reverce;
+    // if (reverce === undefined) {
+    //     reverce = false
+    // }
     const [message_state, setMessagesState] = useState([]);
-
+    const [reverce, setReverce] = useState(true);
     useEffect(() => {
         if (!init) {
-            reverce = false;
             setMessagesState(messages);
             init = true;
-            console.log("HEREEEEEEEE");
         }
 
     }, [messages, init])
 
-    function sortMessages(type, reverce) {
-        console.log(type, message_state);
-
+    const sortMessages = (type, reverce) => {
         let sort = message_state.sort((elem1: any, elem2: any): number => {
-            if (elem1[type] < elem2[type]) {
-                return reverce ? -1 : 1
+            switch (type) {
+                case "question ":
+                    if (elem1[type][0] > elem2[type][0]) {
+                        return reverce ? -1 : 1
+                    }
+                    if (elem1[type][0] < elem2[type][0]) {
+                        return reverce ? 1 : -1
+                    }
+                default:
+                    if (elem1[type] < elem2[type]) {
+                        return reverce ? -1 : 1
+                    }
+                    if (elem1[type] > elem2[type]) {
+                        return reverce ? 1 : -1
+                    }
+                    return 0;
             }
-            if (elem1[type] > elem2[type]) {
-                return reverce ? 1 : -1
-            }
-            return 0;
-        })
-        console.log("reverce", reverce);
-        reverce = !reverce;
-        props.setCacheMessages(sort);
-        // setMessagesState(sort); 
+
+        });
+        let res = [];
+        // FIX ME как то оптимизировать это потом
+        sort.forEach((elem, index, arr) => {
+            res[index] = elem;
+        });
+        setReverce(!reverce)
+        setMessagesState(res);
     }
     function renderlistInterface() {
         return <li className="row bg-light mt-1">
@@ -75,8 +85,8 @@ const mapStateToProps = state => {
         loading: false
     }
 }
-const mapDispatchToProps = {
-    setCacheMessages
-}
+// const mapDispatchToProps = {
+//     setCacheMessages
+// }
 // проброска первоначальных state в компонент
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default connect(mapStateToProps, null)(List)

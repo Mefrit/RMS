@@ -18,7 +18,7 @@ function Teacher(props) {
     // const [content, setContent] = useState("");
     const [docs_list, setDocsList] = useState([]);
     const [type_resource, setTypeResource] = useState(props.type_resource);
-    const [letter, setLetter] = useState("Добрый день!  На сайте МДОУ № 15 «Аленушка» ЯМР  показывает ошибку загрузки документа, хотя все раньше работало!  В чем может быть причина? Почему одни ссылки работают, а другие нет?");
+    const [letter, setLetter] = useState("Добрый день!  На сайте МДОУ № 15 «Аленушка» ЯМР  показывает ошибку загрузки документа, хотя все раньше работало! Где документы? и сслыки  В чем может быть причина? Почему одни ссылки работают, а другие нет?");
 
     // 
     // == componentDidMount,
@@ -72,6 +72,7 @@ function Teacher(props) {
         console.log("train", letter)
         postJSON("/?module=Teacher&action=Train", {
             letter: letter,
+            type_resource: type_resource,
             docs_link: []
         }).then((answer) => {
             props.hideLoader();
@@ -112,7 +113,7 @@ function Teacher(props) {
                     <a href="#" onClick={() => { setTypeResource("cis"); }} className={type_resource == "cms" ? "col-2 btn " : "col-1  btn disabled"}>CIS</a>
                 </div>
                 <div className="row justify-content-md-center">
-                    <input type="button" className="col-2 btn btn-primary" onClick={train} value="Обучить алгоритм" />
+                    <input type="button" className="col-3 btn btn-primary" onClick={train} value="Обучить алгоритм" />
                 </div>
 
 

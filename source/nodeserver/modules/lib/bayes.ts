@@ -1,12 +1,63 @@
-import Stemmer from "./stemmer";
+import { stem } from "./stemmer";
+import { fs } from "file-system";
+// const test = require('../../../../server/data/total_result.json');
 export class Bayes {
     cache_elements: string[];
+    links_docs: any[];
     constructor(path2) {
-        this.cache_elements = [
+
+    }
+    getWordsFromLetter(letter, cache_elements) {
+        letter = letter.toLowerCase();
+        letter = letter.replace(/<\/?[a-zA-Z]+>/gi, "").trim();
+        letter = letter.replace(/\s+/g, " ");
+        let result = [];
+        console.log("letter ==> ", letter);
+        letter.split("").forEach((element) => {
+            if (cache_elements.indexOf(element) == -1 && element != "") {
+                result.push(element);
+            }
+        });
+        console.log("result", result);
+        return result.join("").split(" ");
+        // if (this.cache_elements.indexOf(letter[i]) != -1) {
+        //     letter[i] = "";
+        // }
+    }
+    countElements(arr) {
+        var a = [], b = [], prev;
+
+        arr.sort();
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] !== prev) {
+                a.push(arr[i]);
+                b.push(1);
+            } else {
+                b[b.length - 1]++;
+            }
+            prev = arr[i];
+        }
+
+        return [a, b];
+    }
+    loadTrainData() {
+        return new Promise((resolve, reject) => {
+
+        });
+    }
+    getStemElement(cache_words) {
+        return cache_words.map((elem) => {
+            return stem(elem);
+            // console.log("stemfer", stemfer.russian(elem));
+        });
+    }
+    trainByLetter(letter: string, links_docs: any[]) {
+        const cache_elements = [
             "-",
             '"',
             "'",
             "!",
+            "№",
             "?",
             ".",
             "(",
@@ -15,7 +66,7 @@ export class Bayes {
             "\\",
             "<",
             ">",
-            "  ",
+
             ",",
             ";",
             "&quot",
@@ -24,27 +75,9 @@ export class Bayes {
             "»",
             "/s+/",
         ];
-    }
-    getWordsFromLetter(letter) {
-        letter = letter.toLowerCase();
-        letter = letter.replace(/<\/?[a-zA-Z]+>/gi, "").trim();
-        letter = letter.replace(/\s+/g, " ");
-        let result = [];
-        console.log(letter);
-        letter.split("").forEach((element) => {
-            if (this.cache_elements.indexOf(element) == -1 && element != "") {
-                result.push(element);
-            }
-        });
+        let cache_words = this.getWordsFromLetter(letter, cache_elements);
 
-        return result.join("").split(" ");
-        // if (this.cache_elements.indexOf(letter[i]) != -1) {
-        //     letter[i] = "";
-        // }
-    }
-    trainByLetter(letter: string, links: any[]) {
-        let cache_words = this.getWordsFromLetter(letter);
-
+        const prepositions = ["по", "из", "на", "в", "а", "при", "также", "но", "вы", "об", "как", "не", "или", "пожалуйста", "да", "для", "того", "чтобы", "это", "же", "так", "ваш"];
         // letter = letter.replace(
         //     // Match all keys
         //     new RegExp(Object.keys(this.cache_elements).join("|"), "g"),
@@ -53,12 +86,43 @@ export class Bayes {
         //         return this.cache_elements[i];
         //     }
         // );
-        const stemfer = new Stemmer();
-        console.log("after!!!", cache_words);
-        cache_words = ["добрый"];
-        cache_words.forEach((elem) => {
-            console.log("stemfer", stemfer.russian(elem));
+        // const stemfer = new Stemmer();
+        // console.log(cache_words);
+        // cache_words = ["аленушка"];
+        cache_words = this.getStemElement(cache_words);
+        //получить ссылки
+        // let count_words;
+        // [cache_words, count_words] = this.countElements(cache_words);
+        // console.log("cache_words, count_words", cache_words, count_words);
+        console.log(":start REad File", cache_words);
+        fs.readFile("./server/data/total_result.json", "utf8", (err, jsonString) => {
+            if (err) {
+                return { result: false, message: "Не удалось загрузить файл с данными для обучения. " + err };
+            }
+            try {
+                const file = JSON.parse(jsonString);
+                console.log("Load File", typeof prepositions);
+                // console.l"og("Customer address is:", links);
+                cache_words.forEach(elem => {
+
+                    if (prepositions.indexOf(elem) == -1) {
+                        // console.log(elem, file[elem], "\n");
+                    } else {
+                        console.log("not Found", elem, "\n");
+                    }
+                });
+                // => "Customer address is: Infinity Loop Drive"
+            } catch (err) {
+                console.log("errr", err);
+                return { result: false, message: "Не удалось обработать файл с данными для обучения. " + err };
+            }
         });
+        // console.log("links_docs=> ", links_docs);
+        // cache_words.forEach(elem => {
+        //     if (prepositions.indexOf(elem) == -1) {
+        //         //
+        //     }
+        // });
         // $article = preg_replace('|[\s]+|s', ' ', mb_strtolower($article));
         // $article = explode(' ', $article);
         // $article = array_filter(array_count_values($article), function($v){
