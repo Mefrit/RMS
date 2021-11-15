@@ -15,11 +15,11 @@ import { postJSON } from "../lib/query"
 // React.windows -библиотека
 function Teacher(props) {
     console.log("Teacher props", props);
-    // const [content, setContent] = useState("");
+    const [teach, setTeachmode] = useState(false);
     const [docs_list, setDocsList] = useState([]);
     const [type_resource, setTypeResource] = useState(props.type_resource);
     const [letter, setLetter] = useState("Добрый день!  На сайте МДОУ № 15 «Аленушка» ЯМР  показывает ошибку загрузки документа, хотя все раньше работало! Где документы? и сслыки  В чем может быть причина? Почему одни ссылки работают, а другие нет?");
-
+    let user_docs_links = [];
     // 
     // == componentDidMount,
     const loading = useSelector((state: any): any => state.teacher.loading);
@@ -65,7 +65,7 @@ function Teacher(props) {
     function renderDocsList(data) {
         console.log('data', data);
         return data.map(elem => {
-            return <option key={elem.url + elem.title} value={elem.link} title={elem.description}>{elem.title}</option>
+            return <option key={elem.url + elem.title} value={elem.url} title={elem.description}>{elem.title + `   (${elem.url})`}</option>
         })
     }
     const train = () => {
@@ -73,7 +73,7 @@ function Teacher(props) {
         postJSON("/?module=Teacher&action=Train", {
             letter: letter,
             type_resource: type_resource,
-            docs_link: []
+            user_docs_links: user_docs_links
         }).then((answer) => {
             props.hideLoader();
             console.log("result FORM SERVER TEACHER", answer);
@@ -85,11 +85,27 @@ function Teacher(props) {
                 setDocsList(answer.docs_links);
             } else {
                 alert(answer.message);
-                setDocsList([]);
+                if (!docs_list) {
+                    setDocsList([]);
+                }
+
             }
             // answer.list.fo
             // setContent('');
         });
+    }
+    const setUsersLinks = (e) => {
+        var options = e.target.options;
+        var value = [];
+        for (var i = 0, l = options.length; i < l; i++) {
+            if (options[i].selected) {
+
+                value.push(options[i].value);
+            }
+        }
+        console.log(value);
+        user_docs_links = value;
+
     }
     if (loading) {
         return <Loader />
@@ -101,21 +117,24 @@ function Teacher(props) {
                     <textarea className="col-sm form-control" value={letter} rows={4} name="" id="" onChange={(ev) => { setLetter(ev.target.value) }}></textarea>
                 </div>
                 <div className="row ">
-                    <select className=" col-sm form-select gy-2" multiple>
+                    <a className={teach ? "btn col-6 gy-3 " : "btn col-6 gy-3 btn-primary"} href="#">Обучение</a>
+                    <a className={teach ? "btn col-6 gy-3 btn-primary" : "btn col-6 gy-3 "} href="#">Посмотреть рекомендации системы к данному письму</a>
+                </div>
+                <div className="row ">
+                    <select className=" col-sm form-select gy-2" onChange={setUsersLinks} multiple>
                         {renderDocsList(docs_list)}
                     </select>
                 </div>
-
-                <span className="row">Выбор ссылок документации из различных ресурсов.</span>
-
-                <div className="row gy-1 ">
-                    <a href="#" onClick={() => { setTypeResource("cms"); }} className={type_resource == "cms" ? "col-2 btn disabled" : "col-1  btn"}>CMS</a>
-                    <a href="#" onClick={() => { setTypeResource("cis"); }} className={type_resource == "cms" ? "col-2 btn " : "col-1  btn disabled"}>CIS</a>
-                </div>
-                <div className="row justify-content-md-center">
-                    <input type="button" className="col-3 btn btn-primary" onClick={train} value="Обучить алгоритм" />
-                </div>
-
+                {!teach ? <div>
+                    <span className="row">Выбор ссылок документации из различных ресурсов.</span>
+                    <div className="row gy-1 ">
+                        <a href="#" onClick={() => { setTypeResource("cms"); }} className={type_resource == "cms" ? "col-2 btn disabled" : "col-1  btn"}>CMS</a>
+                        <a href="#" onClick={() => { setTypeResource("cis"); }} className={type_resource == "cms" ? "col-2 btn " : "col-1  btn disabled"}>CIS</a>
+                    </div>
+                    <div className="row justify-content-md-center">
+                        <input type="button" className="col-3 btn btn-primary" onClick={train} value="Обучить алгоритм" />
+                    </div>
+                </div> : ""}
 
             </form >);
 

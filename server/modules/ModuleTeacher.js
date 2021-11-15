@@ -46,7 +46,8 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
             pla.id_link JOIN platforms as pl ON pl.id_platform =  pla.id_platform WHERE  pl.title="${type_resource}" `;
             this.getDocsLinks(database, query).then((answer) => {
                 if (answer.result) {
-                    console.log(train_byes.trainByLetter(post_data.letter, answer.rows));
+                    console.log("post_data", post_data);
+                    console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));
                 }
                 resolve({ result: false, message: "Не удалось обучить алгоритм" });
             });

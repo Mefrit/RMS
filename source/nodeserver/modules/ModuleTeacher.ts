@@ -70,7 +70,8 @@ export class Module_Teacher extends Module_Default {
                 //     })
                 // });
                 if (answer.result) {
-                    console.log(train_byes.trainByLetter(post_data.letter, answer.rows));
+                    console.log("post_data", post_data);
+                    console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));
                 }
                 resolve({ result: false, message: "Не удалось обучить алгоритм" });
             })
