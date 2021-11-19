@@ -25,7 +25,7 @@ http.createServer(function (request, response) {
     else {
         (0, functions_1.load_static_file)(request, response, uri);
     }
-}).listen(3000);
-console.log("run server on 3000 port");
+}).listen(8000);
+console.log("run server on 8000 port");
 
 //# sourceMappingURL=maps/index.js.map

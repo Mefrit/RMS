@@ -1,5 +1,4 @@
-﻿
-const gulp = require('gulp');
+﻿const gulp = require('gulp');
 
 /*gulp.task('dev', function() {
     tsProject.config.noEmitOnError = false;

@@ -9,11 +9,6 @@
         "description": "Как создать страницу сайта, как вставить, отредактировать, изменить оформление текста, ссылки, изображения, таблицы на странице сайта."
     },
     {
-        "title": "Компоненты",
-        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_components",
-        "description": "Информация о компонентах CMS."
-    },
-    {
         "title": "Список ссылок страницы",
         "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_links",
         "description": "В данном разделе вы узнаете о механизме создания и редактирования списка ссылок ссылок в CMS."
@@ -191,21 +186,26 @@
     {
         "title": "Страницы сайта",
         "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=pages",
-        "description": "Вы узнаете, о методах работы со страницами сайта."
+        "description": "Вы узнаете о методах работы со страницами сайта."
     },
     {
         "title": "Инструкция по работе с горячим питанием в школе",
         "link": "https:\/\/cms2.edu.yar.ru\/\/goryachee_pitanie_v_shkole.html",
-        "description": "Вы узнаете, о работе с горячим питанием в школе."
+        "description": "Вы узнаете о работе с горячим питанием в школе."
     },
     {
         "title": "Компонент 'Список документов'",
         "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=editor_docs",
-        "description": "Вы узнаете, о работе с компонентом  'Список документов'."
+        "description": "Вы узнаете о работе с компонентом  'Список документов'."
     },
     {
         "title": "Видео",
         "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=videos",
-        "description": "Вы узнаете, о работе фидеофайлами в CMS."
+        "description": "Вы узнаете о работе видеофайлами в CMS."
+    },
+    {
+        "title": "Персональный шаблон",
+        "link": "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=personal",
+        "description": "Вы узнаете о создании персонального шаблона в CMS."
     }
 ]

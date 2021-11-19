@@ -37,6 +37,23 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
             });
         });
     }
+    actionGetRecomendation(post_data) {
+        return new Promise((resolve, reject) => {
+            console.log("actionGetRecomendation", post_data);
+            const train_byes = new bayes_1.Bayes("");
+            const database = this.db_obj.getDB();
+            const type_resource = post_data.type_resource;
+            const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
+            pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${type_resource}" `;
+            this.getDocsLinks(database, query).then((answer) => {
+                if (answer.result) {
+                    console.log("post_data", post_data);
+                    resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
+                }
+                resolve({ result: false, message: "Не удалось обучить алгоритм" });
+            });
+        });
+    }
     actionTrain(post_data) {
         return new Promise((resolve, reject) => {
             const train_byes = new bayes_1.Bayes("");

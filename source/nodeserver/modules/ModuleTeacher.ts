@@ -42,33 +42,36 @@ export class Module_Teacher extends Module_Default {
             });
         })
     }
+    actionGetRecomendation(post_data: any) {
+        return new Promise((resolve, reject) => {
+            console.log("actionGetRecomendation", post_data);
+            const train_byes = new Bayes("");
+            const database = this.db_obj.getDB();
+            const type_resource = post_data.type_resource;
+
+            const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
+            pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${type_resource}" `;
+            this.getDocsLinks(database, query).then((answer: any) => {
+
+                if (answer.result) {
+                    console.log("post_data", post_data);
+
+                    resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
+                }
+                resolve({ result: false, message: "Не удалось обучить алгоритм" });
+            })
+
+        });
+    }
     actionTrain(post_data: any) {
         return new Promise((resolve, reject) => {
             const train_byes = new Bayes("");
             const database = this.db_obj.getDB();
             const type_resource = post_data.type_resource;
-            // database.serialize(() => {
-            //     // FIX ME переделать, клогда будем добавлять ссылки из cis
-            //     database.all(`SELECT * FROM links WHERE type_resource = ${type_resource}`, function (err, rows) {
-            //         if (err) {
-            //             resolve({ result: false, message: "Не удалось обучить алгоритм" });
-            //         }
-            //         console.log(train_byes.trainByLetter(post_data.letter, rows));
-            //         resolve({ result: false, message: "Не удалось обучить алгоритм." });
-            //     });
-            // });  
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform =  pla.id_platform WHERE  pl.title="${type_resource}" `;
             this.getDocsLinks(database, query).then((answer: any) => {
-                // console.log("answer", answer);
-                // answer.rows.forEach(element => {
-                //     database.run('INSERT INTO platforms_links_access(id_link, id_platform) VALUES(?, ?)', [element.id_link, 1], (err) => {
-                //         if (err) {
-                //             return console.log(err.message);
-                //         }
-                //         console.log('Row was added to the table: ${this.lastID}');
-                //     })
-                // });
+
                 if (answer.result) {
                     console.log("post_data", post_data);
                     console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));

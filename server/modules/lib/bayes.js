@@ -5,6 +5,8 @@ const stemmer_1 = require("./stemmer");
 const file_system_1 = require("file-system");
 class Bayes {
     constructor(path2) {
+        this.prepositions = ["по", "", "из", "на", "в", "а", "при", "также", "но", "вы", "об", "как", "не", "или", "пожалуйста", "да", "для", "того", "чтобы", "это", "же", "так", "ваш"];
+        this.symvols = ["-", "\"", "'", "!", "?", ".", "(", ")", "/", "\\", "<", ">", ",", "-", '"', "'", "!", "№", "?", ".", "(", ")", "/", "\\", "<", ">", ",", ";", "&quot", "—", "«", "»", "/s+/",];
     }
     getWordsFromLetter(letter, cache_elements) {
         letter = letter.toLowerCase();
@@ -33,10 +35,6 @@ class Bayes {
         }
         return [a, b];
     }
-    loadTrainData() {
-        return new Promise((resolve, reject) => {
-        });
-    }
     getStemElements(arr) {
         return arr.map((elem) => {
             if (elem != '') {
@@ -44,32 +42,101 @@ class Bayes {
             }
         });
     }
+    getRecomendation(letter, links_docs) {
+        console.log("getRecomendation");
+        let cache_words = this.getWordsFromLetter(letter, this.symvols), cache_find_links = [], inf_word, cache_probability_links = [], probability;
+        const total_links_inf = JSON.parse(file_system_1.fs.readFileSync('./server/data/total_links_inf.json'));
+        const total_result = JSON.parse(file_system_1.fs.readFileSync('./server/data/total_result.json'));
+        const about_links = JSON.parse(file_system_1.fs.readFileSync('./server/data/about_links.json'));
+        cache_words = this.getStemElements(cache_words);
+        console.log("tcache_words", cache_words);
+        cache_words.forEach(word => {
+            inf_word = total_result[word];
+            cache_find_links = [];
+            if (inf_word) {
+                inf_word.links.forEach(elem_link => {
+                    probability = elem_link.count_documents / (Object.keys(total_links_inf).length - 1);
+                    cache_find_links.push(elem_link.link);
+                    if (!cache_probability_links[elem_link.link]) {
+                        cache_probability_links[elem_link.link] = probability;
+                    }
+                    cache_probability_links[elem_link.link] += Math.log((1 + elem_link.count) /
+                        (1 * (Object.keys(total_links_inf).length - 1) + total_links_inf[elem_link.link].length));
+                });
+                cache_probability_links = this.setLinkNotFoundWithCheck(total_links_inf, total_result, cache_probability_links, cache_find_links);
+            }
+            else {
+                if (word != "" && this.prepositions.indexOf(word) == -1) {
+                    cache_probability_links = this.setLinkNotFound(total_links_inf, total_result, cache_probability_links);
+                }
+            }
+        });
+        let sortable = [];
+        for (var key in cache_probability_links) {
+            sortable[key] = cache_probability_links[key];
+        }
+        let sorted_keys = this.getSortedKeys(sortable);
+        let new_sortable = [];
+        let count = 0;
+        sorted_keys.forEach((elem, index, arr) => {
+            if (count < sorted_keys.length) {
+                new_sortable[elem] = sortable[elem];
+            }
+            count++;
+        });
+        console.log(" new_sortable ", new_sortable);
+        return this.prepareDocsLinks(new_sortable, about_links);
+    }
+    getSortedKeys(obj) {
+        var keys = Object.keys(obj);
+        return keys.sort(function (a, b) { return obj[b] - obj[a]; });
+    }
+    prepareDocsLinks(cache_chosen_links, about_links) {
+        let result = [];
+        console.log("about_links", about_links);
+        console.log("cache_chosen_links", cache_chosen_links);
+        for (let link in cache_chosen_links) {
+            about_links.forEach(link_obj => {
+                if (link_obj.link == link) {
+                    link_obj.url = link_obj.link;
+                    link_obj.mark = cache_chosen_links[link];
+                    delete link_obj.link;
+                    result.push(link_obj);
+                }
+            });
+        }
+        return result;
+    }
+    setLinkNotFound(total_links_inf, total_result, cache_probability_links) {
+        let probability, new_result = Object.assign({}, cache_probability_links);
+        for (let key in total_links_inf) {
+            console.log("HERE setLinkNotFound");
+            if (!new_result[key] || new_result[key] === undefined) {
+                probability = 1 / Object.keys(total_links_inf).length;
+                new_result[key] = probability;
+            }
+            new_result[key] = Math.log(1 / (1 * Object.keys(total_result).length + total_links_inf[key].length));
+        }
+        return cache_probability_links;
+    }
+    setLinkNotFoundWithCheck(total_links_inf, total_result, cache_probability_links, cache_find_links) {
+        let probability, new_result = Object.assign({}, cache_probability_links);
+        for (let key in total_links_inf) {
+            console.log("key => ", key);
+            if (cache_find_links.indexOf(key) == -1) {
+                if (!new_result[key] || new_result[key] === undefined) {
+                    probability = 1 / Object.keys(total_links_inf).length;
+                    new_result[key] = probability;
+                }
+                cache_find_links.push(key);
+                new_result[key] = Math.log(1 / (1 * Object.keys(total_result).length + total_links_inf[key].length));
+            }
+        }
+        return new_result;
+    }
     trainByLetter(letter, links_docs, user_docs_links) {
-        const cache_elements = [
-            "-",
-            '"',
-            "'",
-            "!",
-            "№",
-            "?",
-            ".",
-            "(",
-            ")",
-            "/",
-            "\\",
-            "<",
-            ">",
-            ",",
-            ";",
-            "&quot",
-            "—",
-            "«",
-            "»",
-            "/s+/",
-        ];
-        let cache_words = this.getWordsFromLetter(letter, cache_elements), tmp, cache_counts_words;
+        let cache_words = this.getWordsFromLetter(letter, this.symvols), tmp, cache_counts_words;
         let find_link = false, new_links = [];
-        const prepositions = ["по", "", "из", "на", "в", "а", "при", "также", "но", "вы", "об", "как", "не", "или", "пожалуйста", "да", "для", "того", "чтобы", "это", "же", "так", "ваш"];
         cache_words = this.getStemElements(cache_words);
         [cache_words, cache_counts_words] = this.countElements(cache_words);
         let new_total_result, new_total_links_inf;
@@ -78,12 +145,11 @@ class Bayes {
         if (!total_result || !total_links_inf) {
             return { result: false, message: "Не удалось загрузить файл с данными для обучения. " };
         }
-        console.log("user_docs_links", user_docs_links);
         try {
             new_total_links_inf = Object.assign({}, JSON.parse(total_links_inf));
             new_total_result = Object.assign({}, JSON.parse(total_result));
             cache_words.forEach(word => {
-                if (prepositions.indexOf(word) == -1) {
+                if (this.prepositions.indexOf(word) == -1) {
                     if (!new_total_result[word]) {
                         tmp = {};
                         tmp.count = 0;
@@ -107,7 +173,6 @@ class Bayes {
                             new_links.push(elem_link_result);
                         });
                         if (!find_link) {
-                            console.log("Not Find new word", word);
                             if (!new_total_links_inf[user_link] || !Array.isArray(new_total_links_inf[user_link])) {
                                 new_total_links_inf[user_link] = [];
                             }
@@ -117,8 +182,6 @@ class Bayes {
                             tmp.count_documents = 1;
                             tmp.link = user_link;
                             new_links.push(tmp);
-                            console.log(new_links);
-                            console.log("\n\n");
                             new_total_result[word].count += 1;
                         }
                     });
@@ -135,7 +198,7 @@ class Bayes {
                     return { result: false, message: "Не удалось записать файл с данными для обучения. (total_links_inf.json)" };
                 }
             });
-            return "somethink";
+            return { result: true };
         }
         catch (err) {
             console.log("errr", err);

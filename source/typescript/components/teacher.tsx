@@ -15,11 +15,16 @@ import { postJSON } from "../lib/query"
 // React.windows -библиотека
 function Teacher(props) {
     console.log("Teacher props", props);
-    const [teach, setTeachmode] = useState(false);
+    const [teach, setTeachModeState] = useState(false);
     const [docs_list, setDocsList] = useState([]);
     const [type_resource, setTypeResource] = useState(props.type_resource);
     const [letter, setLetter] = useState("Добрый день!  На сайте МДОУ № 15 «Аленушка» ЯМР  показывает ошибку загрузки документа, хотя все раньше работало! Где документы? и сслыки  В чем может быть причина? Почему одни ссылки работают, а другие нет?");
     let user_docs_links = [];
+    const style_select = {
+        height: "250px"
+
+    };
+
     // 
     // == componentDidMount,
     const loading = useSelector((state: any): any => state.teacher.loading);
@@ -63,8 +68,9 @@ function Teacher(props) {
     //     setContent('');
     // }
     function renderDocsList(data) {
-        console.log('data', data);
+
         return data.map(elem => {
+            console.log('elem.url', elem.url, elem.mark);
             return <option key={elem.url + elem.title} value={elem.url} title={elem.description}>{elem.title + `   (${elem.url})`}</option>
         })
     }
@@ -78,9 +84,6 @@ function Teacher(props) {
             props.hideLoader();
             console.log("result FORM SERVER TEACHER", answer);
             if (answer.result) {
-
-
-                // props.setCacheMessages(answer.list);
                 console.log("answer.list", answer.docs_links);
                 setDocsList(answer.docs_links);
             } else {
@@ -88,7 +91,29 @@ function Teacher(props) {
                 if (!docs_list) {
                     setDocsList([]);
                 }
+            }
+            // answer.list.fo
+            // setContent('');
+        });
+    }
+    const setTeachMode = (value) => {
 
+        postJSON("/?module=Teacher&action=GetRecomendation", {
+            letter: letter,
+            type_resource: type_resource
+        }).then((answer) => {
+            props.hideLoader();
+
+            if (answer.result) {
+                // props.setCacheMessages(answer.list);
+                console.log("answer.list", answer);
+                setDocsList(answer.links);
+                setTeachModeState(value);
+            } else {
+                alert(answer.message);
+                if (!docs_list) {
+                    setDocsList([]);
+                }
             }
             // answer.list.fo
             // setContent('');
@@ -110,18 +135,22 @@ function Teacher(props) {
     if (loading) {
         return <Loader />
     } else
-        return (
-            <form className="container px-4 min-vh-100" >
 
-                <div className="row">
-                    <textarea className="col-sm form-control" value={letter} rows={4} name="" id="" onChange={(ev) => { setLetter(ev.target.value) }}></textarea>
-                </div>
+        return (
+            <form className="container  min-vh-100" >
                 <div className="row ">
-                    <a className={teach ? "btn col-6 gy-3 " : "btn col-6 gy-3 btn-primary"} href="#">Обучение</a>
-                    <a className={teach ? "btn col-6 gy-3 btn-primary" : "btn col-6 gy-3 "} href="#">Посмотреть рекомендации системы к данному письму</a>
+                    <a className={teach ? "btn col-3 gy-3 " : "btn col-3 gy-3 btn-primary"} onClick={() => { setTeachMode(true) }} href="#">Обучение</a>
+                    <div className="col-1"></div>
+                    <a className={teach ? "btn col-3 gy-3 btn-primary" : "btn col-3 gy-3 "} onClick={() => { setTeachMode(false) }} href="#">Рекомендации системы к письму</a>
+                    <div className="col-1"></div>
+                    <a className={"btn col-3 gy-3 "} onClick={() => { console.log("add LInk"); }} href="#">Добавить ссылку на страницу документации</a>
                 </div>
+                <div className="row py-2">
+                    <textarea className="col-sm form-control" value={letter} rows={5} name="" id="" onChange={(ev) => { setLetter(ev.target.value) }}></textarea>
+                </div>
+
                 <div className="row ">
-                    <select className=" col-sm form-select gy-2" onChange={setUsersLinks} multiple>
+                    <select className=" col-sm form-select gy-2" onChange={setUsersLinks} size={8} style={style_select} multiple>
                         {renderDocsList(docs_list)}
                     </select>
                 </div>
@@ -135,10 +164,7 @@ function Teacher(props) {
                         <input type="button" className="col-3 btn btn-primary" onClick={train} value="Обучить алгоритм" />
                     </div>
                 </div> : ""}
-
             </form >);
-
-
 }
 // прокидывания функций в компонент
 const mapDispatchToProps = {
