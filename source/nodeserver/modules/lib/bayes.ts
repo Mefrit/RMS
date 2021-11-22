@@ -66,33 +66,36 @@ export class Bayes {
         const total_links_inf = JSON.parse(fs.readFileSync('./server/data/total_links_inf.json'));
         const total_result = JSON.parse(fs.readFileSync('./server/data/total_result.json'));
         const about_links = JSON.parse(fs.readFileSync('./server/data/about_links.json'));
-        cache_words = this.getStemElements(cache_words);
+        // cache_words = this.getStemElements(cache_words);
 
-        console.log("tcache_words", cache_words);
+
         cache_words.forEach(word => {
-            // console.log(word, total_result[word]);
-            inf_word = total_result[word];
+            console.log(word);
+            inf_word = total_result[stem(word)];
             cache_find_links = [];
-            if (inf_word) {
+            if (inf_word == undefined) {
+                inf_word = total_result[word];
+            }
+
+            if (inf_word != undefined) {
+
                 inf_word.links.forEach(elem_link => {
                     probability = elem_link.count_documents / (Object.keys(total_links_inf).length - 1);
                     // console.log("probability", elem_link.link, elem_link.count_documents, probability, "  Object.keys(total_links_inf).length", Object.keys(total_links_inf).length)
                     cache_find_links.push(elem_link.link)
-
+                    // console.log("word_inf ==:>>> " + word, inf_word);
                     if (!cache_probability_links[elem_link.link]) {
                         cache_probability_links[elem_link.link] = probability;
                     }
-                    // console.log(total_links_inf.length, total_links_inf[elem_link.link].length, elem_link.count, "!!!!!!", Math.log((1 + elem_link.count) /
-                    // (1 * Object.keys(total_links_inf).length + total_links_inf[elem_link.link].length)));
-                    // console.log(elem_link.link, total_links_inf[elem_link.link].length);
                     cache_probability_links[elem_link.link] += Math.log((1 + elem_link.count) /
-                        (1 * (Object.keys(total_links_inf).length - 1) + total_links_inf[elem_link.link].length));
+                        (1 * (Object.keys(total_result).length) + total_links_inf[elem_link.link].length));
 
                 });
                 cache_probability_links = this.setLinkNotFoundWithCheck(total_links_inf, total_result, cache_probability_links, cache_find_links)
             } else {
+
                 if (word != "" && this.prepositions.indexOf(word) == -1) {
-                    // дефолтные 3 ссылки
+                    console.log("HEREE")
                     cache_probability_links = this.setLinkNotFound(total_links_inf, total_result, cache_probability_links);
                 }
             }
@@ -114,7 +117,7 @@ export class Bayes {
             }
             count++;
         });
-        console.log(" new_sortable ", new_sortable);
+        // console.log(" new_sortable ", new_sortable);
         // return [];
         // console.log("this.prepareDocsLinks(new_sortable, about_links)", this.prepareDocsLinks(new_sortable, about_links));
         return this.prepareDocsLinks(new_sortable, about_links)
@@ -125,8 +128,8 @@ export class Bayes {
     }
     prepareDocsLinks(cache_chosen_links, about_links) {
         let result = [];
-        console.log("about_links", about_links);
-        console.log("cache_chosen_links", cache_chosen_links);
+        // console.log("about_links", about_links);
+        // console.log("cache_chosen_links", cache_chosen_links);
         for (let link in cache_chosen_links) {
             about_links.forEach(link_obj => {
                 // console.log("link_obj =>  ", link_obj.title);
@@ -145,13 +148,13 @@ export class Bayes {
     setLinkNotFound(total_links_inf, total_result, cache_probability_links) {
         let probability, new_result = { ...cache_probability_links };
         for (let key in total_links_inf) {
-            console.log("HERE setLinkNotFound");
-            if (!new_result[key] || new_result[key] === undefined) {
+
+            if (!new_result.hasOwnProperty(key)) {
                 probability = 1 / Object.keys(total_links_inf).length;
                 new_result[key] = probability;
             }
 
-            new_result[key] = Math.log(1 / (1 * Object.keys(total_result).length + total_links_inf[key].length))
+            new_result[key] += Math.log(1 / (1 * Object.keys(total_result).length + total_links_inf[key].length))
 
             // console.log("key", key);
         }
@@ -162,42 +165,25 @@ export class Bayes {
         //     }
         //     $cache_probability[$key] += log(1 / (1 * count((array)$total_result) + count($elem_word)));
         // }
-        return cache_probability_links;
+        return new_result;
     }
     setLinkNotFoundWithCheck(total_links_inf, total_result, cache_probability_links, cache_find_links) {
         let probability, new_result = { ...cache_probability_links };
         // console.log("  Array.from(total_links_inf)", total_links_inf);
         // total_links_inf.forEach((elem_word: any, key, arr) => {
-
+        // console.log("cache_find_links => ", cache_find_links);
         for (let key in total_links_inf) {
-            console.log("key => ", key);
             if (cache_find_links.indexOf(key) == -1) {
-                // if (key.indexOf("personal") != -1) {
-                //     console.log("HERE", !new_result[key], "total_links_inf==> ", key, total_links_inf[key].length);
-                // }
+                if (!new_result.hasOwnProperty(key)) {
 
-                if (!new_result[key] || new_result[key] === undefined) {
                     probability = 1 / Object.keys(total_links_inf).length;
                     new_result[key] = probability;
                 }
                 cache_find_links.push(key);
-                new_result[key] = Math.log(1 / (1 * Object.keys(total_result).length + total_links_inf[key].length))
+
+                new_result[key] += Math.log(1 / (1 * Object.keys(total_result).length + total_links_inf[key].length))
             }
-            // console.log("key", key);
         }
-
-        //     if (cache_find_links.indexOf(key) == -1) {
-        //         console.log("HEREEE");
-        //         if (!new_result[key]) {
-        //             probability = 1 / Object.keys(total_links_inf).length;
-        //             new_result[key] = probability;
-        //         }
-
-        //         cache_find_links.push(key);
-        //         new_result[key] = Math.log(1 / (1 * total_result.length + elem_word.count))
-        //     }
-
-
         return new_result;
     }
     // private function setLinkNotFoundWithCheck($total_links_inf, $total_result, $cache_probability, $cache_finds_link, $probability){
@@ -240,21 +226,24 @@ export class Bayes {
                 if (this.prepositions.indexOf(word) == -1) {
 
                     // new_file[elem].links.forEach(link_elem => {
-                    if (!new_total_result[word]) {
+                    if (!new_total_result.hasOwnProperty(word)) {
+                        // console.log("HEREEE", word, new_total_result[word])
                         tmp = {};
                         tmp.count = 0;
                         tmp.links = [];
                         new_total_result[word] = tmp;
                     }
                     new_links = [];
+                    new_links = new_total_result[word].links
                     user_docs_links.forEach((user_link, index, arr) => {
-                        find_link = false;
 
-                        new_total_result[word].links.forEach(elem_link_result => {
+                        find_link = false;
+                        new_links = new_links.map(elem_link_result => {
+
 
                             if (elem_link_result.link == user_link) {
 
-                                elem_link_result.count += cache_counts_words[index];;
+                                elem_link_result.count += cache_counts_words[index];
                                 elem_link_result.count_documents += 1;
 
                                 find_link = true;
@@ -263,9 +252,15 @@ export class Bayes {
                                     new_total_links_inf[user_link].push(word)
                                 }
                             }
-                            new_links.push(elem_link_result);
+                            return elem_link_result;
+
+
+
                         });
+                        console.log(user_link + " is added &", find_link)
+                        // new_links.push(elem_link_result);
                         if (!find_link) {
+                            find_link = false;
                             if (!new_total_links_inf[user_link] || !Array.isArray(new_total_links_inf[user_link])) {
                                 new_total_links_inf[user_link] = [];
                             }
@@ -284,13 +279,13 @@ export class Bayes {
                     new_total_result[word].links = new_links;
                 }
             });
-            fs.writeFile('./server/data/new_total_result_test.json', JSON.stringify(new_total_result), function (error) {
+            fs.writeFile('./server/data/total_result.json', JSON.stringify(new_total_result), function (error) {
                 if (error) {
                     return { result: false, message: "Не удалось записать файл с данными для обучения. (new_total_result.json)" };
                 }// если возникла ошибка
 
             });
-            fs.writeFile('./server/data/total_links_inf_test.json', JSON.stringify(new_total_links_inf), function (error) {
+            fs.writeFile('./server/data/total_links_inf.json', JSON.stringify(new_total_links_inf), function (error) {
                 if (error) {
                     return { result: false, message: "Не удалось записать файл с данными для обучения. (total_links_inf.json)" };
                 }// если возникла ошибка
@@ -303,5 +298,70 @@ export class Bayes {
             return { result: false, message: "Не удалось обработать файл с данными для обучения. " + err };
         }
 
+    }
+    trainByOldData() {
+        const total_key_words = fs.readFileSync('./server/data/keywords.json');
+        const total_result = fs.readFileSync('./server/data/total_result_started.json');
+        let new_total_result = { ...JSON.parse(total_result) };
+        let json_total_key_words = { ...JSON.parse(total_key_words) };
+        let result = {}, new_links;
+        for (let key in new_total_result) {
+            console.log(Number(key));
+            if (isNaN(Number(key))) {
+                if (!result[stem(key)]) {
+                    result[stem(key)] = { count: 0, links: [] }
+
+                }
+
+                // result[stem(key)].count += new_total_result[key].count;
+                new_links = result[stem(key)].links;
+                new_total_result[key].links.forEach(element_new_link => {
+                    if (!this.checkLinks(new_links, element_new_link.link)) {
+                        result[stem(key)].count += element_new_link.count;
+                        new_links.push(element_new_link);
+                    }
+                });
+                result[stem(key)].links = new_links;
+            }
+
+        }
+        let element
+
+
+        // json_total_key_words.forEach(element => {
+        for (let i in json_total_key_words) {
+            element = json_total_key_words[i];
+            element.keys.forEach(key => {
+                if (!result[key]) {
+                    result[key] = { count: 0, links: [] }
+                }
+                new_links = result[key].links;
+                element.links.forEach(link_obj => {
+                    if (!this.checkLinks(new_links, link_obj.link)) {
+                        result[key].count += 100;
+                        new_links.push({ count: 100, count_documents: 1, link: link_obj.link });
+                    }
+                });
+                result[key].links = new_links;
+            });
+        }
+
+
+        // });
+        fs.writeFile('./server/data/total_result.json', JSON.stringify(result), function (error) {
+            if (error) {
+                return { result: false, message: "Не удалось записать файл с данными для обучения. (new_total_result.json)" };
+            }// если возникла ошибка
+
+        });
+    }
+    checkLinks(cache_links, link) {
+        let result = false;
+        cache_links.forEach(element => {
+            if (element.link == link) {
+                result = true;
+            }
+        });
+        return result
     }
 }

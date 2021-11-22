@@ -13013,21 +13013,5 @@
             "count_documents": 1,
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals"
         }]
-    },
-    "алёнушк": {
-        "count": 2,
-        "links": [{
-            "count": 2,
-            "count_documents": 2,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
-        }]
-    },
-    "привет____111111111": {
-        "count": 2,
-        "links": [{
-            "count": 2,
-            "count_documents": 2,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
-        }]
     }
 }

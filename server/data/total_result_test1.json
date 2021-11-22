@@ -1,6 +1,60 @@
 {
+    "273": {
+        "count": 2,
+        "links": [{
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
+            "count": 2,
+            "count_documents": 1
+        }]
+    },
+    "1500": {
+        "count": 2,
+        "links": [{
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
+            "count": 2,
+            "count_documents": 1
+        }]
+    },
+    "2012": {
+        "count": 2,
+        "links": [{
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
+            "count": 2,
+            "count_documents": 1
+        }]
+    },
+    "2019": {
+        "count": 5,
+        "links": [{
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
+        }]
+    },
+    "2020": {
+        "count": 7,
+        "links": [{
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
+                "count": 2,
+                "count_documents": 1
+            },
+            {
+                "count": 1,
+                "count_documents": 1,
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
+            }
+        ]
+    },
+    "2021": {
+        "count": 2,
+        "links": [{
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
+        }]
+    },
     "пане": {
-        "count": 24,
+        "count": 27,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 2,
@@ -39,46 +93,15 @@
         ]
     },
     "управл": {
-        "count": 14,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 5,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education"
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "сайт": {
-        "count": 215,
+        "count": 272,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 3,
@@ -232,49 +255,23 @@
         ]
     },
     "авторизац": {
-        "count": 4,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
-            "count": 4,
+            "count": 100,
             "count_documents": 1
         }]
     },
     "перейд": {
-        "count": 16,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "страниц": {
-        "count": 246,
+        "count": 276,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 2,
@@ -434,51 +431,15 @@
         }]
     },
     "адрес": {
-        "count": 34,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 16,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
+        }]
     },
     "по": {
-        "count": 84,
+        "count": 87,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 3,
@@ -577,7 +538,7 @@
         ]
     },
     "ес": {
-        "count": 59,
+        "count": 66,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 3,
@@ -641,46 +602,11 @@
         ]
     },
     "сист": {
-        "count": 25,
+        "count": 6,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 10,
+                "count": 5,
                 "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
             },
             {
                 "count": 1,
@@ -698,7 +624,7 @@
         }]
     },
     "ссылк": {
-        "count": 200,
+        "count": 214,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 4,
@@ -780,7 +706,7 @@
         }]
     },
     "электр": {
-        "count": 121,
+        "count": 135,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=login",
                 "count": 2,
@@ -865,66 +791,21 @@
         ]
     },
     "редактиров": {
-        "count": 65,
+        "count": 18,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 19,
-                "count_documents": 1
+                "count": 9,
+                "count_documents": 2
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 6,
+                "count": 3,
                 "count_documents": 2
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 10,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
                 "count": 2,
                 "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
@@ -934,90 +815,19 @@
         ]
     },
     "содерж": {
-        "count": 45,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 12,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=history",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
-                "count": 9,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "созд": {
-        "count": 41,
+        "count": 42,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 8,
+                "count": 3,
                 "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms"
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
@@ -1030,13 +840,28 @@
                 "count_documents": 1
             },
             {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
+                "count": 3,
+                "count_documents": 1
+            },
+            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=polls",
+                "count": 2,
+                "count_documents": 1
+            },
+            {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
                 "count": 2,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=users",
                 "count": 2,
+                "count_documents": 1
+            },
+            {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
+                "count": 3,
                 "count_documents": 1
             },
             {
@@ -1126,7 +951,7 @@
         }]
     },
     "код": {
-        "count": 24,
+        "count": 26,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 8,
@@ -1155,7 +980,7 @@
         ]
     },
     "фай": {
-        "count": 402,
+        "count": 430,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 8,
@@ -1233,7 +1058,7 @@
         ]
     },
     "разде": {
-        "count": 62,
+        "count": 95,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 4,
@@ -1360,7 +1185,7 @@
         ]
     },
     "ме": {
-        "count": 63,
+        "count": 79,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 7,
@@ -1493,7 +1318,7 @@
         ]
     },
     "пункт": {
-        "count": 19,
+        "count": 21,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 8,
@@ -1527,31 +1352,15 @@
         ]
     },
     "откр": {
-        "count": 14,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "зат": {
-        "count": 6,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 5,
@@ -1565,41 +1374,11 @@
         ]
     },
     "ок": {
-        "count": 26,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 10,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
                 "count": 2,
                 "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
@@ -1679,50 +1458,23 @@
         ]
     },
     "использ": {
-        "count": 6,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
+        }]
     },
     "след": {
-        "count": 15,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 5,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 5,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "инструмент": {
-        "count": 59,
+        "count": 60,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 29,
@@ -1796,51 +1548,21 @@
         }]
     },
     "текст": {
-        "count": 74,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 56,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
                 "count": 2,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals",
-                "count": 7,
-                "count_documents": 1
-            },
-            {
                 "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
+                "count_documents": 1
             }
         ]
     },
     "вставк": {
-        "count": 23,
+        "count": 25,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 11,
@@ -1918,7 +1640,7 @@
         ]
     },
     "друг": {
-        "count": 11,
+        "count": 23,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -2065,16 +1787,11 @@
         ]
     },
     "сохран": {
-        "count": 7,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 5,
+                "count": 2,
                 "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
             },
             {
                 "count": 1,
@@ -2084,57 +1801,20 @@
         ]
     },
     "внес": {
-        "count": 4,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
+        }]
     },
     "измен": {
-        "count": 23,
+        "count": 4,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 9,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
+            "count": 4,
+            "count_documents": 1
+        }]
     },
     "производ": {
         "count": 2,
@@ -2145,7 +1825,7 @@
         }]
     },
     "выход": {
-        "count": 5,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 4,
@@ -2232,7 +1912,7 @@
         ]
     },
     "без": {
-        "count": 4,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 3,
@@ -2246,7 +1926,7 @@
         ]
     },
     "отм": {
-        "count": 4,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -2254,7 +1934,7 @@
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
+                "count": 4,
                 "count_documents": 1
             }
         ]
@@ -2285,13 +1965,8 @@
         "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 2,
+                "count": 3,
                 "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
@@ -2367,71 +2042,15 @@
         ]
     },
     "отображ": {
-        "count": 29,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-                "count": 7,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            },
-            {
-                "count": 3,
-                "count_documents": 3,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "рабоч": {
-        "count": 6,
+        "count": 8,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -2455,46 +2074,26 @@
         ]
     },
     "вид": {
-        "count": 24,
+        "count": 28,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 3,
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
+                "count": 2,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 2,
+                "count": 9,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video",
                 "count": 10,
                 "count_documents": 2
+            },
+            {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
+                "count": 6,
+                "count_documents": 1
             }
         ]
     },
@@ -2515,21 +2114,15 @@
         }]
     },
     "выдел": {
-        "count": 18,
+        "count": 4,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 15,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 3,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
+            "count": 4,
+            "count_documents": 1
+        }]
     },
     "фрагмент": {
-        "count": 11,
+        "count": 13,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 10,
@@ -2551,7 +2144,7 @@
         }]
     },
     "ег": {
-        "count": 25,
+        "count": 28,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 3,
@@ -2605,7 +2198,7 @@
         ]
     },
     "эт": {
-        "count": 36,
+        "count": 45,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 10,
@@ -2659,86 +2252,31 @@
         ]
     },
     "мож": {
-        "count": 87,
+        "count": 28,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 16,
+                "count": 4,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
                 "count": 3,
-                "count_documents": 2
+                "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 12,
+                "count": 7,
                 "count_documents": 1
             },
             {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=errors",
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
                 "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 4,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 9,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2",
-                "count": 5,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck",
                 "count": 2,
                 "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
@@ -2758,35 +2296,20 @@
             {
                 "count": 1,
                 "count_documents": 1,
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
+            },
+            {
+                "count": 1,
+                "count_documents": 1,
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
             }
         ]
     },
     "использов": {
-        "count": 13,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
                 "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 2,
                 "count_documents": 1
             },
             {
@@ -2797,7 +2320,7 @@
         ]
     },
     "встав": {
-        "count": 37,
+        "count": 40,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 22,
@@ -2841,7 +2364,7 @@
         ]
     },
     "вставл": {
-        "count": 9,
+        "count": 13,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 5,
@@ -2868,7 +2391,7 @@
         }]
     },
     "количеств": {
-        "count": 11,
+        "count": 13,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -2900,66 +2423,21 @@
         }]
     },
     "документ": {
-        "count": 259,
+        "count": 200,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 3,
-                "count_documents": 2
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 119,
-                "count_documents": 9
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
-                "count": 9,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 14,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
+                "count": 100,
                 "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs",
-                "count": 104,
-                "count_documents": 3
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https:\\/\\/cms2.edu.yar.ru\\/\\/docs\\/index.php?p=login"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
+                "count": 100,
+                "count_documents": 1
             }
         ]
     },
     "тольк": {
-        "count": 21,
+        "count": 25,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 9,
@@ -3011,7 +2489,7 @@
         }]
     },
     "пос": {
-        "count": 31,
+        "count": 35,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 6,
@@ -3104,7 +2582,7 @@
         ]
     },
     "то": {
-        "count": 25,
+        "count": 31,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 8,
@@ -3148,7 +2626,7 @@
         ]
     },
     "буд": {
-        "count": 42,
+        "count": 44,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 7,
@@ -3207,7 +2685,7 @@
         ]
     },
     "больш": {
-        "count": 9,
+        "count": 11,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -3245,7 +2723,7 @@
         ]
     },
     "обыч": {
-        "count": 3,
+        "count": 4,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
             "count": 3,
@@ -3295,52 +2773,20 @@
         }]
     },
     "раз": {
-        "count": 6,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
+        }]
     },
     "од": {
-        "count": 8,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "размер": {
         "count": 6,
@@ -3375,48 +2821,8 @@
         }]
     },
     "да": {
-        "count": 44,
+        "count": 4,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 4,
-                "count_documents": 3
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 9,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 12,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
                 "count": 1,
                 "count_documents": 1,
                 "link": "https:\\/\\/cms2.edu.yar.ru\\/\\/docs\\/index.php?p=login"
@@ -3424,48 +2830,17 @@
             {
                 "count": 1,
                 "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
-                "count_documents": 1
             }
         ]
     },
     "послед": {
-        "count": 6,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "действ": {
         "count": 6,
@@ -3531,7 +2906,7 @@
         }]
     },
     "от": {
-        "count": 22,
+        "count": 24,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 6,
@@ -3632,7 +3007,7 @@
         }]
     },
     "котор": {
-        "count": 39,
+        "count": 44,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 7,
@@ -3701,7 +3076,7 @@
         ]
     },
     "нуж": {
-        "count": 29,
+        "count": 33,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 7,
@@ -3755,43 +3130,12 @@
         ]
     },
     "уд": {
-        "count": 11,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https:\\/\\/cms2.edu.yar.ru\\/\\/docs\\/index.php?p=login"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
+        }]
     },
     "преобраз": {
         "count": 3,
@@ -3902,7 +3246,7 @@
         }]
     },
     "списк": {
-        "count": 47,
+        "count": 49,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 11,
@@ -3954,7 +3298,7 @@
         }]
     },
     "необход": {
-        "count": 52,
+        "count": 54,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 3,
@@ -4158,10 +3502,10 @@
         }]
     },
     "выравнив": {
-        "count": 4,
+        "count": 11,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-            "count": 4,
+            "count": 11,
             "count_documents": 1
         }]
     },
@@ -4182,7 +3526,7 @@
         }]
     },
     "гиперссылк": {
-        "count": 3,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -4196,7 +3540,7 @@
         ]
     },
     "см": {
-        "count": 3,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -4218,21 +3562,15 @@
         }]
     },
     "увид": {
-        "count": 4,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
+        }]
     },
     "це": {
-        "count": 5,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 3,
@@ -4398,7 +3736,7 @@
         ]
     },
     "сде": {
-        "count": 12,
+        "count": 17,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 4,
@@ -4455,7 +3793,7 @@
         ]
     },
     "свойств": {
-        "count": 19,
+        "count": 20,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 15,
@@ -4533,18 +3871,8 @@
         ]
     },
     "картинк": {
-        "count": 210,
+        "count": 200,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 8,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
                 "count": 100,
                 "count_documents": 1
@@ -4557,13 +3885,8 @@
         ]
     },
     "добавл": {
-        "count": 30,
+        "count": 26,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 4,
-                "count_documents": 2
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
                 "count": 8,
                 "count_documents": 1
@@ -4591,7 +3914,7 @@
         ]
     },
     "быт": {
-        "count": 9,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -4615,7 +3938,7 @@
         ]
     },
     "указ": {
-        "count": 11,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -4658,7 +3981,7 @@
         ]
     },
     "посмотр": {
-        "count": 7,
+        "count": 9,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -4821,7 +4144,7 @@
         }]
     },
     "строк": {
-        "count": 11,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 8,
@@ -4914,7 +4237,7 @@
         ]
     },
     "контекст": {
-        "count": 5,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 4,
@@ -4936,10 +4259,10 @@
         }]
     },
     "объедин": {
-        "count": 3,
+        "count": 2,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-            "count": 3,
+            "count": 2,
             "count_documents": 1
         }]
     },
@@ -5005,11 +4328,6 @@
     "ли": {
         "count": 11,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 6,
                 "count_documents": 1
@@ -5035,7 +4353,7 @@
         }]
     },
     "выбор": {
-        "count": 8,
+        "count": 11,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
                 "count": 2,
@@ -5059,73 +4377,12 @@
         ]
     },
     "компонент": {
-        "count": 155,
+        "count": 100,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
-                "count": 105,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 7,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_history",
-                "count": 10,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 11,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+            "count": 100,
+            "count_documents": 1
+        }]
     },
     "ссылок": {
         "count": 2,
@@ -5136,41 +4393,15 @@
         }]
     },
     "им": {
-        "count": 10,
+        "count": 4,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
+        }]
     },
     "существ": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
                 "count": 2,
@@ -5236,7 +4467,7 @@
         ]
     },
     "так": {
-        "count": 7,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links",
                 "count": 2,
@@ -5260,23 +4491,12 @@
         ]
     },
     "загруж": {
-        "count": 7,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "превыш": {
         "count": 2,
@@ -5347,7 +4567,7 @@
         ]
     },
     "год": {
-        "count": 4,
+        "count": 9,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -5366,7 +4586,7 @@
         ]
     },
     "до": {
-        "count": 3,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -5380,7 +4600,7 @@
         ]
     },
     "всех": {
-        "count": 9,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 3,
@@ -5428,7 +4648,7 @@
         }]
     },
     "расшир": {
-        "count": 8,
+        "count": 13,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -5464,33 +4684,12 @@
         ]
     },
     "подпис": {
-        "count": 24,
+        "count": 100,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 14,
-                "count_documents": 7
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
-                "count": 4,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
+            "count": 100,
+            "count_documents": 1
+        }]
     },
     "момент": {
         "count": 3,
@@ -5515,7 +4714,7 @@
         ]
     },
     "загрузк": {
-        "count": 13,
+        "count": 20,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 3,
@@ -5542,7 +4741,7 @@
         }]
     },
     "как": {
-        "count": 8,
+        "count": 16,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -5609,7 +4808,7 @@
         ]
     },
     "сейчас": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -5752,7 +4951,7 @@
         ]
     },
     "что": {
-        "count": 20,
+        "count": 31,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 4,
@@ -5811,7 +5010,7 @@
         ]
     },
     "папк": {
-        "count": 15,
+        "count": 19,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 7,
@@ -5924,18 +5123,12 @@
         ]
     },
     "статистик": {
-        "count": 20,
+        "count": 100,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
-                "count": 17,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
+            "count": 100,
+            "count_documents": 1
+        }]
     },
     "баз": {
         "count": 2,
@@ -5981,7 +5174,7 @@
         }]
     },
     "нов": {
-        "count": 17,
+        "count": 19,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 9,
@@ -6018,7 +5211,7 @@
         }]
     },
     "учрежд": {
-        "count": 10,
+        "count": 11,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 6,
@@ -6037,86 +5230,28 @@
         ]
     },
     "форм": {
-        "count": 173,
+        "count": 100,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=users",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 152,
-                "count_documents": 3
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
+            "count": 100,
+            "count_documents": 1
+        }]
     },
     "обрат": {
-        "count": 15,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 5,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 8,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "размещ": {
-        "count": 8,
+        "count": 4,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
+        }]
     },
     "cms@edu": {
         "count": 2,
@@ -6135,7 +5270,7 @@
         }]
     },
     "образовател": {
-        "count": 11,
+        "count": 16,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -6159,7 +5294,7 @@
         ]
     },
     "размест": {
-        "count": 8,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 7,
@@ -6173,7 +5308,7 @@
         ]
     },
     "за": {
-        "count": 7,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -6226,33 +5361,12 @@
         ]
     },
     "работ": {
-        "count": 8,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 3,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
+        }]
     },
     "опубликов": {
         "count": 4,
@@ -6283,20 +5397,10 @@
         ]
     },
     "фотогалер": {
-        "count": 217,
+        "count": 200,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-                "count": 111,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 2,
+                "count": 100,
                 "count_documents": 1
             },
             {
@@ -6307,10 +5411,10 @@
         ]
     },
     "реж": {
-        "count": 8,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
+                "count": 2,
                 "count_documents": 1
             },
             {
@@ -6337,7 +5441,7 @@
         }]
     },
     "лент": {
-        "count": 53,
+        "count": 56,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 5,
@@ -6371,7 +5475,7 @@
         ]
     },
     "настройк": {
-        "count": 7,
+        "count": 13,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -6438,23 +5542,12 @@
         ]
     },
     "разреш": {
-        "count": 5,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
+        }]
     },
     "попроб": {
         "count": 2,
@@ -6465,56 +5558,16 @@
         }]
     },
     "новост": {
-        "count": 313,
+        "count": 200,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 6,
-                "count_documents": 1
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news",
-                "count": 121,
-                "count_documents": 4
+                "count": 100,
+                "count_documents": 1
             },
             {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 152,
-                "count_documents": 2
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar",
-                "count": 7,
+                "count": 100,
                 "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=tag_manager",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
-                "count": 14,
-                "count_documents": 1
-            },
-            {
-                "count": 3,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video"
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
             }
         ]
     },
@@ -6541,7 +5594,7 @@
         }]
     },
     "структур": {
-        "count": 5,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 3,
@@ -6555,33 +5608,12 @@
         ]
     },
     "де": {
-        "count": 9,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock"
-            },
-            {
-                "count": 3,
-                "count_documents": 3,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "подроб": {
         "count": 2,
@@ -6600,7 +5632,7 @@
         }]
     },
     "загруз": {
-        "count": 16,
+        "count": 20,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 4,
@@ -6624,18 +5656,12 @@
         ]
     },
     "карт": {
-        "count": 27,
+        "count": 100,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap",
-                "count": 23,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap",
+            "count": 100,
+            "count_documents": 1
+        }]
     },
     "rss": {
         "count": 2,
@@ -6646,7 +5672,7 @@
         }]
     },
     "появл": {
-        "count": 9,
+        "count": 18,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -6702,7 +5728,7 @@
         ]
     },
     "ест": {
-        "count": 7,
+        "count": 14,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -6755,7 +5781,7 @@
         }]
     },
     "назв": {
-        "count": 13,
+        "count": 17,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 4,
@@ -6784,7 +5810,7 @@
         ]
     },
     "глав": {
-        "count": 12,
+        "count": 22,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 3,
@@ -6813,7 +5839,7 @@
         ]
     },
     "нет": {
-        "count": 11,
+        "count": 21,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 4,
@@ -6876,7 +5902,7 @@
         }]
     },
     "пользовате": {
-        "count": 24,
+        "count": 25,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -6918,23 +5944,12 @@
         }]
     },
     "выстав": {
-        "count": 5,
+        "count": 4,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
+        }]
     },
     "вмест": {
         "count": 6,
@@ -6986,21 +6001,15 @@
         }]
     },
     "предлож": {
-        "count": 5,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 3,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
+            "count": 3,
+            "count_documents": 1
+        }]
     },
     "через": {
-        "count": 4,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -7035,7 +6044,7 @@
         }]
     },
     "мы": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -7049,7 +6058,7 @@
         ]
     },
     "пробл": {
-        "count": 6,
+        "count": 8,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 3,
@@ -7068,7 +6077,7 @@
         ]
     },
     "со": {
-        "count": 8,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 5,
@@ -7111,7 +6120,7 @@
         }]
     },
     "о": {
-        "count": 8,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -7145,7 +6154,7 @@
         ]
     },
     "стар": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -7159,7 +6168,7 @@
         ]
     },
     "име": {
-        "count": 3,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 2,
@@ -7181,7 +6190,7 @@
         }]
     },
     "шко": {
-        "count": 9,
+        "count": 23,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=faq",
                 "count": 3,
@@ -7240,7 +6249,7 @@
         }]
     },
     "мобил": {
-        "count": 9,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
                 "count": 8,
@@ -7254,7 +6263,7 @@
         ]
     },
     "устройств": {
-        "count": 7,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
                 "count": 6,
@@ -7268,7 +6277,7 @@
         ]
     },
     "блок": {
-        "count": 7,
+        "count": 14,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
                 "count": 2,
@@ -7287,15 +6296,15 @@
         ]
     },
     "сетк": {
-        "count": 104,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
-            "count": 104,
-            "count_documents": 2
+            "count": 100,
+            "count_documents": 1
         }]
     },
     "всё": {
-        "count": 4,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
                 "count": 2,
@@ -7360,7 +6369,7 @@
         }]
     },
     "дизай": {
-        "count": 3,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
                 "count": 2,
@@ -7382,7 +6391,7 @@
         }]
     },
     "переход": {
-        "count": 6,
+        "count": 9,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor",
                 "count": 2,
@@ -7529,68 +6538,36 @@
         }]
     },
     "ошибк": {
-        "count": 109,
+        "count": 100,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=errors",
-                "count": 103,
-                "count_documents": 2
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=errors",
+            "count": 100,
+            "count_documents": 1
+        }]
     },
     "баннер": {
-        "count": 102,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_banner",
-            "count": 102,
+            "count": 100,
             "count_documents": 1
         }]
     },
     "счетчик": {
-        "count": 3,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_banner",
-            "count": 3,
+            "count": 100,
             "count_documents": 1
         }]
     },
     "копиров": {
-        "count": 6,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_banner",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "централ": {
         "count": 5,
@@ -7652,10 +6629,10 @@
         ]
     },
     "галер": {
-        "count": 12,
+        "count": 3,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
-            "count": 12,
+            "count": 3,
             "count_documents": 1
         }]
     },
@@ -7722,7 +6699,7 @@
         }]
     },
     "открыв": {
-        "count": 6,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
                 "count": 2,
@@ -7741,7 +6718,7 @@
         ]
     },
     "браузер": {
-        "count": 6,
+        "count": 8,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
                 "count": 3,
@@ -7782,7 +6759,7 @@
         ]
     },
     "шабло": {
-        "count": 218,
+        "count": 232,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo",
                 "count": 2,
@@ -7827,23 +6804,12 @@
         }]
     },
     "удал": {
-        "count": 7,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 2,
-                "count_documents": 1
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "кнопки:": {
         "count": 2,
@@ -7862,7 +6828,7 @@
         }]
     },
     "нажат": {
-        "count": 7,
+        "count": 8,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
                 "count": 2,
@@ -7910,18 +6876,12 @@
         }]
     },
     "обрез": {
-        "count": 4,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
-            }
-        ]
+            "count": 2,
+            "count_documents": 2,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
+        }]
     },
     "масштабиров": {
         "count": 5,
@@ -7938,7 +6898,7 @@
         ]
     },
     "все": {
-        "count": 10,
+        "count": 18,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=images",
                 "count": 2,
@@ -7979,21 +6939,6 @@
     "доступ": {
         "count": 22,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
-                "count": 3,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links"
-            },
-            {
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
                 "count": 2,
                 "count_documents": 1
@@ -8096,7 +7041,7 @@
         }]
     },
     "sig": {
-        "count": 107,
+        "count": 115,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
                 "count": 7,
@@ -8126,7 +7071,7 @@
         }]
     },
     "информац": {
-        "count": 13,
+        "count": 17,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents",
                 "count": 4,
@@ -8184,7 +7129,7 @@
         }]
     },
     "вывод": {
-        "count": 7,
+        "count": 8,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news",
                 "count": 2,
@@ -8222,7 +7167,7 @@
         ]
     },
     "публикац": {
-        "count": 15,
+        "count": 19,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news",
                 "count": 4,
@@ -8305,7 +7250,7 @@
         }]
     },
     "запис": {
-        "count": 9,
+        "count": 10,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
                 "count": 6,
@@ -8340,28 +7285,12 @@
         }]
     },
     "заполн": {
-        "count": 16,
+        "count": 2,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 4,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
-                "count": 7,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            }
-        ]
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
+            "count": 2,
+            "count_documents": 1
+        }]
     },
     "аналогич": {
         "count": 3,
@@ -8543,7 +7472,7 @@
         ]
     },
     "моду": {
-        "count": 22,
+        "count": 24,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=history",
                 "count": 2,
@@ -8601,7 +7530,7 @@
         }]
     },
     "подп": {
-        "count": 7,
+        "count": 9,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
                 "count": 2,
@@ -8625,10 +7554,10 @@
         ]
     },
     "календар": {
-        "count": 106,
+        "count": 200,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar",
-                "count": 6,
+                "count": 100,
                 "count_documents": 1
             },
             {
@@ -8647,10 +7576,10 @@
         }]
     },
     "тег": {
-        "count": 203,
+        "count": 200,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=tag_manager",
-                "count": 103,
+                "count": 100,
                 "count_documents": 1
             },
             {
@@ -8669,7 +7598,7 @@
         }]
     },
     "отредактиров": {
-        "count": 6,
+        "count": 9,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2",
                 "count": 3,
@@ -8693,7 +7622,7 @@
         ]
     },
     "помен": {
-        "count": 4,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2",
                 "count": 2,
@@ -8768,7 +7697,7 @@
         }]
     },
     "результат": {
-        "count": 3,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=polls",
                 "count": 2,
@@ -8782,10 +7711,10 @@
         ]
     },
     "опрос": {
-        "count": 212,
+        "count": 200,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=polls",
-                "count": 112,
+                "count": 100,
                 "count_documents": 1
             },
             {
@@ -8796,7 +7725,7 @@
         ]
     },
     "обязател": {
-        "count": 7,
+        "count": 8,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
                 "count": 6,
@@ -8810,7 +7739,7 @@
         ]
     },
     "организац": {
-        "count": 15,
+        "count": 22,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
                 "count": 2,
@@ -8863,7 +7792,7 @@
         }]
     },
     "свед": {
-        "count": 12,
+        "count": 17,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
                 "count": 8,
@@ -8901,7 +7830,7 @@
         ]
     },
     "подразде": {
-        "count": 6,
+        "count": 16,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
                 "count": 2,
@@ -8946,7 +7875,7 @@
         }]
     },
     "предлаг": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
                 "count": 2,
@@ -8960,30 +7889,19 @@
         ]
     },
     "нач": {
-        "count": 5,
+        "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
+        }]
     },
     "сотрудник": {
-        "count": 127,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-            "count": 127,
-            "count_documents": 2
+            "count": 100,
+            "count_documents": 1
         }]
     },
     "фот": {
@@ -8995,7 +7913,7 @@
         }]
     },
     "образов": {
-        "count": 25,
+        "count": 42,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
                 "count": 3,
@@ -9104,18 +8022,8 @@
         }]
     },
     "бы": {
-        "count": 6,
+        "count": 7,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            },
-            {
                 "count": 1,
                 "count_documents": 1,
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
@@ -9173,10 +8081,10 @@
         }]
     },
     "скрипт": {
-        "count": 114,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets",
-            "count": 114,
+            "count": 100,
             "count_documents": 1
         }]
     },
@@ -9232,7 +8140,7 @@
         }]
     },
     "актив": {
-        "count": 4,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates",
                 "count": 3,
@@ -9246,7 +8154,7 @@
         ]
     },
     "показыв": {
-        "count": 4,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitesetup",
                 "count": 2,
@@ -9297,7 +8205,7 @@
         }]
     },
     "посетите": {
-        "count": 3,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats",
                 "count": 2,
@@ -9311,15 +8219,15 @@
         ]
     },
     "орфограф": {
-        "count": 104,
+        "count": 100,
         "links": [{
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck",
-            "count": 104,
-            "count_documents": 3
+            "count": 100,
+            "count_documents": 1
         }]
     },
     "возможн": {
-        "count": 4,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck",
                 "count": 2,
@@ -9349,7 +8257,7 @@
         }]
     },
     "нп": {
-        "count": 11,
+        "count": 12,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
                 "count": 10,
@@ -9371,7 +8279,7 @@
         }]
     },
     "национал": {
-        "count": 8,
+        "count": 16,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
                 "count": 6,
@@ -9390,7 +8298,7 @@
         ]
     },
     "проект": {
-        "count": 26,
+        "count": 39,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
                 "count": 22,
@@ -9422,7 +8330,7 @@
         }]
     },
     "оформл": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
                 "count": 2,
@@ -9468,7 +8376,7 @@
         }]
     },
     "прос": {
-        "count": 4,
+        "count": 7,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
                 "count": 2,
@@ -9495,7 +8403,7 @@
         }]
     },
     "ра": {
-        "count": 8,
+        "count": 11,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=education",
                 "count": 3,
@@ -9556,16 +8464,10 @@
     "сост": {
         "count": 3,
         "links": [{
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
-                "count": 2,
-                "count_documents": 1
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
+        }]
     },
     "полей:": {
         "count": 2,
@@ -9600,7 +8502,7 @@
         }]
     },
     "изм": {
-        "count": 5,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
                 "count": 2,
@@ -9635,7 +8537,7 @@
         }]
     },
     "найд": {
-        "count": 3,
+        "count": 4,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
                 "count": 2,
@@ -9649,7 +8551,7 @@
         ]
     },
     "оповещ": {
-        "count": 4,
+        "count": 6,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms",
                 "count": 2,
@@ -9716,7 +8618,7 @@
         }]
     },
     "точк": {
-        "count": 4,
+        "count": 5,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost",
                 "count": 2,
@@ -9765,7 +8667,7 @@
         }]
     },
     "инструкц": {
-        "count": 11,
+        "count": 22,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals",
                 "count": 4,
@@ -9839,7 +8741,7 @@
         }]
     },
     "пит": {
-        "count": 102,
+        "count": 106,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//goryachee_pitanie_v_shkole.html",
                 "count": 100,
@@ -10116,28 +9018,46 @@
         ]
     },
     "карта сайт": {
-        "count": 100,
+        "count": 200,
         "links": [{
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
-            "count": 100,
-            "count_documents": 1
-        }]
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+                "count": 100,
+                "count_documents": 1
+            },
+            {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+                "count": 100,
+                "count_documents": 1
+            }
+        ]
     },
     "карте сайт": {
-        "count": 100,
+        "count": 200,
         "links": [{
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
-            "count": 100,
-            "count_documents": 1
-        }]
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+                "count": 100,
+                "count_documents": 1
+            },
+            {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+                "count": 100,
+                "count_documents": 1
+            }
+        ]
     },
     "карту сайт": {
-        "count": 100,
+        "count": 200,
         "links": [{
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
-            "count": 100,
-            "count_documents": 1
-        }]
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+                "count": 100,
+                "count_documents": 1
+            },
+            {
+                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components",
+                "count": 100,
+                "count_documents": 1
+            }
+        ]
     },
     "ЭП": {
         "count": 100,
@@ -10196,7 +9116,7 @@
         }]
     },
     "sing": {
-        "count": 101,
+        "count": 104,
         "links": [{
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc",
                 "count": 100,
@@ -10466,7 +9386,7 @@
         }]
     },
     "подскаж": {
-        "count": 5,
+        "count": 15,
         "links": [{
                 "count": 3,
                 "count_documents": 3,
@@ -10485,7 +9405,7 @@
         ]
     },
     "архивиров": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10493,7 +9413,7 @@
         }]
     },
     "активиров": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10501,7 +9421,7 @@
         }]
     },
     "прош": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10509,7 +9429,7 @@
         }]
     },
     "помог": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10517,7 +9437,7 @@
         }]
     },
     "педагога:": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10525,7 +9445,7 @@
         }]
     },
     "педагог": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10533,7 +9453,7 @@
         }]
     },
     "ойнас": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10541,7 +9461,7 @@
         }]
     },
     "та": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10549,7 +9469,7 @@
         }]
     },
     "произоше": {
-        "count": 2,
+        "count": 6,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10563,7 +9483,7 @@
         ]
     },
     "сбо": {
-        "count": 2,
+        "count": 6,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10577,7 +9497,7 @@
         ]
     },
     "ма": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10601,18 +9521,12 @@
         }]
     },
     "замеч": {
-        "count": 2,
+        "count": 5,
         "links": [{
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
+        }]
     },
     "сер": {
         "count": 1,
@@ -10663,7 +9577,7 @@
         }]
     },
     "куд": {
-        "count": 2,
+        "count": 4,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10677,7 +9591,7 @@
         ]
     },
     "возник": {
-        "count": 3,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10691,7 +9605,7 @@
         ]
     },
     "обновл": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10699,7 +9613,7 @@
         }]
     },
     "нескольк": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10707,7 +9621,7 @@
         }]
     },
     "час": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10715,7 +9629,7 @@
         }]
     },
     "оп": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10723,7 +9637,7 @@
         }]
     },
     "откреп": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10731,7 +9645,7 @@
         }]
     },
     "чем": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10739,7 +9653,7 @@
         }]
     },
     "прич": {
-        "count": 2,
+        "count": 7,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10753,7 +9667,7 @@
         ]
     },
     "некоррект": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10761,7 +9675,7 @@
         }]
     },
     "помещ": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10769,7 +9683,7 @@
         }]
     },
     "food": {
-        "count": 2,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10783,7 +9697,7 @@
         ]
     },
     "скидыв": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10791,7 +9705,7 @@
         }]
     },
     "туд": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10799,7 +9713,7 @@
         }]
     },
     "ежеднев": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10807,7 +9721,7 @@
         }]
     },
     "скину": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10819,27 +9733,17 @@
         "links": [{
                 "count": 1,
                 "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_links"
-            },
-            {
-                "count": 2,
-                "count_documents": 2,
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
             },
             {
                 "count": 1,
                 "count_documents": 1,
                 "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
             }
         ]
     },
     "вкс": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10847,7 +9751,7 @@
         }]
     },
     "пробов": {
-        "count": 2,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10861,7 +9765,7 @@
         ]
     },
     "сво": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10869,7 +9773,7 @@
         }]
     },
     "спикер": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10877,7 +9781,7 @@
         }]
     },
     "допис": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10885,7 +9789,7 @@
         }]
     },
     "комбинац": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10893,7 +9797,7 @@
         }]
     },
     "симво": {
-        "count": 2,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10907,7 +9811,7 @@
         ]
     },
     "получ": {
-        "count": 2,
+        "count": 6,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -10921,7 +9825,7 @@
         ]
     },
     "привяз": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10929,7 +9833,7 @@
         }]
     },
     "тепер": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10937,7 +9841,7 @@
         }]
     },
     "смогут": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10945,7 +9849,7 @@
         }]
     },
     "ознак": {
-        "count": 2,
+        "count": 6,
         "links": [{
             "count": 2,
             "count_documents": 2,
@@ -10953,7 +9857,7 @@
         }]
     },
     "ютуб": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10961,7 +9865,7 @@
         }]
     },
     "высвечив": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10969,7 +9873,7 @@
         }]
     },
     "печ": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10977,7 +9881,7 @@
         }]
     },
     "долж": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -10985,7 +9889,7 @@
         }]
     },
     "нас": {
-        "count": 2,
+        "count": 7,
         "links": [{
             "count": 2,
             "count_documents": 2,
@@ -10993,7 +9897,7 @@
         }]
     },
     "сертификат": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11001,7 +9905,7 @@
         }]
     },
     "cer": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11009,7 +9913,7 @@
         }]
     },
     "подписыв": {
-        "count": 2,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11023,7 +9927,7 @@
         ]
     },
     "недопуст": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11031,7 +9935,7 @@
         }]
     },
     "номер": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11039,7 +9943,7 @@
         }]
     },
     "полож": {
-        "count": 2,
+        "count": 4,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11053,7 +9957,7 @@
         ]
     },
     "них": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11061,7 +9965,7 @@
         }]
     },
     "сказ": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11069,7 +9973,7 @@
         }]
     },
     "трех": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11077,7 +9981,7 @@
         }]
     },
     "точек": {
-        "count": 2,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11091,7 +9995,7 @@
         ]
     },
     "око": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11099,7 +10003,7 @@
         }]
     },
     "команд": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11107,7 +10011,7 @@
         }]
     },
     "прост": {
-        "count": 3,
+        "count": 7,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11126,7 +10030,7 @@
         ]
     },
     "карусе": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11134,7 +10038,7 @@
         }]
     },
     "прилож": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11142,7 +10046,7 @@
         }]
     },
     "накладыв": {
-        "count": 2,
+        "count": 9,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11156,7 +10060,7 @@
         ]
     },
     "нам": {
-        "count": 4,
+        "count": 16,
         "links": [{
                 "count": 2,
                 "count_documents": 2,
@@ -11175,7 +10079,7 @@
         ]
     },
     "реш": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11183,7 +10087,7 @@
         }]
     },
     "проб": {
-        "count": 2,
+        "count": 8,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11197,7 +10101,7 @@
         ]
     },
     "представл": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11205,7 +10109,7 @@
         }]
     },
     "мог": {
-        "count": 2,
+        "count": 5,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11219,21 +10123,15 @@
         ]
     },
     "уст": {
-        "count": 2,
+        "count": 4,
         "links": [{
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            },
-            {
-                "count": 1,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
-            }
-        ]
+            "count": 1,
+            "count_documents": 1,
+            "link": "https://cms2.edu.yar.ru//docs/index.php?p=pages"
+        }]
     },
     "свидетельств": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11241,7 +10139,7 @@
         }]
     },
     "государств": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11249,7 +10147,7 @@
         }]
     },
     "аккредитац": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11257,7 +10155,7 @@
         }]
     },
     "проп": {
-        "count": 3,
+        "count": 10,
         "links": [{
                 "count": 2,
                 "count_documents": 2,
@@ -11271,7 +10169,7 @@
         ]
     },
     "руководств": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11279,7 +10177,7 @@
         }]
     },
     "пед": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11287,7 +10185,7 @@
         }]
     },
     "будт": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11295,7 +10193,7 @@
         }]
     },
     "нич": {
-        "count": 2,
+        "count": 7,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11309,7 +10207,7 @@
         ]
     },
     "произойд": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11317,7 +10215,7 @@
         }]
     },
     "настраив": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11325,7 +10223,7 @@
         }]
     },
     "зан": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11333,7 +10231,7 @@
         }]
     },
     "вот": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11341,7 +10239,7 @@
         }]
     },
     "причём": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11349,7 +10247,7 @@
         }]
     },
     "майск": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11357,7 +10255,7 @@
         }]
     },
     "сентябрьск": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11365,7 +10263,7 @@
         }]
     },
     "указыв": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11373,7 +10271,7 @@
         }]
     },
     "стра": {
-        "count": 2,
+        "count": 3,
         "links": [{
             "count": 2,
             "count_documents": 2,
@@ -11381,7 +10279,7 @@
         }]
     },
     "наш": {
-        "count": 2,
+        "count": 4,
         "links": [{
             "count": 2,
             "count_documents": 2,
@@ -11389,7 +10287,7 @@
         }]
     },
     "логотип": {
-        "count": 2,
+        "count": 4,
         "links": [{
             "count": 2,
             "count_documents": 2,
@@ -11397,7 +10295,7 @@
         }]
     },
     "сформиров": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11405,7 +10303,7 @@
         }]
     },
     "сраз": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11413,7 +10311,7 @@
         }]
     },
     "скачив": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11429,7 +10327,7 @@
         }]
     },
     "рост": {
-        "count": 2,
+        "count": 3,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11443,7 +10341,7 @@
         ]
     },
     "контакт": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11451,7 +10349,7 @@
         }]
     },
     "телефо": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11459,7 +10357,7 @@
         }]
     },
     "люд": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11467,7 +10365,7 @@
         }]
     },
     "происход": {
-        "count": 3,
+        "count": 8,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11486,7 +10384,7 @@
         ]
     },
     "адаптац": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11494,7 +10392,7 @@
         }]
     },
     "стан": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11502,7 +10400,7 @@
         }]
     },
     "чит": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11510,7 +10408,7 @@
         }]
     },
     "помоч": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11518,7 +10416,7 @@
         }]
     },
     "нацпроект": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11526,7 +10424,7 @@
         }]
     },
     "горяч": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11534,7 +10432,7 @@
         }]
     },
     "начал": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11542,7 +10440,7 @@
         }]
     },
     "двух": {
-        "count": 2,
+        "count": 6,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11556,7 +10454,7 @@
         ]
     },
     "поч": {
-        "count": 2,
+        "count": 7,
         "links": [{
                 "count": 1,
                 "count_documents": 1,
@@ -11570,7 +10468,7 @@
         ]
     },
     "всяк": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11578,7 +10476,7 @@
         }]
     },
     "влож": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11610,7 +10508,7 @@
         }]
     },
     "кв": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11618,7 +10516,7 @@
         }]
     },
     "разработк": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11626,7 +10524,7 @@
         }]
     },
     "отраж": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11634,7 +10532,7 @@
         }]
     },
     "вас": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11642,7 +10540,7 @@
         }]
     },
     "соврем": {
-        "count": 2,
+        "count": 9,
         "links": [{
             "count": 2,
             "count_documents": 2,
@@ -11650,7 +10548,7 @@
         }]
     },
     "пишут": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11658,7 +10556,7 @@
         }]
     },
     "повод": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11666,7 +10564,7 @@
         }]
     },
     "галк": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11674,7 +10572,7 @@
         }]
     },
     "сто": {
-        "count": 1,
+        "count": 5,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11682,7 +10580,7 @@
         }]
     },
     "пиш": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11690,7 +10588,7 @@
         }]
     },
     "подшабло": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11698,7 +10596,7 @@
         }]
     },
     "хоте": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11706,7 +10604,7 @@
         }]
     },
     "консультац": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11714,7 +10612,7 @@
         }]
     },
     "специалист": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11722,7 +10620,7 @@
         }]
     },
     "техподдержк": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11730,7 +10628,7 @@
         }]
     },
     "нац": {
-        "count": 1,
+        "count": 4,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11738,7 +10636,7 @@
         }]
     },
     "проверк": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11746,7 +10644,7 @@
         }]
     },
     "методическ": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11754,7 +10652,7 @@
         }]
     },
     "даж": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11762,7 +10660,7 @@
         }]
     },
     "зайт": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11770,7 +10668,7 @@
         }]
     },
     "там": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11778,7 +10676,7 @@
         }]
     },
     "небольш": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11786,7 +10684,7 @@
         }]
     },
     "кусочк": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11794,7 +10692,7 @@
         }]
     },
     "ощущ": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11802,7 +10700,7 @@
         }]
     },
     "огранич": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11810,7 +10708,7 @@
         }]
     },
     "ctrl+v": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11818,7 +10716,7 @@
         }]
     },
     "некотор": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11874,7 +10772,7 @@
         }]
     },
     "отч": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11882,7 +10780,7 @@
         }]
     },
     "самообследов": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11890,7 +10788,7 @@
         }]
     },
     "предпис": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11898,7 +10796,7 @@
         }]
     },
     "орг": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11906,7 +10804,7 @@
         }]
     },
     "перенос": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11914,7 +10812,7 @@
         }]
     },
     "пут": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11922,7 +10820,7 @@
         }]
     },
     "исправ": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11930,7 +10828,7 @@
         }]
     },
     "исчез": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11938,7 +10836,7 @@
         }]
     },
     "март": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11946,7 +10844,7 @@
         }]
     },
     "апре": {
-        "count": 1,
+        "count": 2,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11954,7 +10852,7 @@
         }]
     },
     "непонят": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11962,7 +10860,7 @@
         }]
     },
     "пот": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11970,7 +10868,7 @@
         }]
     },
     "привязк": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
@@ -11978,1056 +10876,11 @@
         }]
     },
     "здравств": {
-        "count": 1,
+        "count": 3,
         "links": [{
             "count": 1,
             "count_documents": 1,
             "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-        }]
-    },
-    "авторизация": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=login"
-        }]
-    },
-    "авторизацию": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=login"
-        }]
-    },
-    "авторизации": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=login"
-        }]
-    },
-    "питание": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//goryachee_pitanie_v_shkole.html"
-        }]
-    },
-    "ошибки": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=errors"
-        }]
-    },
-    "режим редактирования": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "редакторовать страницу": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "редакторовании страницы": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "работа нескольких пользователей": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
-        }]
-    },
-    "несколько пользователей": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_users"
-        }]
-    },
-    "сетка": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
-        }]
-    },
-    "колонки": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
-        }]
-    },
-    "контент на странице": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=blockeditor"
-        }]
-    },
-    "баннеры": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_banner"
-        }]
-    },
-    "счетчики": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_banner"
-        }]
-    },
-    "вставляется на страницу": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_banner"
-        }]
-    },
-    "Компоненты": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-        }]
-    },
-    "компонента": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-        }]
-    },
-    "фотогалереи": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "фотогалерея": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "фотогалерею": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "изображения": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "картинка": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "картинки": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "картинками": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "изображениями": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "изображение": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_photo"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "документы": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            }
-        ]
-    },
-    "документами": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            }
-        ]
-    },
-    "файл": {
-        "count": 300,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=documents"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_docs"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-            }
-        ]
-    },
-    "новости": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock"
-            }
-        ]
-    },
-    "новость": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock"
-            }
-        ]
-    },
-    "новостей": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=iblock"
-            }
-        ]
-    },
-    "видео": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video"
-        }]
-    },
-    "видеоматериаллы": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video"
-        }]
-    },
-    "видео-файл": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video"
-        }]
-    },
-    "мультимедия": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_video"
-        }]
-    },
-    "карты": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap"
-        }]
-    },
-    "гугл карты": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap"
-        }]
-    },
-    "геопозиция": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap"
-        }]
-    },
-    "геопозиции": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_ymap"
-        }]
-    },
-    "история сайта": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_history"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=history"
-            }
-        ]
-    },
-    "истории сайта": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_history"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=history"
-            }
-        ]
-    },
-    "историю сайта": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_history"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=history"
-            }
-        ]
-    },
-    "история страницы": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_history"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=history"
-            }
-        ]
-    },
-    "карта сайта": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-        }]
-    },
-    "карте сайта": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-        }]
-    },
-    "карту сайта": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-        }]
-    },
-    "подписанные документы": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-        }]
-    },
-    "электронной подписью": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-        }]
-    },
-    "электронная подпись": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-        }]
-    },
-    "электронная": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-        }]
-    },
-    "подписанный": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_signeddoc"
-        }]
-    },
-    "календарь новостей": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "календарь": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "календарю": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "календарь новость": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_news_calendar"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "менеджер тегов": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=tag_manager"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "теги": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=tag_manager"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "структура сайта": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-        }]
-    },
-    "cтруктуры сайтов": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-        }]
-    },
-    "cтруктура сайтов": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitetreev2"
-        }]
-    },
-    "опросы": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=polls"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "опросом": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=polls"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_components"
-            }
-        ]
-    },
-    "обязательные": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent"
-        }]
-    },
-    "обязательный": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent"
-        }]
-    },
-    "обязательными": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=requiredcontent"
-        }]
-    },
-    "сотрудники": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=employees"
-        }]
-    },
-    "стили и скрипты": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets"
-        }]
-    },
-    "стилями": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets"
-        }]
-    },
-    "скриптами": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets"
-        }]
-    },
-    "стиль": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=assets"
-        }]
-    },
-    "шаблоны сайта": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
-    },
-    "шаблон сайта": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
-    },
-    "шаблонов": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
-    },
-    "шаблонами": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=templates"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=personal"
-            }
-        ]
-    },
-    "настройки сайта": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitesetup"
-        }]
-    },
-    "настройка сайта": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=sitesetup"
-        }]
-    },
-    "статистика": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats"
-        }]
-    },
-    "статистикой": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats"
-        }]
-    },
-    "статистики": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=stats"
-        }]
-    },
-    "проверка орфографии": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck"
-        }]
-    },
-    "орфография": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck"
-        }]
-    },
-    "орфографии": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck"
-        }]
-    },
-    "орфографию": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_spellingcheck"
-        }]
-    },
-    "оптимизатор картинок на сайте": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_optimizerimage"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "оптимизация изображений": {
-        "count": 200,
-        "links": [{
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=editor_optimizerimage"
-            },
-            {
-                "count": 100,
-                "count_documents": 1,
-                "link": "https://cms2.edu.yar.ru//docs/index.php?p=images"
-            }
-        ]
-    },
-    "нп образование": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=education"
-        }]
-    },
-    "пользователи": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=users"
-        }]
-    },
-    "пользователь": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=users"
-        }]
-    },
-    "пользователем": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=users"
-        }]
-    },
-    "формы": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms"
-        }]
-    },
-    "форму": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms"
-        }]
-    },
-    "форма": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms"
-        }]
-    },
-    "формой": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=forms"
-        }]
-    },
-    "репостнуть": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost"
-        }]
-    },
-    "новости в социальных сетях": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost"
-        }]
-    },
-    "новостями в социальных сетях": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost"
-        }]
-    },
-    "выложить новость": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=news_repost"
-        }]
-    },
-    "обращения граждан": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals"
-        }]
-    },
-    "обращение граждан": {
-        "count": 100,
-        "links": [{
-            "count": 100,
-            "count_documents": 1,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=appeals"
-        }]
-    },
-    "алёнушк": {
-        "count": 2,
-        "links": [{
-            "count": 2,
-            "count_documents": 2,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
-        }]
-    },
-    "привет____111111111": {
-        "count": 2,
-        "links": [{
-            "count": 2,
-            "count_documents": 2,
-            "link": "https://cms2.edu.yar.ru//docs/index.php?p=advanced"
         }]
     }
 }
