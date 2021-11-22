@@ -1,4 +1,4 @@
-import { SHOW_LOADER, HIDE_LOADER } from "./types";
+import { SHOW_LOADER, HIDE_LOADER, ADD_LINK } from "./types";
 
 const initialState = {
     loading: false,
@@ -14,9 +14,9 @@ export const teacherReducer = (state = initialState, action) => {
         //     return { ...state, messages: state.messages.concat(action.payload) };
         case SHOW_LOADER:
             return { ...state, loading: true };
-        // case SET_CACHE_MESSAGE:
-        //     console.log("SET_CACHE_MESSAGE", action.payload);
-        //     return { ...state, messages: action.payload };
+        case ADD_LINK:
+            console.log("ADD_LINK in Reducer", action.payload);
+            return { ...state, link_obj: action.payload };
         case HIDE_LOADER:
             return { ...state, loading: false };
         default:

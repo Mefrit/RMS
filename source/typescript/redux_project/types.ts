@@ -7,3 +7,7 @@ export const HIDE_LOADER = "HIDE_LOADER";
 //List
 export const ADD_MESSAGE = "LIST/ADDMESSAGE";
 export const SET_CACHE_MESSAGE = "LIST/SET_CACHE_MESSAGE";
+
+//TEACHMODE
+
+export const ADD_LINK = "TEACH/ADD_LINK";

@@ -21,8 +21,7 @@ export class Module_Teacher extends Module_Default {
                         resolve({ result: true, docs_links: answer.rows });
                     }
                     resolve({ result: false, message: "Не удалось загрузить ссылки на документацию" });
-                })
-
+                });
             } else {
                 resolve({ result: false, message: "Не удалось загрузить ссылки на документацию в CIS." });
             }
@@ -33,14 +32,20 @@ export class Module_Teacher extends Module_Default {
             database.serialize(() => {
                 // FIX ME переделать, клогда будем добавлять ссылки из cis
                 database.all(sql, function (err, rows) {
-
                     if (err) {
                         resolve({ result: false });
                     }
                     resolve({ result: true, rows: rows });
                 });
             });
-        })
+        });
+    }
+    actionEditListLinks(post_data) {
+        return new Promise((resolve, reject) => {
+            console.log("actionEditListLinks !!!!!!!", post_data);
+            resolve({ result: false, message: "Не удалось изменить список ссылок" });
+            //
+        });
     }
     actionGetRecomendation(post_data: any) {
         return new Promise((resolve, reject) => {
@@ -52,15 +57,13 @@ export class Module_Teacher extends Module_Default {
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${type_resource}" `;
             this.getDocsLinks(database, query).then((answer: any) => {
-
                 if (answer.result) {
                     console.log("post_data", post_data);
 
                     resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
                 }
                 resolve({ result: false, message: "Не удалось обучить алгоритм" });
-            })
-
+            });
         });
     }
     actionTrain(post_data: any) {
@@ -71,14 +74,12 @@ export class Module_Teacher extends Module_Default {
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform =  pla.id_platform WHERE  pl.title="${type_resource}" `;
             this.getDocsLinks(database, query).then((answer: any) => {
-
                 if (answer.result) {
                     console.log("post_data", post_data);
                     console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));
                 }
                 resolve({ result: false, message: "Не удалось обучить алгоритм" });
-            })
-
+            });
 
             resolve({ result: false, message: "Не удалось обучить алгоритм." });
         });

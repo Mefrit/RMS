@@ -37,6 +37,12 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
             });
         });
     }
+    actionEditListLinks(post_data) {
+        return new Promise((resolve, reject) => {
+            console.log("actionEditListLinks !!!!!!!", post_data);
+            resolve({ result: false, message: "Не удалось изменить список ссылок" });
+        });
+    }
     actionGetRecomendation(post_data) {
         return new Promise((resolve, reject) => {
             console.log("actionGetRecomendation", post_data);
