@@ -124,7 +124,7 @@ export class Bayes {
             probability;
         const total_links_inf = JSON.parse(fs.readFileSync("./server/data/total_links_inf.json"));
         const total_result = JSON.parse(fs.readFileSync("./server/data/total_result.json"));
-        const about_links = JSON.parse(fs.readFileSync("./server/data/about_links.json"));
+        // const about_links = JSON.parse(fs.readFileSync("./server/data/about_links.json"));
         // cache_words = this.getStemElements(cache_words);
 
         cache_words.forEach((word) => {
@@ -146,7 +146,7 @@ export class Bayes {
                     }
                     cache_probability_links[elem_link.link] += Math.log(
                         (1 + elem_link.count) /
-                            (1 * Object.keys(total_result).length + total_links_inf[elem_link.link].length)
+                        (1 * Object.keys(total_result).length + total_links_inf[elem_link.link].length)
                     );
                 });
                 cache_probability_links = this.setLinkNotFoundWithCheck(
@@ -186,7 +186,7 @@ export class Bayes {
         // console.log(" new_sortable ", new_sortable);
         // return [];
         // console.log("this.prepareDocsLinks(new_sortable, about_links)", this.prepareDocsLinks(new_sortable, about_links));
-        return this.prepareDocsLinks(new_sortable, about_links);
+        return this.prepareDocsLinks(new_sortable, links_docs);
     }
     getSortedKeys(obj) {
         var keys = Object.keys(obj);
@@ -194,18 +194,18 @@ export class Bayes {
             return obj[b] - obj[a];
         });
     }
-    prepareDocsLinks(cache_chosen_links, about_links) {
+    prepareDocsLinks(cache_chosen_links, links_docs) {
         let result = [];
         // console.log("about_links", about_links);
         // console.log("cache_chosen_links", cache_chosen_links);
         for (let link in cache_chosen_links) {
-            about_links.forEach((link_obj) => {
+            links_docs.forEach((link_obj) => {
                 // console.log("link_obj =>  ", link_obj.title);
 
-                if (link_obj.link == link) {
-                    link_obj.url = link_obj.link;
-                    link_obj.mark = cache_chosen_links[link];
-                    delete link_obj.link;
+                if (link_obj.url == link) {
+                    // link_obj.url = link_obj.link;
+                    // link_obj.mark = cache_chosen_links[link];
+                    // delete link_obj.link;
                     result.push(link_obj);
                 }
             });
@@ -241,19 +241,7 @@ export class Bayes {
         }
         return new_result;
     }
-    // private function setLinkNotFoundWithCheck($total_links_inf, $total_result, $cache_probability, $cache_finds_link, $probability){
-    //     foreach($total_links_inf as $key => $elem_word){
-    //         if(!in_array($key, $cache_finds_link)){
-    //             if(!array_key_exists($key, $cache_probability)){
-    //                 $probability = 1 / count((array)$total_links_inf);
-    //                 $cache_probability[$key] = $probability;
-    //             }
-    //             $cache_finds_link []= $key;
-    //             $cache_probability[$key] += log(1  / (1 *  count((array)$total_result) + count($elem_word)));
-    //         }
-    //     }
-    //     return $cache_probability;
-    // }
+
     trainByLetter(letter: string, links_docs: any[], user_docs_links) {
         let cache_words = this.getWordsFromLetter(letter, this.symvols),
             tmp,

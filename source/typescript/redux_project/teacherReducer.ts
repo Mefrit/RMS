@@ -2,7 +2,12 @@ import { SHOW_LOADER, HIDE_LOADER, ADD_LINK } from "./types";
 
 const initialState = {
     loading: false,
-
+    link_obj: {
+        title: '',
+        description: '',
+        link: '',
+        type_resource: ''
+    },
     docs_links: [],
 };
 

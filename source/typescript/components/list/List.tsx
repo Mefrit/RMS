@@ -74,19 +74,15 @@ const List = (props) => {
             return <p className="text-center">Сообщений пока нет</p>
         }
     console.log("props ", props);
-    return <ul className="col-sm list-group container" >{renderlistInterface()} {message_state.map((message, index, arr) => { console.log("message 11111==>>> ", message.time_receipt + "_" + index, message, index); return <ListElement message={message} key={message.time_receipt + "_" + index} /> })}</ul>
+    return <ul className="col-sm list-group container" >{renderlistInterface()} {message_state.map((message, index, arr) => { console.log("message 11111==>>> ", message.time_receipt + "_" + index, message, index); return <ListElement props={message} key={message.time_receipt + "_" + index} /> })}</ul>
 }
 
 const mapStateToProps = state => {
     // установка начальных значений
     return {
         messages: state.app.messages,
-
         loading: false
     }
 }
-// const mapDispatchToProps = {
-//     setCacheMessages
-// }
 // проброска первоначальных state в компонент
 export default connect(mapStateToProps, null)(List)

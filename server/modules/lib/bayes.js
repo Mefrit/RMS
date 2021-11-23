@@ -105,7 +105,6 @@ class Bayes {
         let cache_words = this.getWordsFromLetter(letter, this.symvols), cache_find_links = [], inf_word, cache_probability_links = [], probability;
         const total_links_inf = JSON.parse(file_system_1.fs.readFileSync("./server/data/total_links_inf.json"));
         const total_result = JSON.parse(file_system_1.fs.readFileSync("./server/data/total_result.json"));
-        const about_links = JSON.parse(file_system_1.fs.readFileSync("./server/data/about_links.json"));
         cache_words.forEach((word) => {
             console.log(word);
             inf_word = total_result[(0, stemmer_1.stem)(word)];
@@ -145,7 +144,7 @@ class Bayes {
             }
             count++;
         });
-        return this.prepareDocsLinks(new_sortable, about_links);
+        return this.prepareDocsLinks(new_sortable, links_docs);
     }
     getSortedKeys(obj) {
         var keys = Object.keys(obj);
@@ -153,14 +152,11 @@ class Bayes {
             return obj[b] - obj[a];
         });
     }
-    prepareDocsLinks(cache_chosen_links, about_links) {
+    prepareDocsLinks(cache_chosen_links, links_docs) {
         let result = [];
         for (let link in cache_chosen_links) {
-            about_links.forEach((link_obj) => {
-                if (link_obj.link == link) {
-                    link_obj.url = link_obj.link;
-                    link_obj.mark = cache_chosen_links[link];
-                    delete link_obj.link;
+            links_docs.forEach((link_obj) => {
+                if (link_obj.url == link) {
                     result.push(link_obj);
                 }
             });

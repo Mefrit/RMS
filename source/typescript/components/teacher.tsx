@@ -9,17 +9,19 @@ import LinkEditor from '../components/linkEditor'
 import { connect, useSelector } from 'react-redux'
 import { showLoader, hideLoader } from '../redux_project/actions/actionTeacher'
 import { postJSON } from "../lib/query"
+
 // REACT.MEME
 // REACT.useCallBack
 // React.useMeme
 // React.lazy
 // React.windows -библиотека
-function Teacher(props) {
-    console.log("Teacher props", props);
+function Teacher(props, dispatchProps) {
+
     const [mode, setTeachModeState] = useState('teach');
     const [docs_list, setDocsList] = useState([]);
     const [type_resource, setTypeResource] = useState(props.type_resource);
-    const [letter, setLetter] = useState("Добрый день!  На сайте МДОУ № 15 «Аленушка» ЯМР  показывает ошибку загрузки документа, хотя все раньше работало! Где документы? и сслыки  В чем может быть причина? Почему одни ссылки работают, а другие нет?");
+    const link_obj = useSelector((state: any): any => state.teacher.link_obj);
+    const [letter, setLetter] = useState("");
     let user_docs_links = [];
     const style_select = {
         height: "250px"
@@ -28,7 +30,7 @@ function Teacher(props) {
     // 
     // == componentDidMount,
     const loading = useSelector((state: any): any => state.teacher.loading);
-
+    console.log("Teacher props", props, "mode ,", mode);
     const loadLinksList = async () => {
 
         postJSON("/?module=Teacher&action=GetDocsList", {
@@ -37,9 +39,6 @@ function Teacher(props) {
             props.hideLoader();
             console.log("result FORM SERVER TEACHER", answer);
             if (answer.result) {
-
-
-                // props.setCacheMessages(answer.list);
                 console.log("answer.list", answer.docs_links);
                 setDocsList(answer.docs_links);
             } else {
@@ -52,20 +51,25 @@ function Teacher(props) {
 
     };
     useEffect(() => {
-        console.log("useEffect", type_resource);
-        props.showLoader();
-        loadLinksList();
-    }, [type_resource]);
+        console.log("useEffect", type_resource, link_obj);
+        if (mode == "teach") {
+            props.showLoader();
+            loadLinksList();
+        }
+        if (mode == "edit_links_list" && link_obj.title != "") {
+            addLink2List(link_obj, mode);
+        }
+
+    }, [type_resource, link_obj, mode]);
 
     function renderDocsList(data) {
 
         return data.map(elem => {
-
             return <option key={elem.url + elem.title} value={elem.url} title={elem.description}>{elem.title + `   (${elem.url})`}</option>
         })
     }
     const train = () => {
-        console.log("train", letter)
+
         postJSON("/?module=Teacher&action=Train", {
             letter: letter,
             type_resource: type_resource,
@@ -118,24 +122,19 @@ function Teacher(props) {
 
             if (answer.result) {
                 // props.setCacheMessages(answer.list);
-                console.log("answer.list", answer);
+                console.log("answer.list addLink2List good", answer);
                 // setDocsList(answer.links);
 
             } else {
                 alert(answer.message);
-                // if (!docs_list) {
-                //     setDocsList([]);
-                // }
-
+                // setTeachModeState('teach');
             }
-            // setTeachMode("teach")
-            // answer.list.fo
-            // setContent('');
+
         });
     }
     const setTeachMode = (mode) => {
         setTeachModeState(mode);
-        console.log("setTeachMode mode", mode)
+
         if (mode == "teach") {
             loadLinksList()
         } else {
@@ -143,7 +142,7 @@ function Teacher(props) {
                 loadRecomendation();
             } else {
                 // addDocs
-                console.log(mode, props);
+                console.log("setTeachMode ===>>> ", mode, props);
                 // addLink2List(props.link_object, "add2list")
             }
 
@@ -200,11 +199,11 @@ function Teacher(props) {
 const mapDispatchToProps = {
     showLoader, hideLoader
 }
-// инициализация state в компоненте
+// измененеие в пропсах, когда поменялся state
 const mapStateToProps = state => ({
     docs_links: state.teacher.docs_links,
     loading: false,
-
+    link_obj: state.teacher.link_obj,
     type_resource: "cms"
 })
 // связка данных and exports
