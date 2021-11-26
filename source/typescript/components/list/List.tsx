@@ -1,25 +1,14 @@
 import * as React from "react"
 import { connect, useSelector } from 'react-redux'
 import { useState, useEffect } from "react";
-import Loader from '../loader'
-import ListElement from "./listElement";
-import { setCacheMessages } from '../../redux_project/actions/actionsList'
-{/* <label >
-Сортировать по
-<select name="" id="">
-    <option value="">Поступления обращения</option>
-    <option value="">Дата, ответа на обращение</option>
-</select>
-</label> */}
-//fix me Props interface
+import Loader from '../Loader'
+import ListElement from "./ListElement";
+
 const List = (props) => {
     const messages = useSelector((state: any): any => state.app.messages);
     let init = false;
     const loading = useSelector((state: any): any => state.app.loading);
-    // let reverce;
-    // if (reverce === undefined) {
-    //     reverce = false
-    // }
+
     const [message_state, setMessagesState] = useState([]);
     const [reverce, setReverce] = useState(true);
     useEffect(() => {

@@ -12,7 +12,7 @@ import { postJSON } from "../lib/query"
 // React.windows -библиотека
 function App(props) {
 
-    const [content, setContent] = useState("");
+    // const [content, setContent] = useState("");
     // const [messages, setMessages] = useState([]);
     console.log('props APP', props);
     // == componentDidMount
@@ -36,23 +36,12 @@ function App(props) {
                     alert(answer.message);
                 }
 
-                setContent('');
+                // setContent('');
             });
 
         };
         fetchData();
     }, []);
-
-    // function addMessage(event) {
-    //     event.preventDefault();
-    //     const new_message = [{
-    //         content: content,
-    //         id: Date.now().toString()
-    //     }];
-    //     // редукс уже передал в пропсы эту функцию
-    //     props.addMessage(new_message);
-    //     setContent('');
-    // }
 
     return (
         <div className="container" >

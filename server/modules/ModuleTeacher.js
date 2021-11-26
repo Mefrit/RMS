@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Module_Teacher = void 0;
 const ModuleDefault_1 = require("./lib/ModuleDefault");
 const bayes_1 = require("../modules/lib/bayes");
-const console = require("console");
 class Module_Teacher extends ModuleDefault_1.Module_Default {
     constructor() {
         super(...arguments);
@@ -81,7 +80,6 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
                 if (answer.result) {
                     console.log("post_data", post_data, this.checkLinks(answer.rows, post_data.link_obj.link));
                     if (!this.checkLinks(answer.rows, post_data.link_obj.link)) {
-                        const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
                         resolve(this.addNewLink(database, post_data.link_obj, post_data.link_obj.type_resource == "cms" ? 1 : 2));
                     }
                     else {

@@ -17,9 +17,9 @@ const mimeTypes = {
     ".woff2": "font/woff2",
     ".map": "application/json",
 };
-function load_static_file(request, response, uri) {
+function load_static_file(response, uri) {
     response.setHeader("Content-Type", "text/html; charset=utf-8;");
-    const filePath = request.url.substr(1);
+    const filePath = uri.pathname.slice(1);
     fs.readFile(filePath, function (error, data) {
         const parsedUrl = new URL(filePath, "https://node-http.glitch.me/");
         let pathName = parsedUrl.pathname;

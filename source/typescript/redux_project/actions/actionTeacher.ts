@@ -10,3 +10,9 @@ export function hideLoader() {
         type: HIDE_LOADER,
     };
 }
+// export function sendMessageToTeacher(message) {
+//     return {
+//         type: SEND_MESSAGE_TO_TEACHER,
+//         payload: message
+//     };
+// }

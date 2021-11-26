@@ -1,6 +1,6 @@
 import { Module_Default } from "./lib/ModuleDefault";
 import { Bayes } from "../modules/lib/bayes";
-import console = require("console");
+// import console = require("console");
 export class Module_Teacher extends Module_Default {
     actionGetDocsList = (post_data: any) => {
         return new Promise((resolve, reject) => {
@@ -75,7 +75,7 @@ export class Module_Teacher extends Module_Default {
                 if (answer.result) {
                     console.log("post_data", post_data, this.checkLinks(answer.rows, post_data.link_obj.link));
                     if (!this.checkLinks(answer.rows, post_data.link_obj.link)) {
-                        const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
+                        // const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
 
 
 

@@ -23,7 +23,7 @@ http.createServer(function (request, response) {
         });
     }
     else {
-        (0, functions_1.load_static_file)(request, response, uri);
+        (0, functions_1.load_static_file)(response, uri);
     }
 }).listen(8000);
 console.log("run server on 8000 port");

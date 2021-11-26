@@ -31,10 +31,9 @@ http.createServer(function (request, response) {
             });
         });
 
-        // response.close
-        // response.json(JSON.stringify({ result: "ok111111111" }));
     } else {
-        load_static_file(request, response, uri);
+
+        load_static_file(response, uri);
     }
 }).listen(8000);
 console.log("run server on 8000 port");

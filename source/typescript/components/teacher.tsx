@@ -9,7 +9,7 @@ import LinkEditor from '../components/linkEditor'
 import { connect, useSelector } from 'react-redux'
 import { showLoader, hideLoader } from '../redux_project/actions/actionTeacher'
 import { postJSON } from "../lib/query"
-
+import { loadMessageById } from "../lib/module_functions"
 // REACT.MEME
 // REACT.useCallBack
 // React.useMeme
@@ -26,8 +26,6 @@ function Teacher(props, dispatchProps) {
     const style_select = {
         height: "250px"
     };
-
-    // 
     // == componentDidMount,
     const loading = useSelector((state: any): any => state.teacher.loading);
     console.log("Teacher props", props, "mode ,", mode);
@@ -45,13 +43,12 @@ function Teacher(props, dispatchProps) {
                 alert(answer.message);
                 setDocsList([]);
             }
-            // answer.list.fo
-            // setContent('');
         });
 
     };
     useEffect(() => {
         console.log("useEffect", type_resource, link_obj);
+        checkParams(props.params)
         if (mode == "teach") {
             props.showLoader();
             loadLinksList();
@@ -61,9 +58,15 @@ function Teacher(props, dispatchProps) {
         }
 
     }, [type_resource, link_obj, mode]);
+    function checkParams(params) {
+        if (params.id_question) {
+            loadMessageById(params.id_question).then((question: string) => {
+                setLetter(question);
+            })
+        }
+    }
 
     function renderDocsList(data) {
-
         return data.map(elem => {
             return <option key={elem.url + elem.title} value={elem.url} title={elem.description}>{elem.title + `   (${elem.url})`}</option>
         })
@@ -140,11 +143,12 @@ function Teacher(props, dispatchProps) {
         } else {
             if (mode == "recomendation") {
                 loadRecomendation();
-            } else {
-                // addDocs
-                console.log("setTeachMode ===>>> ", mode, props);
-                // addLink2List(props.link_object, "add2list")
             }
+            // else {
+            //     // addDocs
+            //     console.log("setTeachMode ===>>> ", mode, props);
+            //     // addLink2List(props.link_object, "add2list")
+            // }
 
         }
 
