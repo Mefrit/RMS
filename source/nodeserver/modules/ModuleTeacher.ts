@@ -1,6 +1,6 @@
 import { Module_Default } from "./lib/ModuleDefault";
 import { Bayes } from "../modules/lib/bayes";
-import console = require("console");
+
 export class Module_Teacher extends Module_Default {
     actionGetDocsList = (post_data: any) => {
         return new Promise((resolve, reject) => {
@@ -43,25 +43,42 @@ export class Module_Teacher extends Module_Default {
     addNewLink(database, link_obj, id_platform) {
         return new Promise((resolve, reject) => {
             database.serialize(() => {
-
-                database.run('INSERT INTO links(url, title,description) VALUES(?, ?, ?)', [link_obj.link, link_obj.title, link_obj.description], (err, rows) => {
-                    if (err) {
-                        return resolve({ result: false, message: err.message })
-                    }
-                    database.all('SELECT MAX(id_link )as id from links', function (err, last_id) {
+                database.run(
+                    "INSERT INTO links(url, title,description) VALUES(?, ?, ?)",
+                    [link_obj.link, link_obj.title, link_obj.description],
+                    (err, rows) => {
                         if (err) {
-                            resolve({ result: false, message: "Ошибка при добавлении новой ссылки." + err.message });
+                            return resolve({ result: false, message: err.message });
                         }
-                        console.log("last_id", last_id[0].id)
-                        database.run('INSERT INTO platforms_links_access(id_link,id_platform) VALUES(?, ?)', [last_id[0].id, id_platform], (err) => {
+                        database.all("SELECT MAX(id_link )as id from links", function (err, last_id) {
                             if (err) {
-                                return resolve({ result: false, message: "Ошибка при добавлении новой ссылки." + err.message })
+                                resolve({
+                                    result: false,
+                                    message: "Ошибка при добавлении новой ссылки." + err.message,
+                                });
                             }
-                            console.log('Row was added to the table: ${this.lastID}', id_platform, last_id[0].id);
-                            return resolve({ result: true })
-                        })
-                    });
-                })
+                            console.log("last_id", last_id[0].id);
+                            database.run(
+                                "INSERT INTO platforms_links_access(id_link,id_platform) VALUES(?, ?)",
+                                [last_id[0].id, id_platform],
+                                (err) => {
+                                    if (err) {
+                                        return resolve({
+                                            result: false,
+                                            message: "Ошибка при добавлении новой ссылки." + err.message,
+                                        });
+                                    }
+                                    console.log(
+                                        "Row was added to the table: ${this.lastID}",
+                                        id_platform,
+                                        last_id[0].id
+                                    );
+                                    return resolve({ result: true });
+                                }
+                            );
+                        });
+                    }
+                );
             });
         });
     }
@@ -70,16 +87,20 @@ export class Module_Teacher extends Module_Default {
             const database = this.db_obj.getDB();
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${post_data.link_obj.type_resource}" `;
-            console.log("query", query)
+            console.log("query", query);
             this.getDocsLinks(database, query).then((answer: any) => {
                 if (answer.result) {
                     console.log("post_data", post_data, this.checkLinks(answer.rows, post_data.link_obj.link));
                     if (!this.checkLinks(answer.rows, post_data.link_obj.link)) {
-                        const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
+                        // const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
 
-
-
-                        resolve(this.addNewLink(database, post_data.link_obj, post_data.link_obj.type_resource == "cms" ? 1 : 2));
+                        resolve(
+                            this.addNewLink(
+                                database,
+                                post_data.link_obj,
+                                post_data.link_obj.type_resource == "cms" ? 1 : 2
+                            )
+                        );
                     } else {
                         resolve({ result: false, message: "Ссылка уже существует в списке" });
                     }

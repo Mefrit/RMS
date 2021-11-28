@@ -1,4 +1,5 @@
-const sqlite3 = require("sqlite3").verbose();
+// const sqlite3 = require("sqlite3").verbose();
+import * as sqlite3 from "sqlite3";
 export class DataBase {
     db: any;
     constructor() {
@@ -8,7 +9,6 @@ export class DataBase {
         return new Promise((resolve, reject) => {
             this.db = new sqlite3.Database(path2db, (err) => {
                 if (err) {
-
                     resolve({ result: false, message: "Ошибка при подключении к базе данных. " + err.message });
                 }
                 resolve({ result: true });

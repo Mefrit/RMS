@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataBase = void 0;
-const sqlite3 = require("sqlite3").verbose();
+const sqlite3 = require("sqlite3");
 class DataBase {
     constructor() {
         this.db = undefined;

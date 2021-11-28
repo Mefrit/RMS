@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Module_Teacher = void 0;
 const ModuleDefault_1 = require("./lib/ModuleDefault");
 const bayes_1 = require("../modules/lib/bayes");
-const console = require("console");
 class Module_Teacher extends ModuleDefault_1.Module_Default {
     constructor() {
         super(...arguments);
@@ -50,20 +49,26 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
     addNewLink(database, link_obj, id_platform) {
         return new Promise((resolve, reject) => {
             database.serialize(() => {
-                database.run('INSERT INTO links(url, title,description) VALUES(?, ?, ?)', [link_obj.link, link_obj.title, link_obj.description], (err, rows) => {
+                database.run("INSERT INTO links(url, title,description) VALUES(?, ?, ?)", [link_obj.link, link_obj.title, link_obj.description], (err, rows) => {
                     if (err) {
                         return resolve({ result: false, message: err.message });
                     }
-                    database.all('SELECT MAX(id_link )as id from links', function (err, last_id) {
+                    database.all("SELECT MAX(id_link )as id from links", function (err, last_id) {
                         if (err) {
-                            resolve({ result: false, message: "Ошибка при добавлении новой ссылки." + err.message });
+                            resolve({
+                                result: false,
+                                message: "Ошибка при добавлении новой ссылки." + err.message,
+                            });
                         }
                         console.log("last_id", last_id[0].id);
-                        database.run('INSERT INTO platforms_links_access(id_link,id_platform) VALUES(?, ?)', [last_id[0].id, id_platform], (err) => {
+                        database.run("INSERT INTO platforms_links_access(id_link,id_platform) VALUES(?, ?)", [last_id[0].id, id_platform], (err) => {
                             if (err) {
-                                return resolve({ result: false, message: "Ошибка при добавлении новой ссылки." + err.message });
+                                return resolve({
+                                    result: false,
+                                    message: "Ошибка при добавлении новой ссылки." + err.message,
+                                });
                             }
-                            console.log('Row was added to the table: ${this.lastID}', id_platform, last_id[0].id);
+                            console.log("Row was added to the table: ${this.lastID}", id_platform, last_id[0].id);
                             return resolve({ result: true });
                         });
                     });
@@ -81,7 +86,6 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
                 if (answer.result) {
                     console.log("post_data", post_data, this.checkLinks(answer.rows, post_data.link_obj.link));
                     if (!this.checkLinks(answer.rows, post_data.link_obj.link)) {
-                        const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
                         resolve(this.addNewLink(database, post_data.link_obj, post_data.link_obj.type_resource == "cms" ? 1 : 2));
                     }
                     else {

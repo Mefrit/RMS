@@ -4,6 +4,7 @@ exports.Application = void 0;
 const DataBase_1 = require("./modules/lib/DataBase");
 const ModuleApp_1 = require("./modules/ModuleApp");
 const ModuleTeacher_1 = require("./modules/ModuleTeacher");
+const ModuleComments_1 = require("./modules/ModuleComments");
 class Application {
     constructor(path2db) {
         this.db_obj = new DataBase_1.DataBase();
@@ -15,6 +16,8 @@ class Application {
                 return ModuleApp_1.Module_App;
             case "Teacher":
                 return ModuleTeacher_1.Module_Teacher;
+            case "Comments":
+                return ModuleComments_1.Module_Comments;
             default:
                 return undefined;
         }

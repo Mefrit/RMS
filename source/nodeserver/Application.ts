@@ -1,6 +1,7 @@
 import { DataBase } from "./modules/lib/DataBase";
 import { Module_App } from "./modules/ModuleApp";
 import { Module_Teacher } from "./modules/ModuleTeacher";
+import { Module_Comments } from "./modules/ModuleComments";
 export class Application {
     db_obj: any;
     path2db: string;
@@ -14,7 +15,8 @@ export class Application {
                 return Module_App;
             case "Teacher":
                 return Module_Teacher;
-
+            case "Comments":
+                return Module_Comments;
             default:
                 return undefined;
         }
@@ -24,7 +26,7 @@ export class Application {
             this.db_obj.initDB(this.path2db).then((answ) => {
                 if (answ.result) {
                     // const database = this.db_obj.getDB();
-                    // console.log(database);
+
                     const Module = this.getModule(module_info.module);
                     if (Module) {
                         const obj = new Module({ db_obj: this.db_obj });
