@@ -126,7 +126,6 @@ class Bayes {
             }
             else {
                 if (word != "" && this.prepositions.indexOf(word) == -1) {
-                    console.log("HEREE");
                     cache_probability_links = this.setLinkNotFound(total_links_inf, total_result, cache_probability_links);
                 }
             }

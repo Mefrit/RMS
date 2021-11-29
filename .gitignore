@@ -1,5 +1,5 @@
 # IDE
 public/script
 public/css
-
+*.map
 node_modules/

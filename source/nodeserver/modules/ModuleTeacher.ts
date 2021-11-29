@@ -5,7 +5,7 @@ export class Module_Teacher extends Module_Default {
     actionGetDocsList = (post_data: any) => {
         return new Promise((resolve, reject) => {
             console.log("getDocsList");
-            const database = this.db_obj.getDB();
+            const database = this.db.getDBSqlite();
             console.log("post_data ==> ", post_data);
             if (post_data.type_resource == "cms") {
                 this.getDocsLinks(database, `SELECT * FROM links`).then((answer: any) => {
@@ -67,7 +67,7 @@ export class Module_Teacher extends Module_Default {
     }
     actionEditListLinks(post_data) {
         return new Promise((resolve, reject) => {
-            const database = this.db_obj.getDB();
+            const database = this.db.getDBSqlite();
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${post_data.link_obj.type_resource}" `;
             console.log("query", query)
@@ -96,7 +96,7 @@ export class Module_Teacher extends Module_Default {
         return new Promise((resolve, reject) => {
             console.log("actionGetRecomendation", post_data);
             const train_byes = new Bayes("");
-            const database = this.db_obj.getDB();
+            const database = this.db.getDBSqlite();
             const type_resource = post_data.type_resource;
 
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
@@ -114,7 +114,7 @@ export class Module_Teacher extends Module_Default {
     actionTrain(post_data: any) {
         return new Promise((resolve, reject) => {
             const train_byes = new Bayes("");
-            const database = this.db_obj.getDB();
+            const database = this.db.getDBSqlite();
             const type_resource = post_data.type_resource;
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform =  pla.id_platform WHERE  pl.title="${type_resource}" `;

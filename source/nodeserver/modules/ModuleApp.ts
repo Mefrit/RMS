@@ -3,7 +3,7 @@ import { Module_Default } from "./lib/ModuleDefault";
 export class Module_App extends Module_Default {
     actionGetList = (post_data: any) => {
         return new Promise((resolve, reject) => {
-            const database = this.db_obj.getDB();
+            const database = this.db.getDBSqlite();
             const numb_record_start = (post_data.page - 1) * post_data.on_page;
             const numb_record_finish = post_data.page * post_data.on_page;
             database.serialize(() => {
@@ -22,7 +22,7 @@ export class Module_App extends Module_Default {
     };
     actionGetMessage = (post_data: any) => {
         return new Promise((resolve, reject) => {
-            const database = this.db_obj.getDB();
+            const database = this.db.getDBSqlite();
             const id_question = post_data.id_question;
 
             database.serialize(() => {

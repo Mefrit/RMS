@@ -19,12 +19,13 @@ export function load_static_file(response, uri) {
 
     // получаем путь после слеша
     // const filePath = request.url.substr(1);
-    const filePath = uri.pathname.slice(1);
+    const filePath = ".." + uri.pathname;
 
     fs.readFile(filePath, function (error, data) {
         const parsedUrl = new URL(filePath, "https://node-http.glitch.me/");
         let pathName = parsedUrl.pathname;
         let ext = path.extname(pathName);
+
         if (error) {
             response.statusCode = 404;
             response.end("Resourse not found!");

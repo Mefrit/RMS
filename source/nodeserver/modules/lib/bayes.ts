@@ -157,7 +157,7 @@ export class Bayes {
                 );
             } else {
                 if (word != "" && this.prepositions.indexOf(word) == -1) {
-                    console.log("HEREE");
+
                     cache_probability_links = this.setLinkNotFound(
                         total_links_inf,
                         total_result,
@@ -172,9 +172,7 @@ export class Bayes {
         for (var key in cache_probability_links) {
             sortable[key] = cache_probability_links[key];
         }
-        // console.log(" AFTER ALL Sortable ", sortable);
         let sorted_keys = this.getSortedKeys(sortable);
-
         let new_sortable = [];
         let count = 0;
         sorted_keys.forEach((elem, index, arr) => {
@@ -183,9 +181,6 @@ export class Bayes {
             }
             count++;
         });
-        // console.log(" new_sortable ", new_sortable);
-        // return [];
-        // console.log("this.prepareDocsLinks(new_sortable, about_links)", this.prepareDocsLinks(new_sortable, about_links));
         return this.prepareDocsLinks(new_sortable, links_docs);
     }
     getSortedKeys(obj) {

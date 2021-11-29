@@ -19,7 +19,7 @@ const mimeTypes = {
 };
 function load_static_file(response, uri) {
     response.setHeader("Content-Type", "text/html; charset=utf-8;");
-    const filePath = uri.pathname.slice(1);
+    const filePath = ".." + uri.pathname;
     fs.readFile(filePath, function (error, data) {
         const parsedUrl = new URL(filePath, "https://node-http.glitch.me/");
         let pathName = parsedUrl.pathname;
