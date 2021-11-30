@@ -19,9 +19,20 @@ class Module_Comments extends ModuleDefault_1.Module_Default {
                 const db_cis = this.db.getDBCis();
                 console.log("post_data comments", post_data);
                 const comments = yield this.makeRequestSqliteDB(db_sqlite, "SELECT comment, id_comment, id_user FROM Comments WHERE id_question=" + post_data.id_question);
+                let cache_users = [];
+                comments.rows.forEach((comment) => {
+                    if (cache_users.indexOf(comment.id_user) == -1) {
+                        cache_users.push(comment.id_user);
+                    }
+                });
+                const users_info = yield this.makeRequestCisDB(db_cis, "SELECT name_i, name_f,id_user FROM users WHERE id_user IN (" + cache_users.join(",") + ")");
+                console.log(users_info);
                 const question = "";
                 if (comments.result) {
-                    resolve({ result: true, answer: { comments: comments.rows, question: question } });
+                    resolve({
+                        result: true,
+                        answer: { comments: comments.rows, question: question, users_info: users_info.rows },
+                    });
                 }
                 resolve({ result: false, message: "Не удалось загрузить комментарии к вопросу." });
             }));

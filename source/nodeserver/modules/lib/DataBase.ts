@@ -5,7 +5,7 @@ export class DataBase {
     db_cis: any;
     constructor() {
         this.db_sqlite = undefined;
-        this.db_cis = undefined
+        this.db_cis = undefined;
     }
     async initDBSqlite(path2db) {
         return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ export class DataBase {
                 password: "cis_passwd",
                 port: 5432,
             });
-            client.connect()
+            client.connect();
             if (client) {
                 this.db_cis = client;
                 resolve({ result: true });

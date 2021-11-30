@@ -26,6 +26,6 @@ http.createServer(function (request, response) {
         (0, functions_1.load_static_file)(response, uri);
     }
 }).listen(8000);
-console.log("run server on 8000 port");
+console.log("run server on 8000 port111");
 
 //# sourceMappingURL=maps/index.js.map

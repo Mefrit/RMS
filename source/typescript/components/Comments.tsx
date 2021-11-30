@@ -1,62 +1,4 @@
-// import * as React from "react"
-// import { Suspense, lazy } from 'react';
-// import { useEffect, useState } from "react";
-// import List from "./list/List"
-// import { loadMessageById } from "../lib/module_functions"
-// import { connect } from 'react-redux';
-// import { showLoader, hideLoader } from '../redux_project/actions/actionsList'
-// import { postJSON } from "../lib/query"
-// // REACT.MEME
-// // REACT.useCallBack
-// // React.useMeme
-// // React.lazy
-// // React.windows -библиотека
-// function Comments(props) {
-//     const [letter, setLetter] = useState("");
-//     const [comments, setComments] = useState([]);
-//     // const [content, setContent] = useState("");
-//     // const [messages, setMessages] = useState([]);
-//     console.log('props APP', props);
-//     // == componentDidMount
-//     useEffect(() => {
-//         props.showLoader(); 
-//         checkParams(props.params);
-//         loadComments();
 
-//     }, []);
-//     const loadComments = async () => {
-//         // postJSON("/?module=App&action=GetList", {
-//         //     page: 1,
-//         //     on_page: 20,
-//         //     order: "time_receipt"
-//         // }).then((answer) => {
-//         //     props.hideLoader();
-//         //     console.log("result FORM SERVER", answer);
-//         //     if (answer.result) {
-//         //         props.setCacheMessages(answer.list);
-//         //     } else {
-//         //         alert(answer.message);
-//         //     }
-//         //     // setContent('');
-//         // });
-//     }
-//     function checkParams(params) {
-//         if (params.id_question) {
-//             loadMessageById(params.id_question).then((question: string) => {
-//                 setLetter(question);
-//                 props.hideLoader();
-//             })
-//         }
-//     }
-//     return (
-//         <div className="container" >
-//             <div className="column">
-//                 <h1>Comment</h1>
-//                 <p>{letter}</p>
-//             </div>
-//         </div >);
-
-// }
 import * as React from "react"
 import { useEffect, useState } from "react";
 // import List from "./list/List"
@@ -77,6 +19,7 @@ function Comments(props, dispatchProps) {
     const [id_user, setIdUser] = useState(props.params.id_user);
     const [comments, setComments] = useState([]);
     const [user_comment, setUserComment] = useState("");
+    const [users_info, setUsersInfo] = useState([]);
     const [question, setQuestion] = useState("");
     const loading = useSelector((state: any): any => state.teacher.loading);
     useEffect(() => {
@@ -96,13 +39,11 @@ function Comments(props, dispatchProps) {
             if (res.result) {
                 setComments(res.answer.comments);
                 setQuestion(res.answer.question);
+                setUsersInfo(res.answer.question.users_info);
             } else {
                 alert(res.message);
             }
-            // answer.list.fo
-            // setContent('');
         });
-
     };
     const addComment = (ev) => {
         ev.preventDefault();
@@ -114,24 +55,39 @@ function Comments(props, dispatchProps) {
             props.hideLoader();
             console.log("AddComments=", res);
             if (res.result) {
-                // alert()
-                console.log("add commetn ", comments);
 
+                console.log("add commetn ", comments);
             } else {
                 alert(res.message);
             }
-
         });
     }
     if (loading) {
         return <Loader />
     }
     function renderComments(comments) {
-        const class_cache = " list-group-item small p-2 ms-3 mb-1 rounded-3   w-50 mt-1";
+        let class_cache;
+
         return comments.map(elem => {
-            console.log(elem);
-            return <li className={elem.id_user == id_user ? class_cache + " bg-primary text-white " : class_cache + "bg-white"} key={elem.id_comment} > <span>{elem.author} </span> <span>{elem.comment}</span></li >
+            class_cache = " list-group-item small p-2  rounded-3 m-3 mb-0 mt-2";
+            console.log(elem, elem.comment.length);
+            if (elem.comment.length < 20) {
+                class_cache += " w-25"
+            } else {
+                if (elem.comment.length > 200) {
+                    class_cache += " w-100"
+                } else {
+                    class_cache += " w-50"
+                }
+            }
+            return <li className={elem.id_user == id_user ? class_cache + " bg-primary text-white " : class_cache + " bg-white"} key={elem.id_comment} >
+                <small className="form-text  w-100  text-info" >{getuserInfoById()}</small>
+                <div className="row w-100 mt-1" ><span >{elem.comment}</span></div>
+            </li >
         })
+    }
+    function getuserInfoById() {
+        return "AUTHOR1";
     }
     return <div className="container  w-75">
         <p className=" bg-light p1 rounded-3 w-75">{question}</p>

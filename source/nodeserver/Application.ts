@@ -23,7 +23,6 @@ export class Application {
     }
     loadModule(module_info: any, post_data) {
         return new Promise(async (resolve, reject) => {
-
             const answ_sqlite = await this.db.initDBSqlite(this.path2db);
             const answ_cis = await this.db.initDBCis(this.path2db);
 
@@ -43,7 +42,6 @@ export class Application {
                 }
                 resolve(answ_cis);
             }
-
         });
     }
 }
