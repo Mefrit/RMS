@@ -17,11 +17,12 @@ import { loadMessageById } from "../lib/module_functions"
 // React.windows -библиотека
 function Teacher(props, dispatchProps) {
 
-    const [mode, setTeachModeState] = useState('teach');
+    const [mode, setTeachModeState] = useState(props.params.mode ? props.params.mode : 'teach');
     const [docs_list, setDocsList] = useState([]);
     const [type_resource, setTypeResource] = useState(props.type_resource);
     const link_obj = useSelector((state: any): any => state.teacher.link_obj);
     const [letter, setLetter] = useState("");
+
     let user_docs_links = [];
     const style_select = {
         height: "250px"
@@ -47,28 +48,59 @@ function Teacher(props, dispatchProps) {
 
     };
     useEffect(() => {
-        console.log("useEffect", type_resource, link_obj);
-        checkParams(props.params)
+        console.log("MOUNT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n\n\n\n")
+        checkParams(props.params).then(data => {
+            if (mode == "teach") {
+                props.showLoader();
+                loadLinksList();
+            }
+
+            if (mode == "edit_links_list" && link_obj.title != "") {
+                addLink2List(link_obj, mode);
+            }
+        })
+    }, []);
+    useEffect(() => {
+        console.log("mode !!!!!!!!!!! \n\n\n\n", mode);
+
         if (mode == "teach") {
             props.showLoader();
             loadLinksList();
         }
+
         if (mode == "edit_links_list" && link_obj.title != "") {
             addLink2List(link_obj, mode);
         }
 
+
     }, [type_resource, link_obj, mode]);
     function checkParams(params) {
-        if (params.id_question) {
-            loadMessageById(params.id_question).then((question: string) => {
-                setLetter(question);
-            })
-        }
+        // return Promise
+        return new Promise((resolve, rejects) => {
+            if (params.id_question) {
+                loadMessageById(params.id_question).then((question: string) => {
+                    setLetter(question);
+
+                    if (params.mode) {
+                        if (params.mode == "recomendation") {
+                            loadRecomendation(question);
+                            resolve({});
+                        }
+                    } else {
+                        resolve({});
+                    }
+                })
+            }
+
+        });
+
     }
 
     function renderDocsList(data) {
         return data.map(elem => {
-            return <option key={elem.url + elem.title} value={elem.url} title={elem.description}>{elem.title + `   (${elem.url})`}</option>
+            return <option key={elem.url + elem.title} value={elem.url} title={elem.description}>
+                {elem.title + `   (${elem.url})`}
+            </option>
         })
     }
     const train = () => {
@@ -83,6 +115,9 @@ function Teacher(props, dispatchProps) {
             if (answer.result) {
                 console.log("answer.list", answer.docs_links);
                 setDocsList(answer.docs_links);
+                if (answer.message) {
+                    alert(answer.message);
+                }
             } else {
                 alert(answer.message);
                 if (!docs_list) {
@@ -92,9 +127,10 @@ function Teacher(props, dispatchProps) {
 
         });
     }
-    const loadRecomendation = async () => {
+    const loadRecomendation = async (text = letter) => {
+        console.log("LOADDD  loadRecomendation\n\n \n", text);
         postJSON("/?module=Teacher&action=GetRecomendation", {
-            letter: letter,
+            letter: text,
             type_resource: type_resource
         }).then((answer) => {
             props.hideLoader();

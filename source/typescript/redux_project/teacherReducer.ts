@@ -1,4 +1,4 @@
-import { SHOW_LOADER, HIDE_LOADER, ADD_LINK } from "./types";
+import { SHOW_LOADER, HIDE_LOADER, ADD_LINK, SET_MODE } from "./types";
 
 const initialState = {
     loading: false,
@@ -13,7 +13,7 @@ const initialState = {
 
 export const teacherReducer = (state = initialState, action) => {
     // содержится тот контенк, которых мы укажем в обработчикек action.payload
-    console.log("teacherReducer => ", action, state);
+    console.log("teacherReducer => !!!!!!!!!!!!!!!!!!!!!!! ", action, state);
     switch (action.type) {
         // case ADD_MESSAGE:
         //     return { ...state, messages: state.messages.concat(action.payload) };
@@ -24,6 +24,8 @@ export const teacherReducer = (state = initialState, action) => {
             return { ...state, link_obj: action.payload };
         case HIDE_LOADER:
             return { ...state, loading: false };
+        case SET_MODE:
+            return { ...state, params: action.payload };
         default:
             return state;
     }

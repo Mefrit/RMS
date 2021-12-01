@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useState } from "react";
+import { getTime } from "../../lib/module_functions";
 export default ({ props }) => {
 
     const [open_modal, setModal] = useState(false);
@@ -12,12 +13,12 @@ export default ({ props }) => {
                 <ul className={open_modal ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton1">
                     <li><a className="dropdown-item" href={"./comments.html?id_question=" + props.id_question}>Посмотреть комментарии</a></li>
                     <li><a className="dropdown-item" href={"./teach.html?id_question=" + props.id_question}>Обучить алгоритм по письму</a></li>
-                    <li><a className="dropdown-item" href="#">Посмотреть, рекомендации системы по этому вопросу</a></li>
+                    <li><a className="dropdown-item" href={"./teach.html?id_question=" + props.id_question + "&mode=recomendation"}>Посмотреть, рекомендации системы по этому вопросу</a></li>
                 </ul>
             </div>
             <span className="col-7">{props.question}</span>
-            <div className="col-2 text-center " >{props.is_answered == "true" ? new Date(props.time_answering).toUTCString() : "x"}</div>
-            <div className="col-2 text-center ">{props.time_receipt ? new Date(props.time_receipt).toUTCString() : "y"}</div>
-        </li>
+            <div className="col-2 text-center " >{props.is_answered == "true" ? getTime(new Date(props.time_answering)) : "x"}</div>
+            <div className="col-2 text-center ">{props.time_receipt ? getTime(new Date(props.time_receipt)) : "y"}</div>
+        </li >
     )
 }

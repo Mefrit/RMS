@@ -75,10 +75,6 @@ export class Module_Teacher extends Module_Default {
                 if (answer.result) {
                     console.log("post_data", post_data, this.checkLinks(answer.rows, post_data.link_obj.link));
                     if (!this.checkLinks(answer.rows, post_data.link_obj.link)) {
-                        // const sql_insert = "INSERT INTO users(name, age) VALUES(?, ?)";
-
-
-
                         resolve(this.addNewLink(database, post_data.link_obj, post_data.link_obj.type_resource == "cms" ? 1 : 2));
                     } else {
                         resolve({ result: false, message: "Ссылка уже существует в списке" });
@@ -107,7 +103,7 @@ export class Module_Teacher extends Module_Default {
 
                     resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
                 }
-                resolve({ result: false, message: "Не удалось обучить алгоритм" });
+                resolve({ result: false, message: "Не удалось получить рекомендации." });
             });
         });
     }
@@ -123,7 +119,7 @@ export class Module_Teacher extends Module_Default {
                     console.log("post_data", post_data);
                     console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));
                 }
-                resolve({ result: false, message: "Не удалось обучить алгоритм" });
+                resolve({ result: true, message: "Алгоритм успешно переобучен." });
             });
             resolve({ result: false, message: "Не удалось обучить алгоритм." });
         });

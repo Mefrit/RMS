@@ -7,6 +7,7 @@ export class Module_Default {
     }
     // все актион связанные с БД возвращают Promise?
     runtAction(name_action, data) {
+
         return this["action" + name_action](data);
     }
 

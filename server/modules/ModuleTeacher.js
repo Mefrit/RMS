@@ -103,7 +103,7 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
                     console.log("post_data", post_data);
                     resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
                 }
-                resolve({ result: false, message: "Не удалось обучить алгоритм" });
+                resolve({ result: false, message: "Не удалось получить рекомендации." });
             });
         });
     }
@@ -119,7 +119,7 @@ class Module_Teacher extends ModuleDefault_1.Module_Default {
                     console.log("post_data", post_data);
                     console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));
                 }
-                resolve({ result: false, message: "Не удалось обучить алгоритм" });
+                resolve({ result: true, message: "Алгоритм успешно переобучен." });
             });
             resolve({ result: false, message: "Не удалось обучить алгоритм." });
         });

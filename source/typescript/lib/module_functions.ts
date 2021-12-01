@@ -1,6 +1,6 @@
 // в дефолтную функцию
 import { postJSON } from "./query"
-import { loadMessageById } from "../lib/module_functions"
+
 export function loadMessageById(id_question) {
 
     return new Promise((resolve, reject) => {
@@ -17,6 +17,13 @@ export function loadMessageById(id_question) {
     })
 }
 
+function t2Dig(num) {
+    return ("0" + num.toString()).slice(-2);
+}
+export function getTime(dat) {
+    return dat.getFullYear() + "/" + dat.getMonth() + "/" + dat.getDay() + " " + t2Dig(dat.getHours()) + ":" +
+        t2Dig(dat.getMinutes())
+}
 export function getParams(url = window.location) {
     let params = {};
     const url_str = url.toString();
