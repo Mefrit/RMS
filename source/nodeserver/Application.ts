@@ -21,23 +21,23 @@ export class Application {
                 return undefined;
         }
     }
-    loadModule(module_info: any, post_data) {
+    loadModule(post_data) {
         return new Promise(async (resolve, reject) => {
             const answ_sqlite = await this.db.initDBSqlite(this.path2db);
-            const answ_cis = await this.db.initDBCis(this.path2db);
+            const answ_cis = await this.db.initDBCis();
 
             if (answ_sqlite.result && answ_cis.result) {
-                const Module = this.getModule(module_info.module);
+                const Module = this.getModule(post_data.module);
                 if (Module) {
                     const obj = new Module({ db: this.db });
-                    obj.runtAction(module_info.action, post_data).then((answer) => {
+                    obj.runtAction(post_data.action, post_data).then((answer) => {
                         resolve(answer);
                     });
                 } else {
                     resolve({ result: false, message: "Произошла ошибка при загрузке модуля. Модуль не найден" });
                 }
             } else {
-                if (answ_sqlite.result) {
+                if (!answ_sqlite.result) {
                     resolve(answ_sqlite);
                 }
                 resolve(answ_cis);

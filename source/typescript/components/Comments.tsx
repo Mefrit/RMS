@@ -49,9 +49,11 @@ function Comments(props, dispatchProps) {
     }, [id_question]);
     const loadComments = async (id_question) => {
 
-        postJSON("/?module=Comments&action=GetInfoComments", {
+        postJSON("/api", {
             id_question: id_question,
-            id_user: id_user
+            id_user: id_user,
+            module: "Comments",
+            action: "GetInfoComments"
         }).then((res) => {
             props.hideLoaderComments();
             // console.log("result FORM SERVER Comments WHERE id_question =", res);
@@ -70,11 +72,13 @@ function Comments(props, dispatchProps) {
     const addComment = (ev) => {
         ev.preventDefault();
         let new_comments = [], curent_time = new Date().getUTCDate();
-        postJSON("/?module=Comments&action=AddComment", {
+        postJSON("/api", {
             id_question: id_question,
             comment: user_comment,
             id_user: id_user,
-            time: curent_time
+            time: curent_time,
+            module: "Comments",
+            action: "AddComment"
         }).then((res) => {
             props.hideLoaderComments();
             console.log("AddComments=", res);

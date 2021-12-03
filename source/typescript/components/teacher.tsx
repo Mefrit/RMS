@@ -33,7 +33,9 @@ function Teacher(props, dispatchProps) {
     const loadLinksList = async () => {
 
         postJSON("/?module=Teacher&action=GetDocsList", {
-            type_resource: type_resource
+            type_resource: type_resource,
+            module: "Teacher",
+            action: "GetDocsList"
         }).then((answer) => {
             props.hideLoader();
             console.log("result FORM SERVER TEACHER", answer);
@@ -104,11 +106,12 @@ function Teacher(props, dispatchProps) {
         })
     }
     const train = () => {
-
-        postJSON("/?module=Teacher&action=Train", {
+        postJSON("/api", {
             letter: letter,
             type_resource: type_resource,
-            user_docs_links: user_docs_links
+            user_docs_links: user_docs_links,
+            module: "Teacher",
+            action: "Train"
         }).then((answer) => {
             props.hideLoader();
             console.log("result FORM SERVER TEACHER", answer);
@@ -124,14 +127,15 @@ function Teacher(props, dispatchProps) {
                     setDocsList([]);
                 }
             }
-
         });
     }
     const loadRecomendation = async (text = letter) => {
         console.log("LOADDD  loadRecomendation\n\n \n", text);
-        postJSON("/?module=Teacher&action=GetRecomendation", {
+        postJSON("/api", {
             letter: text,
-            type_resource: type_resource
+            type_resource: type_resource,
+            module: "Teacher",
+            action: "GetRecomendation"
         }).then((answer) => {
             props.hideLoader();
 
@@ -153,9 +157,11 @@ function Teacher(props, dispatchProps) {
     const addLink2List = async (link_obj, mode) => {
         console.log("addLink1List", link_obj);
         props.showLoader();
-        postJSON("/?module=Teacher&action=EditListLinks", {
+        postJSON("/api", {
             link_obj: link_obj,
-            mode: mode
+            mode: mode,
+            module: "Teacher",
+            action: "EditListLinks"
         }).then((answer) => {
             props.hideLoader();
 

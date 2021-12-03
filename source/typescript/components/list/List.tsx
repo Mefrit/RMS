@@ -63,7 +63,9 @@ const List = (props) => {
             return <p className="text-center">Сообщений пока нет</p>
         }
     console.log("props ", props);
-    return <ul className="col-sm list-group container" >{renderlistInterface()} {message_state.map((message, index, arr) => { console.log("message 11111==>>> ", message.time_receipt + "_" + index, message, index); return <ListElement props={message} key={message.time_receipt + "_" + index} /> })}</ul>
+    return <ul className="col-sm list-group container" >{renderlistInterface()} {message_state.map((message, index, arr) => {
+        return <ListElement props={message} key={message.time_receipt + "_" + index} />
+    })}</ul>
 }
 
 const mapStateToProps = state => {

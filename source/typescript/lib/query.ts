@@ -14,10 +14,19 @@ export function postJSON(url, args) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
+
+                "Authorization": "Basic " + btoa("customuser:custompassword")
             },
-            body: JSON.stringify(args),
+            body: JSON.stringify({ ...args }),
+        }).then((response) => {
+            console.log('response -===>  ', response.status);
+            if (response.status == 401) {
+                return { result: false, message: "Вы не вошли в систему, пожалуйста, авторизуйтесь" }
+            } else {
+                return response.json();
+            }
+
         })
-            .then((response) => response.json())
             .then((data) => {
                 return data;
             });

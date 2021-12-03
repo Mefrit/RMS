@@ -19,10 +19,12 @@ function App(props) {
     useEffect(() => {
         props.showLoader();
         const fetchData = async () => {
-            postJSON("/?module=App&action=GetList", {
+            postJSON("/api", {
                 page: 1,
                 on_page: 20,
-                order: "time_receipt"
+                order: "time_receipt",
+                module: "App",
+                action: "GetList"
             }).then((answer) => {
                 props.hideLoader();
                 console.log("result FORM SERVER", answer);

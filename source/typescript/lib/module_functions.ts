@@ -4,8 +4,11 @@ import { postJSON } from "./query"
 export function loadMessageById(id_question) {
 
     return new Promise((resolve, reject) => {
-        postJSON("/?module=App&action=GetMessage", {
+        postJSON("/api", {
             id_question: id_question
+            ,
+            module: "App",
+            action: "GetMessage"
         }).then((answer) => {
             if (answer.result) {
                 resolve(answer.question);
