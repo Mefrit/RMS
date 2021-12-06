@@ -29,16 +29,10 @@ class DataBase {
             });
         });
     }
-    initDBCis() {
+    initDBCis(cis_connect) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {
-                const client = new pg_1.Client({
-                    user: "cis",
-                    host: "localhost",
-                    database: "db_cis",
-                    password: "cis_passwd",
-                    port: 5432,
-                });
+                const client = new pg_1.Client(cis_connect);
                 client.connect();
                 if (client) {
                     this.db_cis = client;

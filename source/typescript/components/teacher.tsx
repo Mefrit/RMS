@@ -32,7 +32,7 @@ function Teacher(props, dispatchProps) {
     console.log("Teacher props", props, "mode ,", mode);
     const loadLinksList = async () => {
 
-        postJSON("/?module=Teacher&action=GetDocsList", {
+        postJSON("/api", {
             type_resource: type_resource,
             module: "Teacher",
             action: "GetDocsList"

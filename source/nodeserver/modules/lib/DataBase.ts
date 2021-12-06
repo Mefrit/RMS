@@ -17,15 +17,9 @@ export class DataBase {
             });
         });
     }
-    async initDBCis() {
+    async initDBCis(cis_connect) {
         return new Promise((resolve, reject) => {
-            const client = new Client({
-                user: "cis",
-                host: "localhost",
-                database: "db_cis",
-                password: "cis_passwd",
-                port: 5432,
-            });
+            const client = new Client(cis_connect);
             client.connect();
             if (client) {
                 this.db_cis = client;

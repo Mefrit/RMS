@@ -78,7 +78,7 @@ export class Module_Comments extends Module_Default {
 
             resolve({
                 result: true,
-                answer: { comments: comments, question: question, users_info: users_info },
+                answer: { comments: comments, question: question, users_info: users_info, id_user: post_data.id_user },
             });
 
         });

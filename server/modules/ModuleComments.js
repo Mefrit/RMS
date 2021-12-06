@@ -70,7 +70,7 @@ class Module_Comments extends ModuleDefault_1.Module_Default {
                 console.log("!!!!!!!!!!!!!! comments", cache_id_users);
                 resolve({
                     result: true,
-                    answer: { comments: comments, question: question, users_info: users_info },
+                    answer: { comments: comments, question: question, users_info: users_info, id_user: post_data.id_user },
                 });
             }));
         });

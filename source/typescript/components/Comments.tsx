@@ -56,14 +56,16 @@ function Comments(props, dispatchProps) {
             action: "GetInfoComments"
         }).then((res) => {
             props.hideLoaderComments();
-            // console.log("result FORM SERVER Comments WHERE id_question =", res);
+
             if (res.result) {
                 props.loadInfoComments({
                     comments: res.answer.comments,
                     question: res.answer.question,
                     users_info: res.answer.users_info,
                 });
-
+                if (res.id_user && id_user === undefined) {
+                    console.log("result FORM SERVER Comments WHERE id_question =", res, id_user);
+                }
             } else {
                 alert(res.message);
             }

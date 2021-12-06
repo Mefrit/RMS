@@ -1,6 +1,15 @@
 import * as express from 'express';
 const port = 8000;
 const basePath = 'localhost:8000';
+import { md5 } from "md5";
+import * as session from 'express-session';
+import * as bodyParser from 'body-parser';
+var md5 = require('md5');
+const app = express();
+const path = require('path');
+import { Application } from "./Application";
+
+const path2db_sqlite = "./database.db3";
 const dsn_cis = {
     user: "cis",
     host: "localhost",
@@ -8,26 +17,35 @@ const dsn_cis = {
     password: "cis_passwd",
     port: 5432,
 }
-import * as session from 'express-session';
-import * as bodyParser from 'body-parser';
-import { route } from "./route/user"
-
-// const bodyParser = require('body-parser');
-const app = express();
-const path = require('path');
-import { Application } from "./Application";
-// const basicAuth = require('express-basic-auth')
-// import { load_static_file, getUrlInfo } from "./modules/lib/functions";
-const path2db = "./database.db3";
-const application = new Application(path2db);
+const application = new Application(path2db_sqlite, dsn_cis);
 
 const router = express.Router();
 
-function authenticate(username, password) {
-    console.log("username, password", username, password);
-    if (username === 'admin' && password === '123') {
-        return { login: 'admin' };
-    }
+function authenticate(login, password, application) {
+    return new Promise(async (resolve, reject) => {
+        application.getDbConnection().then(async (data: any) => {
+
+            if (data.result) {
+                const sql = `SELECT id_user FROM users WHERE login='${login}' AND password='${md5(password.trim())}' `
+                data.db_cis.query(sql, (err, res) => {
+                    if (err) {
+                        resolve({ result: false });
+                    }
+                    if (res === undefined) {
+                        resolve({ result: false });
+                    }
+                    if (res.rows) {
+                        if (res.rows.length > 0) {
+                            resolve({ result: true, id_user: res.rows[0].id_user });
+                        }
+                    }
+                    resolve({ result: false });
+                    // resolve({ result: true, rows: res.rows });
+                    data.db_cis.end()
+                })
+            }
+        })
+    })
 }
 router.use(session({
     resave: false, // don't save session if unmodified
@@ -53,21 +71,24 @@ router.use((req, res, next) => {
 });
 router.post('/login', (req, res) => {
 
-    let user = authenticate(req.body.username, req.body.password);
+    authenticate(req.body.username, req.body.password, application).then((answ: any) => {
 
-    if (user) {
-        // Regenerate session when signing in
-        // to prevent fixation          
-        req.session.regenerate(() => {
-            req.session.user = user;
-            res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
-        });
-    } else {
-        req.session.error = 'Authentication failed, please check your '
-            + ' username and password.';
+        if (answ.result) {
+            // Regenerate session when signing in
+            // to prevent fixation          
+            req.session.regenerate(() => {
+                req.session.user = { id_user: answ.id_user };
+                res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+            });
+        } else {
+            req.session.error = 'Authentication failed, please check your '
+                + ' username and password.';
 
-        res.redirect(req.baseUrl + '/login');
-    }
+            res.redirect(req.baseUrl + '/login');
+        }
+    });
+
+
 });
 router.get('/login', (req, res) => {
     res.render('login', {
@@ -88,6 +109,10 @@ router.post('/api', (request, response) => {
         });
         request.on('end', function () {
             var post_data = JSON.parse(body);
+            if (request.session.user) {
+                post_data.id_user = request.session.user.id_user;
+            }
+
             application.loadModule(post_data).then((data) => {
                 response.send(JSON.stringify(data));
                 response.end();

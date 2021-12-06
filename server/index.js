@@ -1,8 +1,24 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const port = 8000;
 const basePath = 'localhost:8000';
+const session = require("express-session");
+const bodyParser = require("body-parser");
+var md5 = require('md5');
+const app = express();
+const path = require('path');
+const Application_1 = require("./Application");
+const path2db_sqlite = "./database.db3";
 const dsn_cis = {
     user: "cis",
     host: "localhost",
@@ -10,19 +26,31 @@ const dsn_cis = {
     password: "cis_passwd",
     port: 5432,
 };
-const session = require("express-session");
-const bodyParser = require("body-parser");
-const app = express();
-const path = require('path');
-const Application_1 = require("./Application");
-const path2db = "./database.db3";
-const application = new Application_1.Application(path2db);
+const application = new Application_1.Application(path2db_sqlite, dsn_cis);
 const router = express.Router();
-function authenticate(username, password) {
-    console.log("username, password", username, password);
-    if (username === 'admin' && password === '123') {
-        return { login: 'admin' };
-    }
+function authenticate(login, password, application) {
+    return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+        application.getDbConnection().then((data) => __awaiter(this, void 0, void 0, function* () {
+            if (data.result) {
+                const sql = `SELECT id_user FROM users WHERE login='${login}' AND password='${md5(password.trim())}' `;
+                data.db_cis.query(sql, (err, res) => {
+                    if (err) {
+                        resolve({ result: false });
+                    }
+                    if (res === undefined) {
+                        resolve({ result: false });
+                    }
+                    if (res.rows) {
+                        if (res.rows.length > 0) {
+                            resolve({ result: true, id_user: res.rows[0].id_user });
+                        }
+                    }
+                    resolve({ result: false });
+                    data.db_cis.end();
+                });
+            }
+        }));
+    }));
 }
 router.use(session({
     resave: false,
@@ -43,18 +71,19 @@ router.use((req, res, next) => {
     next();
 });
 router.post('/login', (req, res) => {
-    let user = authenticate(req.body.username, req.body.password);
-    if (user) {
-        req.session.regenerate(() => {
-            req.session.user = user;
-            res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
-        });
-    }
-    else {
-        req.session.error = 'Authentication failed, please check your '
-            + ' username and password.';
-        res.redirect(req.baseUrl + '/login');
-    }
+    authenticate(req.body.username, req.body.password, application).then((answ) => {
+        if (answ.result) {
+            req.session.regenerate(() => {
+                req.session.user = { id_user: answ.id_user };
+                res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+            });
+        }
+        else {
+            req.session.error = 'Authentication failed, please check your '
+                + ' username and password.';
+            res.redirect(req.baseUrl + '/login');
+        }
+    });
 });
 router.get('/login', (req, res) => {
     res.render('login', {
@@ -73,6 +102,9 @@ router.post('/api', (request, response) => {
         });
         request.on('end', function () {
             var post_data = JSON.parse(body);
+            if (request.session.user) {
+                post_data.id_user = request.session.user.id_user;
+            }
             application.loadModule(post_data).then((data) => {
                 response.send(JSON.stringify(data));
                 response.end();

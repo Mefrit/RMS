@@ -15,9 +15,10 @@ const ModuleApp_1 = require("./modules/ModuleApp");
 const ModuleTeacher_1 = require("./modules/ModuleTeacher");
 const ModuleComments_1 = require("./modules/ModuleComments");
 class Application {
-    constructor(path2db) {
+    constructor(path2dbsqlite, cis_connect) {
         this.db = new DataBase_1.DataBase();
-        this.path2db = path2db;
+        this.path2dbsqlite = path2dbsqlite;
+        this.cis_connect = cis_connect;
     }
     getModule(module_name) {
         switch (module_name) {
@@ -31,21 +32,12 @@ class Application {
                 return undefined;
         }
     }
-    loadModule(post_data) {
+    getDbConnection() {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            const answ_sqlite = yield this.db.initDBSqlite(this.path2db);
-            const answ_cis = yield this.db.initDBCis();
+            const answ_sqlite = yield this.db.initDBSqlite(this.path2dbsqlite);
+            const answ_cis = yield this.db.initDBCis(this.cis_connect);
             if (answ_sqlite.result && answ_cis.result) {
-                const Module = this.getModule(post_data.module);
-                if (Module) {
-                    const obj = new Module({ db: this.db });
-                    obj.runtAction(post_data.action, post_data).then((answer) => {
-                        resolve(answer);
-                    });
-                }
-                else {
-                    resolve({ result: false, message: "Произошла ошибка при загрузке модуля. Модуль не найден" });
-                }
+                resolve({ result: true, db_cis: this.db.getDBCis(), db_sqlite: this.db.getDBSqlite() });
             }
             else {
                 if (!answ_sqlite.result) {
@@ -53,6 +45,27 @@ class Application {
                 }
                 resolve(answ_cis);
             }
+        }));
+    }
+    loadModule(post_data) {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            this.getDbConnection().then((data) => {
+                if (data.result) {
+                    const Module = this.getModule(post_data.module);
+                    if (Module) {
+                        const obj = new Module({ db: this.db });
+                        obj.runtAction(post_data.action, post_data).then((answer) => {
+                            resolve(answer);
+                        });
+                    }
+                    else {
+                        resolve({ result: false, message: "Произошла ошибка при загрузке модуля. Модуль не найден" });
+                    }
+                }
+                else {
+                    resolve(data);
+                }
+            });
         }));
     }
 }
