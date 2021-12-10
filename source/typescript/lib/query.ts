@@ -19,7 +19,7 @@ export function postJSON(url, args) {
             },
             body: JSON.stringify({ ...args }),
         }).then((response) => {
-            console.log('response -===>  ', response.status);
+
             if (response.status == 401) {
                 return { result: false, message: "Вы не вошли в систему, пожалуйста, авторизуйтесь" }
             } else {

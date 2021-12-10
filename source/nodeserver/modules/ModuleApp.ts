@@ -8,7 +8,7 @@ export class Module_App extends Module_Default {
             const numb_record_finish = post_data.page * post_data.on_page;
             database.serialize(() => {
                 database.all(
-                    `SELECT  id_question,question,is_answered,time_receipt,time_answering FROM questions ORDER BY ${post_data.order} LIMIT ${numb_record_start} , ${numb_record_finish}`,
+                    `SELECT  id_question,question,time_receipt,time_answering FROM questions ORDER BY ${post_data.order} LIMIT ${numb_record_start} , ${numb_record_finish}`,
                     function (err, rows) {
                         if (err) {
                             resolve({ result: false, list: [], message: err.message });

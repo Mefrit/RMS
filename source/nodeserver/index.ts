@@ -1,14 +1,16 @@
 import * as express from 'express';
-const port = 8000;
-const basePath = 'localhost:8000';
 import { md5 } from "md5";
 import * as session from 'express-session';
+import { Application } from "./Application";
 import * as bodyParser from 'body-parser';
+var multer = require('multer');
+import * as fs from "fs";
+import { sendEmail } from "./modules/lib/functions"
 var md5 = require('md5');
 const app = express();
+const port = 8000;
+const basePath = 'http://10.1.4.8:8000';
 const path = require('path');
-import { Application } from "./Application";
-
 const path2db_sqlite = "./database.db3";
 const dsn_cis = {
     user: "cis",
@@ -16,6 +18,13 @@ const dsn_cis = {
     database: "db_cis",
     password: "cis_passwd",
     port: 5432,
+}
+const transport_obj = {
+    service: 'gmail',
+    auth: {
+        user: 'mefrit.1999@gmail.com',
+        pass: '56189968',
+    }
 }
 const application = new Application(path2db_sqlite, dsn_cis);
 
@@ -31,14 +40,16 @@ function authenticate(login, password, application) {
                     if (err) {
                         resolve({ result: false });
                     }
-                    if (res === undefined) {
-                        resolve({ result: false });
-                    }
-                    if (res.rows) {
-                        if (res.rows.length > 0) {
-                            resolve({ result: true, id_user: res.rows[0].id_user });
+                    if (res == undefined) {
+                        resolve({ result: false, message: "Ошибка при загрузке пользователя" });
+                    } else {
+                        if (res.hasOwnProperty("rows")) {
+                            if (res.rows.length > 0) {
+                                resolve({ result: true, id_user: res.rows[0].id_user });
+                            }
                         }
                     }
+
                     resolve({ result: false });
                     // resolve({ result: true, rows: res.rows });
                     data.db_cis.end()
@@ -65,20 +76,25 @@ router.use('/login', bodyParser.urlencoded({
     type: 'application/x-www-form-urlencoded'
 }));
 router.use((req, res, next) => {
-    // console.log("TEST111", req.session);
     res.locals.user = req.session.user;
     next();
 });
 router.post('/login', (req, res) => {
-
+    console.log("= request.url.substr(1)  111111111111111111111111    ", req.url, req.query.back);
     authenticate(req.body.username, req.body.password, application).then((answ: any) => {
 
         if (answ.result) {
-            // Regenerate session when signing in
-            // to prevent fixation          
+
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
-                res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+                // res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+                // console.log("!!!!!!!!!!!! req.url", req.url);
+                if (req.url.indexOf("public") == -1) {
+                    res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+                } else {
+                    res.redirect(req.query.back || (req.baseUrl + req.url));
+                }
+
             });
         } else {
             req.session.error = 'Authentication failed, please check your '
@@ -87,8 +103,6 @@ router.post('/login', (req, res) => {
             res.redirect(req.baseUrl + '/login');
         }
     });
-
-
 });
 router.get('/login', (req, res) => {
     res.render('login', {
@@ -96,11 +110,31 @@ router.get('/login', (req, res) => {
         success: req.session.success
     });
 });
+router.get("/public/comments.html", (req, res, next) => {
+    const url = new URL(req.url, "https://node-http.glitch.me/")
+    console.log(url.searchParams.get('id_question') != null, "&&", url.searchParams.get('id_user') != null);
+    if (url.searchParams.get('id_question') != null && url.searchParams.get('id_user') != null) {
+        req.session.comments = { id_user: url.searchParams.get('id_user') }
+    }
+    next();
 
+})
+router.get("/public/teach.html", (req, res, next) => {
+
+    req.session.comments = undefined;
+    next();
+
+})
+router.get("/public/index.html", (req, res, next) => {
+
+    req.session.comments = undefined;
+    next();
+
+})
 router.post('/api', (request, response) => {
-
+    console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2222222222")
     if (request.method == 'POST') {
-        console.log("q.restrict.user", request.session.user);
+
         var body = '';
         request.on('data', function (data) {
             body += data;
@@ -112,7 +146,6 @@ router.post('/api', (request, response) => {
             if (request.session.user) {
                 post_data.id_user = request.session.user.id_user;
             }
-
             application.loadModule(post_data).then((data) => {
                 response.send(JSON.stringify(data));
                 response.end();
@@ -120,33 +153,77 @@ router.post('/api', (request, response) => {
         });
     }
 });
-function restrict(req, res, next) {
 
-    if (req.session.user /*|| req.hostname == 'localhost'*/) {
+const upload = multer({ storage: multer.memoryStorage() })
+const handleError = (err, res) => {
+    res
+        .status(500)
+        .contentType("text/plain")
+        .end("Oops! Something went wrong!");
+};
+
+router.post('/send', upload.array("file_uploaded" /* name attribute of <file> element in your form */), (request, response) => {
+    if (request.method == 'POST') {
+        let attachments = request.files.map(file => {
+            // console.log(file);
+            return { filename: file.originalname, content: file.buffer }
+        });
+        const send_data = {
+            from: request.body.address2sender,  // sender address
+            to: request.body.address2send,   // list of receivers
+            subject: request.body.subject,
+            text: request.body.content,
+            attachments: attachments
+        }
+
+        sendEmail(transport_obj, send_data).then((data: any) => {
+            if (data.result) {
+                const module_info = {
+                    module: "Answer",
+                    action: "SetTimeAnswering",
+                    time: new Date().getTime(),
+                    id_question: request.body.id_question
+                };
+                application.loadModule(module_info).then((data: any) => {
+                    if (!data.result) {
+                        response.redirect(request.baseUrl + '/public/index.html?message=' + data.message);
+                    } else {
+                        response.redirect(request.baseUrl + '/public/index.html');
+                    }
+                    response.end();
+                });
+
+                // application.setTimeAsnwering(request.body.id_question)
+
+            } else {
+                response.redirect(request.baseUrl + `/public/answer.html?id_question=${request.body.id_question}&message=${data.message}`);
+                response.end();
+            }
+
+        })
+
+    }
+});
+function restrict(req, res, next) {
+    if (req.session.user || req.session.comments || req.url.indexOf("bootstrap") != -1) {
         next();
     } else {
-        if (req.url != "/login" && req.url != "/public/login.html") {
-            var url = req.baseUrl + '/public/login.html?back=' + encodeURIComponent(req.originalUrl);
+        if ((req.url != "/login" && req.url != "/public/login.html")) {
             var url = req.baseUrl + '/login'
             res.redirect(url);
         } else {
-
-            // return res.redirect('/login');
             res.render('login', {
                 error: req.session.error,
                 success: req.session.success
             });
-
         }
     }
 }
-
 router.use(restrict);
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/../public/views/');
 app.locals.basePath = basePath;
-// // app.engine('html', engines.hogan);
-// app.set('view engine', 'html');
+
 app.use("/", router);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))

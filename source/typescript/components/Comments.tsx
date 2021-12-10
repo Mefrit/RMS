@@ -15,23 +15,12 @@ import { getTime } from "lib/module_functions";
 // React.lazy
 // React.windows -библиотека
 function Comments(props, dispatchProps) {
-    console.log("comments props", props, dispatchProps)
-    // let messages_end_element: any = React.createRef();
-    const handleDomNodeChange = (domNode: HTMLInputElement | null) => {
-        if (domNode) {
-            domNode.scrollIntoView({ behavior: "smooth" });
-        }
-    }
+
     const [id_question, setIdQuestion] = useState(props.params.id_question);
     const comments = useSelector((state: any): any => state.comments.comments);
     const users_info = useSelector((state: any): any => state.comments.users_info);
     const question = useSelector((state: any): any => state.comments.question);
-    // const loading = useSelector((state: any): any => state.comments.loading);
     const [id_user, setIdUser] = useState(props.params.id_user);
-    // const [comments, setComments] = useState(props.comments);
-
-    // const [users_info, setUsersInfo] = useState(props.users_info);
-    // const [question, setQuestion] = useState(props.question);
     const [user_comment, setUserComment] = useState("");
     const loading = useSelector((state: any): any => state.comments.loading);
     useEffect(() => {
@@ -43,9 +32,7 @@ function Comments(props, dispatchProps) {
             loadComments(id_question)
         }, 3000);
         // clearing interval
-
         return () => clearInterval(timer);
-
     }, [id_question]);
     const loadComments = async (id_question) => {
 
@@ -63,7 +50,8 @@ function Comments(props, dispatchProps) {
                     question: res.answer.question,
                     users_info: res.answer.users_info,
                 });
-                if (res.id_user && id_user === undefined) {
+                if (res.answer.id_user && id_user === undefined) {
+                    setIdUser(res.answer.id_user);
                     console.log("result FORM SERVER Comments WHERE id_question =", res, id_user);
                 }
             } else {
@@ -99,9 +87,7 @@ function Comments(props, dispatchProps) {
             }
         });
     }
-    if (loading) {
-        return <Loader />
-    }
+
     function renderComments(comments) {
         let container_width, li_class = "border-0 list-group-item small p-0 bg-light   mb-0 mt-2 w-100";
 
@@ -136,8 +122,11 @@ function Comments(props, dispatchProps) {
         })
         return name_author;
     }
-    const scrollToBottom = (messages_end_element) => {
-        messages_end_element.scrollIntoView({ behavior: "smooth" });
+    // const scrollToBottom = (messages_end_element) => {
+    //     messages_end_element.scrollIntoView({ behavior: "smooth" });
+    // }
+    if (loading) {
+        return <Loader />
     }
     return <div className="container  w-75">
 
@@ -151,9 +140,9 @@ function Comments(props, dispatchProps) {
 
         <ul style={{ height: "500px" }} className=" w-100 p-2 list-group  d-flex  bg-light border overflow-auto">
             {renderComments(comments)}
-            <div style={{ float: "left", clear: "both" }}
+            {/* <div style={{ float: "left", clear: "both" }}
                 ref={handleDomNodeChange}>
-            </div>
+            </div> */}
         </ul>
         {id_user ? <div className="w-100"> <textarea onChange={(ev) => { setUserComment(ev.target.value) }} className="form-control mt-3" value={user_comment} ></textarea>
             <input type="button" onClick={addComment} className="btn btn-primary mt-2 mb-5" value="Отправить" /></div> : ""}

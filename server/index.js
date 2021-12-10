@@ -10,14 +10,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const port = 8000;
-const basePath = 'localhost:8000';
 const session = require("express-session");
+const Application_1 = require("./Application");
 const bodyParser = require("body-parser");
+var multer = require('multer');
+const functions_1 = require("./modules/lib/functions");
 var md5 = require('md5');
 const app = express();
+const port = 8000;
+const basePath = 'http://10.1.4.8:8000';
 const path = require('path');
-const Application_1 = require("./Application");
 const path2db_sqlite = "./database.db3";
 const dsn_cis = {
     user: "cis",
@@ -25,6 +27,13 @@ const dsn_cis = {
     database: "db_cis",
     password: "cis_passwd",
     port: 5432,
+};
+const transport_obj = {
+    service: 'gmail',
+    auth: {
+        user: 'mefrit.1999@gmail.com',
+        pass: '56189968',
+    }
 };
 const application = new Application_1.Application(path2db_sqlite, dsn_cis);
 const router = express.Router();
@@ -37,12 +46,14 @@ function authenticate(login, password, application) {
                     if (err) {
                         resolve({ result: false });
                     }
-                    if (res === undefined) {
-                        resolve({ result: false });
+                    if (res == undefined) {
+                        resolve({ result: false, message: "Ошибка при загрузке пользователя" });
                     }
-                    if (res.rows) {
-                        if (res.rows.length > 0) {
-                            resolve({ result: true, id_user: res.rows[0].id_user });
+                    else {
+                        if (res.hasOwnProperty("rows")) {
+                            if (res.rows.length > 0) {
+                                resolve({ result: true, id_user: res.rows[0].id_user });
+                            }
                         }
                     }
                     resolve({ result: false });
@@ -71,11 +82,17 @@ router.use((req, res, next) => {
     next();
 });
 router.post('/login', (req, res) => {
+    console.log("= request.url.substr(1)  111111111111111111111111    ", req.url, req.query.back);
     authenticate(req.body.username, req.body.password, application).then((answ) => {
         if (answ.result) {
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
-                res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+                if (req.url.indexOf("public") == -1) {
+                    res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+                }
+                else {
+                    res.redirect(req.query.back || (req.baseUrl + req.url));
+                }
             });
         }
         else {
@@ -91,9 +108,25 @@ router.get('/login', (req, res) => {
         success: req.session.success
     });
 });
+router.get("/public/comments.html", (req, res, next) => {
+    const url = new URL(req.url, "https://node-http.glitch.me/");
+    console.log(url.searchParams.get('id_question') != null, "&&", url.searchParams.get('id_user') != null);
+    if (url.searchParams.get('id_question') != null && url.searchParams.get('id_user') != null) {
+        req.session.comments = { id_user: url.searchParams.get('id_user') };
+    }
+    next();
+});
+router.get("/public/teach.html", (req, res, next) => {
+    req.session.comments = undefined;
+    next();
+});
+router.get("/public/index.html", (req, res, next) => {
+    req.session.comments = undefined;
+    next();
+});
 router.post('/api', (request, response) => {
+    console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2222222222");
     if (request.method == 'POST') {
-        console.log("q.restrict.user", request.session.user);
         var body = '';
         request.on('data', function (data) {
             body += data;
@@ -112,13 +145,56 @@ router.post('/api', (request, response) => {
         });
     }
 });
+const upload = multer({ storage: multer.memoryStorage() });
+const handleError = (err, res) => {
+    res
+        .status(500)
+        .contentType("text/plain")
+        .end("Oops! Something went wrong!");
+};
+router.post('/send', upload.array("file_uploaded"), (request, response) => {
+    if (request.method == 'POST') {
+        let attachments = request.files.map(file => {
+            return { filename: file.originalname, content: file.buffer };
+        });
+        const send_data = {
+            from: request.body.address2sender,
+            to: request.body.address2send,
+            subject: request.body.subject,
+            text: request.body.content,
+            attachments: attachments
+        };
+        (0, functions_1.sendEmail)(transport_obj, send_data).then((data) => {
+            if (data.result) {
+                const module_info = {
+                    module: "Answer",
+                    action: "SetTimeAnswering",
+                    time: new Date().getTime(),
+                    id_question: request.body.id_question
+                };
+                application.loadModule(module_info).then((data) => {
+                    if (!data.result) {
+                        response.redirect(request.baseUrl + '/public/index.html?message=' + data.message);
+                    }
+                    else {
+                        response.redirect(request.baseUrl + '/public/index.html');
+                    }
+                    response.end();
+                });
+            }
+            else {
+                response.redirect(request.baseUrl + `/public/answer.html?id_question=${request.body.id_question}&message=${data.message}`);
+                response.end();
+            }
+        });
+    }
+});
 function restrict(req, res, next) {
-    if (req.session.user) {
+    if (req.session.user || req.session.comments || req.url.indexOf("bootstrap") != -1) {
         next();
     }
     else {
-        if (req.url != "/login" && req.url != "/public/login.html") {
-            var url = req.baseUrl + '/public/login.html?back=' + encodeURIComponent(req.originalUrl);
+        if ((req.url != "/login" && req.url != "/public/login.html")) {
             var url = req.baseUrl + '/login';
             res.redirect(url);
         }

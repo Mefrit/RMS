@@ -62,9 +62,9 @@ const List = (props) => {
         if (!message_state.length) {
             return <p className="text-center">Сообщений пока нет</p>
         }
-    console.log("props ", props);
+
     return <ul className="col-sm list-group container" >{renderlistInterface()} {message_state.map((message, index, arr) => {
-        return <ListElement props={message} key={message.time_receipt + "_" + index} />
+        return <ListElement props={message} key={message.time_answering + "_" + message.time_receipt + "_" + index} />
     })}</ul>
 }
 

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUrlInfo = exports.load_static_file = void 0;
+exports.sendEmail = exports.isStatic = exports.getUrlInfo = exports.load_static_file = void 0;
 const fs = require("fs");
 const path = require("path");
 const mimeTypes = {
@@ -17,6 +17,7 @@ const mimeTypes = {
     ".woff2": "font/woff2",
     ".map": "application/json",
 };
+const nodemailer = require("nodemailer");
 function load_static_file(response, uri) {
     response.setHeader("Content-Type", "text/html; charset=utf-8;");
     const filePath = ".." + uri.pathname;
@@ -44,5 +45,26 @@ function getUrlInfo(url) {
     return result;
 }
 exports.getUrlInfo = getUrlInfo;
+function isStatic(url) {
+    let result = true;
+    const parsedUrl = new URL(url, "https://node-http.glitch.me/");
+    console.log("parsedUrl ==>>> ", parsedUrl);
+    result = result && url.indexOf("node_modules/bootstrap") == -1;
+    return true;
+}
+exports.isStatic = isStatic;
+function sendEmail(transport_obj, mail_data) {
+    return new Promise((resolve, reject) => {
+        const transporter = nodemailer.createTransport(transport_obj);
+        transporter.sendMail(mail_data, function (err, info) {
+            if (err)
+                resolve({ result: false, message: err.message });
+            else {
+                resolve({ result: true, info: info });
+            }
+        });
+    });
+}
+exports.sendEmail = sendEmail;
 
 //# sourceMappingURL=../../maps/modules/lib/functions.js.map

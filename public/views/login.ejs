@@ -1,24 +1,28 @@
 <%- include('_header'); -%>
 
-    <form method="post" action="/login" class="login-form">
-        <%= locals.error ? error : '' %>
-            <%= locals.success ? success : '' %>
-                <% if(locals.user) { %>
-                    <p>Вы авторизованы как
-                        <%= user.name %>.</p>
-                    <p><a href="/admin/logout">Разлогиниться.</a></p>
-                    <% } %>
-                        <div class="form-field">
-                            <label>Логин</label>
-                            <input type="text" name="username">
-                        </div>
-                        <div class="form-field">
-                            <label>Пароль</label>
-                            <input name="password" type="password">
-                        </div>
-                        <div>
-                            <button type="submit">Войти</button>
-                        </div>
-    </form>
+    <div class="flex-center">
+        <div class="container w-25">
+            <form method="post" action="/login" class="form-group  w-100 mt-5">
+                <%= locals.error ? error : '' %>
+                    <%= locals.success ? success : '' %>
+                        <% if(locals.user) { %>
+                            <p>Вы авторизованы как
+                                <%= user.name %>.</p>
+                            <p><a href="/admin/logout">Разлогиниться.</a></p>
+                            <% } %>
+                                <div class="form-field">
+                                    <label>Логин</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="form-field">
+                                    <label>Пароль</label>
+                                    <input name="password" class="form-control" type="password">
+                                </div>
+                                <div class="form-field mt-2">
+                                    <button type="submit" class="btn btn-primary">Войти</button>
+                                </div>
+            </form>
+        </div>
+    </div>
 
     <%- include('_footer'); -%>

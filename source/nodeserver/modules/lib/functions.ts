@@ -14,6 +14,7 @@ const mimeTypes = {
     ".woff2": "font/woff2",
     ".map": "application/json",
 };
+import * as nodemailer from "nodemailer";
 export function load_static_file(response, uri) {
     response.setHeader("Content-Type", "text/html; charset=utf-8;");
 
@@ -42,4 +43,27 @@ export function getUrlInfo(url) {
         result[item[0]] = decodeURIComponent(item[1]);
     });
     return result;
+}
+export function isStatic(url) {
+    let result = true;
+    const parsedUrl = new URL(url, "https://node-http.glitch.me/");
+    console.log("parsedUrl ==>>> ", parsedUrl);
+    result = result && url.indexOf("node_modules/bootstrap") == -1;
+    return true;
+}
+export function sendEmail(transport_obj, mail_data) {
+    return new Promise((resolve, reject) => {
+        const transporter = nodemailer.createTransport(transport_obj);
+
+        transporter.sendMail(mail_data, function (err, info) {
+            if (err)
+                resolve({ result: false, message: err.message })
+            else {
+
+                resolve({ result: true, info: info })
+            }
+        });
+        // resolve({ result: false, message: "не удалось отправить сообщение" })
+    })
+
 }

@@ -11,7 +11,7 @@ class Module_App extends ModuleDefault_1.Module_Default {
                 const numb_record_start = (post_data.page - 1) * post_data.on_page;
                 const numb_record_finish = post_data.page * post_data.on_page;
                 database.serialize(() => {
-                    database.all(`SELECT  id_question,question,is_answered,time_receipt,time_answering FROM questions ORDER BY ${post_data.order} LIMIT ${numb_record_start} , ${numb_record_finish}`, function (err, rows) {
+                    database.all(`SELECT  id_question,question,time_receipt,time_answering FROM questions ORDER BY ${post_data.order} LIMIT ${numb_record_start} , ${numb_record_finish}`, function (err, rows) {
                         if (err) {
                             resolve({ result: false, list: [], message: err.message });
                         }

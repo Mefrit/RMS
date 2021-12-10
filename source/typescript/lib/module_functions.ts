@@ -24,7 +24,7 @@ function t2Dig(num) {
     return ("0" + num.toString()).slice(-2);
 }
 export function getTime(dat) {
-    return dat.getFullYear() + "/" + dat.getMonth() + "/" + dat.getDay() + " " + t2Dig(dat.getHours()) + ":" +
+    return t2Dig(dat.getDate()) + "/" + t2Dig(1 + dat.getMonth()) + "/" + dat.getFullYear() + " " + t2Dig(dat.getHours()) + ":" +
         t2Dig(dat.getMinutes())
 }
 export function getParams(url = window.location) {

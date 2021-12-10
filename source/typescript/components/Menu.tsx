@@ -13,6 +13,7 @@ const Menu = () => {
 
         <a className="nav-link " href="./index.html">Список писем</a>
         <a className="nav-link" href="./teach.html">Обучить</a>
+        <a className="nav-link" href="./stats.html">Полная статистика</a>
         <a className="nav-link " href="https://cms2.edu.yar.ru////docs//index.php?p=editor_docs">Документация </a>
         {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

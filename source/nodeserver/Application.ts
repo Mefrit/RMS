@@ -2,7 +2,8 @@ import { DataBase } from "./modules/lib/DataBase";
 import { Module_App } from "./modules/ModuleApp";
 import { Module_Teacher } from "./modules/ModuleTeacher";
 import { Module_Comments } from "./modules/ModuleComments";
-import { rejects } from "assert";
+import { Module_Answer } from "./modules/ModuleAnswer";
+// import { rejects } from "assert";
 export class Application {
     db: any;
     cis_connect: any
@@ -20,6 +21,8 @@ export class Application {
                 return Module_Teacher;
             case "Comments":
                 return Module_Comments;
+            case "Answer":
+                return Module_Answer;
             default:
                 return undefined;
         }
@@ -31,7 +34,6 @@ export class Application {
         return new Promise(async (resolve, reject) => {
             const answ_sqlite = await this.db.initDBSqlite(this.path2dbsqlite);
             const answ_cis = await this.db.initDBCis(this.cis_connect);
-
             if (answ_sqlite.result && answ_cis.result) {
                 resolve({ result: true, db_cis: this.db.getDBCis(), db_sqlite: this.db.getDBSqlite() });
             } else {
@@ -40,13 +42,13 @@ export class Application {
                 }
                 resolve(answ_cis);
             }
-
         });
     }
     loadModule(post_data) {
         return new Promise(async (resolve, reject) => {
             // const answ_sqlite = await this.db.initDBSqlite(this.path2dbsqlite);
             // const answ_cis = await this.db.initDBCis(this.cis_connect);
+            console.log("post_data ==>>> ", post_data);
             this.getDbConnection().then((data: any) => {
                 if (data.result) {
                     const Module = this.getModule(post_data.module);

@@ -14,6 +14,7 @@ const DataBase_1 = require("./modules/lib/DataBase");
 const ModuleApp_1 = require("./modules/ModuleApp");
 const ModuleTeacher_1 = require("./modules/ModuleTeacher");
 const ModuleComments_1 = require("./modules/ModuleComments");
+const ModuleAnswer_1 = require("./modules/ModuleAnswer");
 class Application {
     constructor(path2dbsqlite, cis_connect) {
         this.db = new DataBase_1.DataBase();
@@ -28,6 +29,8 @@ class Application {
                 return ModuleTeacher_1.Module_Teacher;
             case "Comments":
                 return ModuleComments_1.Module_Comments;
+            case "Answer":
+                return ModuleAnswer_1.Module_Answer;
             default:
                 return undefined;
         }
@@ -49,6 +52,7 @@ class Application {
     }
     loadModule(post_data) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            console.log("post_data ==>>> ", post_data);
             this.getDbConnection().then((data) => {
                 if (data.result) {
                     const Module = this.getModule(post_data.module);

@@ -13,7 +13,6 @@ const initialState = {
 
 export const teacherReducer = (state = initialState, action) => {
     // содержится тот контенк, которых мы укажем в обработчикек action.payload
-    console.log("teacherReducer => !!!!!!!!!!!!!!!!!!!!!!! ", action, state);
     switch (action.type) {
         // case ADD_MESSAGE:
         //     return { ...state, messages: state.messages.concat(action.payload) };
