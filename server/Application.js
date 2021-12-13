@@ -15,6 +15,7 @@ const ModuleApp_1 = require("./modules/ModuleApp");
 const ModuleTeacher_1 = require("./modules/ModuleTeacher");
 const ModuleComments_1 = require("./modules/ModuleComments");
 const ModuleAnswer_1 = require("./modules/ModuleAnswer");
+const ModuleStats_1 = require("./modules/ModuleStats");
 class Application {
     constructor(path2dbsqlite, cis_connect) {
         this.db = new DataBase_1.DataBase();
@@ -31,6 +32,8 @@ class Application {
                 return ModuleComments_1.Module_Comments;
             case "Answer":
                 return ModuleAnswer_1.Module_Answer;
+            case "Stats":
+                return ModuleStats_1.Module_Stats;
             default:
                 return undefined;
         }

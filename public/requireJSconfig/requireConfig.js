@@ -6,7 +6,8 @@ require.config({
         redux: "../../../node_modules/redux/dist/redux",
         "redux-thunk": "../../../node_modules/redux-thunk/dist/redux-thunk",
         "redux-logger": "../../../node_modules/redux-logger/dist/redux-logger",
-        "react-highcharts": "../../../node_modules/react-highcharts/dist/index.src",
+        "highcharts-react-official": "../../../node_modules/highcharts-react-official/dist/highcharts-react",
         "highcharts": "../../../node_modules/highcharts/highcharts",
+        "highcharts/highstock": "../../../node_modules/highcharts/highstock",
     },
 });

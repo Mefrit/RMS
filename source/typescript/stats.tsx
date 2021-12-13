@@ -19,5 +19,5 @@ const store = createStore(rootReducer, compose(
 
 const root = document.getElementById("root");
 const answers_params = getParams(window.location);
-console.log("answers_params!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ");
+console.log("answers_params!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ", answers_params);
 ReactDOM.render(<Provider store={store}><div className="container">  <Menu /> <Stats params={answers_params} /> </div></Provider >, root);

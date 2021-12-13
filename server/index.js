@@ -82,13 +82,12 @@ router.use((req, res, next) => {
     next();
 });
 router.post('/login', (req, res) => {
-    console.log("= request.url.substr(1)  111111111111111111111111    ", req.url, req.query.back);
     authenticate(req.body.username, req.body.password, application).then((answ) => {
         if (answ.result) {
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
                 if (req.url.indexOf("public") == -1) {
-                    res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
+                    res.redirect(req.query.back || (req.baseUrl + '/public/stats.html'));
                 }
                 else {
                     res.redirect(req.query.back || (req.baseUrl + req.url));

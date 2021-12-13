@@ -3,6 +3,7 @@ import { Module_App } from "./modules/ModuleApp";
 import { Module_Teacher } from "./modules/ModuleTeacher";
 import { Module_Comments } from "./modules/ModuleComments";
 import { Module_Answer } from "./modules/ModuleAnswer";
+import { Module_Stats } from "./modules/ModuleStats";
 // import { rejects } from "assert";
 export class Application {
     db: any;
@@ -23,6 +24,8 @@ export class Application {
                 return Module_Comments;
             case "Answer":
                 return Module_Answer;
+            case "Stats":
+                return Module_Stats
             default:
                 return undefined;
         }
