@@ -2,33 +2,6 @@ import * as  React from 'react'
 import HighchartsReact from 'highcharts-react-official'
 import * as Highcharts from 'highcharts/highstock'
 
-
-
-// export class Radio extends React.Component<any, any> {
-//     handleChange = (event) => {
-//         const value: number = event.target.checked ? 1 : 0;
-//         // this.props.updateHandler(value);
-//         console.log("handleChange", value);
-//     }
-//     render() {
-//         return (
-//             <div className='radio-group'>
-//                 {this.props.options ? this.props.options.map(item =>
-//                     <div className='radio'>
-//                         <label>
-//                             <input
-//                                 name={this.props.name + '[]'}
-//                                 value={item.value}
-//                                 defaultChecked={item.selected}
-//                                 type='radio'
-//                                 onChange={this.handleChange} />
-//                             <span>{item.name}</span>
-//                         </label>
-//                     </div>) : []}
-//             </div>
-//         );
-//     }
-// }
 const strings = {
     showButton: 'Показать',
     intervalHint: 'Промежуток',
@@ -74,17 +47,8 @@ export const StatsViewer = (props: HighchartsReact.Props) => {
         console.log(ev.target)
     }
     return (
-        <div>
-            {/* <Radio value='month' options={[
-                { selected: true, value: 'week', name: strings.weekInterval },
-                { selected: false, value: 'thisweek', name: strings.thisWeekInterval },
-                { selected: false, value: 'prevweek', name: strings.prevWeekInterval },
-                { selected: false, value: 'thismonth', name: strings.thisMonthInterval },
-                { selected: false, value: 'prevmonth', name: strings.prevMonthInterval },
-                { selected: false, value: 'thisyear', name: strings.thisYearInterval },
-                { selected: false, value: 'prevyear', name: strings.prevYearInterval },
-            ]}
-                updateHandler={updateHandler} name='interval' /> */}
+        <div className="container">
+
             <HighchartsReact
                 highcharts={Highcharts}
                 options={props.options}

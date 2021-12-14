@@ -30,7 +30,7 @@ export class Module_Default {
             database.serialize(() => {
                 database.all(sql, function (err, rows) {
                     if (err) {
-                        resolve({ result: false });
+                        resolve({ result: false, message: err.message });
                     }
                     resolve({ result: true, rows: rows });
                 });

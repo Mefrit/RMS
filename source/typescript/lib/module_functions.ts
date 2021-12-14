@@ -23,9 +23,8 @@ export function loadMessageById(id_question) {
 function t2Dig(num) {
     return ("0" + num.toString()).slice(-2);
 }
-export function getDate(dat) {
-    return t2Dig(dat.getDate()) + "." + t2Dig(1 + dat.getMonth()) + "." + dat.getFullYear() + " " + t2Dig(dat.getHours()) + ":" +
-        t2Dig(dat.getMinutes())
+export function getCalendarDate(dat) {
+    return dat.getFullYear() + "-" + t2Dig(1 + dat.getMonth()) + "-" + t2Dig(dat.getDate()));
 }
 export function getTime(dat) {
     return t2Dig(dat.getDate()) + "." + t2Dig(1 + dat.getMonth()) + "." + dat.getFullYear() + " " + t2Dig(dat.getHours()) + ":" +

@@ -15,49 +15,95 @@ function Stats(props) {
     const loading = useSelector((state: any): any => state.comments.loading);
     const [time_limit_end, setTimeLimitEnd] = useState(date.getTime());
     const [time_limit_start, setTimeLimitStart] = useState(date.setMonth(date.getMonth() - 1));
-
-    const [stats_data, setStatsData] = useState([]);
+    const [mode, setModeStats] = useState("all");
+    const [stats_total_data, setStatsTotalData] = useState({ cache: [], line_title: "" });
+    const [stats_answered_data, setStatsAnsweredData] = useState({ cache: [], line_title: "" });
     useEffect(() => {
-        props.showLoaderStats();
+        if (stats_total_data.cache.length == 0) {
+            props.showLoaderStats();
+        }
+
         postJSON("/api", {
             module: "Stats",
             action: "GetStats",
             time_end: time_limit_end,
             time_start: time_limit_start
         }).then((res) => {
-            props.hideLoaderStats();
-
+            if (stats_total_data.cache.length == 0) {
+                props.hideLoaderStats();
+            }
             if (res.result) {
                 console.log("res.result answer", res);
-                setStatsData(res.list)
-                // props.loadInfoComments({
-                //     comments: res.answer.comments,
-                //     question: res.answer.question,
-                //     users_info: res.answer.users_info,
-                // });
-                // if (res.answer.id_user && id_user === undefined) {
-                //     setIdUser(res.answer.id_user);
-                //     console.log("result FORM SERVER Comments WHERE id_question =", res, id_user);
-                // }
+                setStatsTotalData(res.total_info)
+                setStatsAnsweredData(res.answered_info)
             } else {
                 alert(res.message);
             }
         });
-    }, []);
+    }, [time_limit_start, time_limit_end]);
+    // function getStatsSeriesFromState(mode, stats_total_data, stats_answered_data) {
+    //     let result = [];
+    //     switch (mode) {
+    //         case "all":
+    //             result = stats_total_data.map(elem => elem.count);
+    //             break;
+    //         case "answered":
+    //             result = stats_answered_data.map(elem => elem.count);
+    //             break;
+    //     }
+    //     return result
+    // }
+    function getStatsCache(mode, stats_total_data, stats_answered_data) {
+        let result = [];
+        switch (mode) {
+            case "all":
+                result = stats_total_data
+                break;
+            case "answered":
+                result = stats_answered_data
+                break;
+        }
+        return result
+    }
+    // let categories = stats_total_data, series_data: any = getStatsSeriesFromState(mode, stats_total_data, stats_answered_data);
+    let stats_data: any = getStatsCache(mode, stats_total_data, stats_answered_data)
+    // let categories = stats_total_data.map((item) => {
+    //     return item.date;
+    // }), series_data: any = stats_answered_data.map(elem => elem.count_answered);
+    // // {
+    //     type: 'line',
+    //         name: 'Ответы',
+    //             data: stats_answered_data.map(elem => elem.count_answered)
+    // }, {
+    //     type: 'line',
+    //         name: 'Обращения',
+    //             data: stats_total_data.map(elem => elem.count_request)
+    // }
     const options: Highcharts.Options = {
         title: {
             text: 'Статистика по обращениям пользователей'
         },
+        // {
+        //     type: 'line',
+        //     name: 'Обращения',
+        //     data: stats_total_data.map(elem => elem.count_request)
+        // },
         series: [{
             type: 'line',
-            name: 'Обращения',
-            data: stats_data.map(elem => elem.time_receipt)
+            name: stats_data.line_title,
+            data: stats_data.cache.map(elem => elem.count)
         }],
         xAxis: {
             title: {
                 text: 'Дата'
             },
-            categories: stats_data.map((item) => getCalendarDate(item.time_receipt))
+            categories: stats_data.cache.map(elem => elem.date)
+        },
+        yAxis: {
+            title: {
+                text: 'Количество'
+            },
+            tickInterval: 1
         },
         exporting: {
             enabled: true
@@ -73,7 +119,21 @@ function Stats(props) {
     return (
 
         <div>
-            <StatsViewer options={options} />
+            <div className="row m-4 mb-3 mt-2">
+                <label className="col-3 d-flex align-items-center">
+                    <span className="col-1">С </span>
+                    <input type="date" value={getCalendarDate(new Date(time_limit_start))} onChange={(ev) => { setTimeLimitStart(new Date(ev.target.value).getTime()) }} className="form-control" />
+                </label>
+                <label className="col-3 d-flex align-items-center ml-1" >
+                    <span className="col-1 m-1 mt-0 mb-0">По   </span>
+                    <input type="date" value={getCalendarDate(new Date(time_limit_end))} onChange={(ev) => { setTimeLimitEnd(new Date(ev.target.value).getTime()) }} className="form-control" />
+                </label>
+
+                <label className="col-2 d-flex align-items-center" >Все письма <input type="radio" checked={mode == "all"} onClick={() => { setModeStats("all") }} /></label>
+                <label className="col-3 d-flex align-items-center" >Отвеченные письма <input type="radio" checked={mode == "answered"} onClick={() => { setModeStats("answered") }} /></label>
+                <div className="col-1"></div>
+            </div>
+            <StatsViewer options={options} time_end={time_limit_end} time_start={time_limit_start} />
         </div>
     );
 }
