@@ -8,12 +8,11 @@ class Module_App extends ModuleDefault_1.Module_Default {
         this.actionGetList = (post_data) => {
             return new Promise((resolve, reject) => {
                 const database = this.db.getDBSqlite();
-                const numb_record_start = (post_data.page - 1) * post_data.on_page;
-                const numb_record_finish = post_data.page * post_data.on_page;
+                const on_page = post_data.on_page;
                 database.serialize(() => {
-                    database.all(`SELECT  id_question,question,time_receipt,time_answering FROM questions ORDER BY ${post_data.order} LIMIT ${numb_record_start} , ${numb_record_finish}`, function (err, rows) {
+                    database.all(`SELECT  id_question,question,time_receipt,time_answering FROM questions ORDER BY ${post_data.order} LIMIT ${0}, ${on_page + 6}`, function (err, rows) {
                         if (err) {
-                            resolve({ result: false, list: [], message: err.message });
+                            resolve({ result: false, list: [], message: err.message, on_page: on_page + 6 });
                         }
                         resolve({ result: true, list: rows });
                     });

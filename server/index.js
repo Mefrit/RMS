@@ -87,7 +87,7 @@ router.post('/login', (req, res) => {
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
                 if (req.url.indexOf("public") == -1) {
-                    res.redirect(req.query.back || (req.baseUrl + '/public/stats.html'));
+                    res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
                 }
                 else {
                     res.redirect(req.query.back || (req.baseUrl + req.url));
@@ -124,7 +124,6 @@ router.get("/public/index.html", (req, res, next) => {
     next();
 });
 router.post('/api', (request, response) => {
-    console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2222222222");
     if (request.method == 'POST') {
         var body = '';
         request.on('data', function (data) {

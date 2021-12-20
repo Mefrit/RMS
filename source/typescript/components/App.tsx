@@ -2,65 +2,63 @@ import * as React from "react"
 import { useEffect, useState } from "react";
 import List from "./list/List"
 
-import { connect } from 'react-redux';
-import { addMessage, showLoader, hideLoader, setCacheMessages } from '../redux_project/actions/actionsList'
+import { connect, useSelector } from 'react-redux';
+import { addMessage, showLoader, hideLoader, setCacheMessages, loadMoreElements } from '../redux_project/actions/actionsList'
 import { postJSON } from "../lib/query"
 // REACT.MEME
 // REACT.useCallBack
 // React.useMeme
 // React.lazy
 // React.windows -библиотека
-function App(props) {
-
-    // const [content, setContent] = useState("");
-    // const [messages, setMessages] = useState([]);
+function App(props, dispatchProps) {
     console.log('props APP', props);
+    const on_page = useSelector((state: any): any => state.app.on_page);
+    // const [messages, setMessages] = useState([]);
+
     // == componentDidMount
     useEffect(() => {
+
         props.showLoader();
+        console.log("Here useEffect App", props, on_page);
         const fetchData = async () => {
             postJSON("/api", {
-                page: 1,
-                on_page: 20,
+                on_page: on_page,
                 order: "time_receipt",
                 module: "App",
                 action: "GetList"
             }).then((answer) => {
                 props.hideLoader();
-                console.log("result FORM SERVER", answer);
                 if (answer.result) {
 
-
                     props.setCacheMessages(answer.list);
-
-
                 } else {
                     alert(answer.message);
                 }
 
-                // setContent('');
             });
 
         };
         fetchData();
-    }, []);
+    }, [on_page]);
 
     return (
         <div className="container" >
-            <div className="column">
-                <List />
-            </div>
+            <List loadMoreElements={props.loadMoreElements} />
         </div >);
 
 }
 // прокидывания функций в компонент
 const mapDispatchToProps = {
-    addMessage, showLoader, hideLoader, setCacheMessages
+    addMessage,
+    showLoader,
+    hideLoader,
+    setCacheMessages
 }
 // инициализация state в компоненте
 const mapStateToProps = state => ({
     messages: state.app.messages,
-    loading: false
+    loading: false,
+    on_page: state.app.on_page
 })
 // связка данных and exports
 export default connect(mapStateToProps, mapDispatchToProps)(App)

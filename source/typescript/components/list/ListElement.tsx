@@ -2,7 +2,6 @@ import * as React from "react"
 import { useState } from "react";
 import { getTime } from "../../lib/module_functions";
 export default ({ props }) => {
-    console.log("props!!!!!!", props);
     const [open_modal, setModal] = useState(false);
     return (
         <li className="row mt-3" >

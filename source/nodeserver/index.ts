@@ -33,7 +33,6 @@ const router = express.Router();
 function authenticate(login, password, application) {
     return new Promise(async (resolve, reject) => {
         application.getDbConnection().then(async (data: any) => {
-
             if (data.result) {
                 const sql = `SELECT id_user FROM users WHERE login='${login}' AND password='${md5(password.trim())}' `
                 data.db_cis.query(sql, (err, res) => {
@@ -49,9 +48,7 @@ function authenticate(login, password, application) {
                             }
                         }
                     }
-
                     resolve({ result: false });
-                    // resolve({ result: true, rows: res.rows });
                     data.db_cis.end()
                 })
             }
@@ -88,7 +85,7 @@ router.post('/login', (req, res) => {
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
                 if (req.url.indexOf("public") == -1) {
-                    res.redirect(req.query.back || (req.baseUrl + '/public/stats.html'));
+                    res.redirect(req.query.back || (req.baseUrl + '/public/index.html'));
                 } else {
                     res.redirect(req.query.back || (req.baseUrl + req.url));
                 }
@@ -97,7 +94,6 @@ router.post('/login', (req, res) => {
         } else {
             req.session.error = 'Authentication failed, please check your '
                 + ' username and password.';
-
             res.redirect(req.baseUrl + '/login');
         }
     });
@@ -118,21 +114,15 @@ router.get("/public/comments.html", (req, res, next) => {
 
 })
 router.get("/public/teach.html", (req, res, next) => {
-
     req.session.comments = undefined;
     next();
-
 })
 router.get("/public/index.html", (req, res, next) => {
-
     req.session.comments = undefined;
     next();
-
 })
 router.post('/api', (request, response) => {
-    console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2222222222")
     if (request.method == 'POST') {
-
         var body = '';
         request.on('data', function (data) {
             body += data;
@@ -190,16 +180,11 @@ router.post('/send', upload.array("file_uploaded" /* name attribute of <file> el
                     }
                     response.end();
                 });
-
-                // application.setTimeAsnwering(request.body.id_question)
-
             } else {
                 response.redirect(request.baseUrl + `/public/answer.html?id_question=${request.body.id_question}&message=${data.message}`);
                 response.end();
             }
-
         })
-
     }
 });
 function restrict(req, res, next) {
@@ -221,12 +206,10 @@ router.use(restrict);
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/../public/views/');
 app.locals.basePath = basePath;
-
 app.use("/", router);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, "../")));
-
 
 const server = app.listen(port, (error) => {
     if (error) return console.log(`Error: ${error}`);

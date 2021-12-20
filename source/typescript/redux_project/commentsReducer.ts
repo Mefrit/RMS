@@ -10,7 +10,6 @@ const initialState = {
 
 export const commentsReducer = (state = initialState, action) => {
     // содержится тот контенк, которых мы укажем в обработчикек action.payload
-    console.log("commentsReducer => ", action, state);
     switch (action.type) {
         // case ADD_MESSAGE:
         //     return { ...state, messages: state.messages.concat(action.payload) };

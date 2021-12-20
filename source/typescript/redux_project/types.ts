@@ -5,6 +5,7 @@ export const HIDE_LOADER = "HIDE_LOADER";
 // export const LOAD_DOCS = "TEACH/HIDE_LOADER";
 
 //List
+export const LOAD_MORE_ELEMENTS = "LIST/LOAD_MORE_ELEMENTS"
 export const ADD_MESSAGE = "LIST/ADDMESSAGE";
 export const SET_CACHE_MESSAGE = "LIST/SET_CACHE_MESSAGE";
 

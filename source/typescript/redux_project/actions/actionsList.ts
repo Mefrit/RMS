@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE } from "../types";
+import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE, LOAD_MORE_ELEMENTS } from "../types";
 
 export function addMessage(message) {
     return {
@@ -20,5 +20,12 @@ export function showLoader() {
 export function hideLoader() {
     return {
         type: HIDE_LOADER,
+    };
+}
+export function loadMoreElements(curent_count) {
+    console.log("loadMoreElementsloadMoreElements +++>>>> ", curent_count);
+    return {
+        type: LOAD_MORE_ELEMENTS,
+        payload: curent_count
     };
 }
