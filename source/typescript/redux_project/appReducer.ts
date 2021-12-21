@@ -1,9 +1,10 @@
-import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE, LOAD_MORE_ELEMENTS } from "./types";
+import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE, LOAD_MORE_ELEMENTS, SET_ORGANIZATIONS_INFO } from "./types";
 
 const initialState = {
     loading: false,
     alert: null,
     messages: [],
+    organizations_info: [],
     on_page: 0
 };
 
@@ -23,6 +24,10 @@ export const appReducer = (state = initialState, action) => {
         case LOAD_MORE_ELEMENTS:
             console.log("LOAD_MORE_ELEMENTS", state, action.payload);
             return { ...state, on_page: action.payload };
+        case SET_ORGANIZATIONS_INFO:
+
+            return { ...state, organizations_info: action.payload };
+
         default:
             return state;
     }

@@ -3,8 +3,10 @@ import { useState } from "react";
 import { getTime } from "../../lib/module_functions";
 export default ({ props }) => {
     const [open_modal, setModal] = useState(false);
+    console.log(typeof props.question, props.question);
+    const question = props.question.slice(0, 400);
     return (
-        <li className="row mt-3" >
+        <li className="row mt-3 border-bottom pb-2 m-0 w-100 " >
 
             <div className="dropdown col-1">
                 <button className="btn btn-secondary dropdown-toggle" onClick={() => { setModal(!open_modal) }} type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,13 +17,17 @@ export default ({ props }) => {
                     <li><a className="dropdown-item" href={"./teach.html?id_question=" + props.id_question + "&mode=recomendation"}>Посмотреть, рекомендации системы по этому вопросу</a></li>
                 </ul>
             </div>
-            <div className="col-7">
-                <p >{props.question}</p>
+            <div className="col-6">
+                <div className="d-flex justify-content-between">
+                    <p style={{ marginRight: "25px" }} >{question}</p>
+                    <span style={{ minWidth: "50px" }} className="d-flex">{"№ " + props.num_question}</span>
+                </div>
                 <a className="link-info" href={"./answer.html?id_question=" + props.id_question}>Ответить</a>
             </div>
 
-            <div className="col-2 text-center " >{props.time_answering ? getTime(new Date(props.time_answering)) : "x"}</div>
+            <div className="col-1 text-center " >{props.time_answering ? getTime(new Date(props.time_answering)) : "x"}</div>
             <div className="col-2 text-center ">{props.time_receipt ? getTime(new Date(props.time_receipt)) : "y"}</div>
+            <div className="col-2 text-center " >{props.short_name ? props.short_name : "Неизвестно"}</div>
         </li >
     )
 }

@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE, LOAD_MORE_ELEMENTS } from "../types";
+import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE, LOAD_MORE_ELEMENTS, SET_ORGANIZATIONS_INFO } from "../types";
 
 export function addMessage(message) {
     return {
@@ -20,6 +20,13 @@ export function showLoader() {
 export function hideLoader() {
     return {
         type: HIDE_LOADER,
+    };
+}
+// setOrganizationInfo
+export function setOrganizationInfo(organization_info) {
+    return {
+        type: SET_ORGANIZATIONS_INFO,
+        payload: organization_info,
     };
 }
 export function loadMoreElements(curent_count) {

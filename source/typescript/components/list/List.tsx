@@ -10,6 +10,7 @@ const List = (props) => {
     const loading = useSelector((state: any): any => state.app.loading);
     const [filter_mode, setFilterListMode] = useState("all");
     const [message_state, setMessagesState] = useState([]);
+    const organizations_info = useSelector((state: any): any => state.app.organizations_info);
     // const [count_elements, setCount] = useState(10);
     const [reverce, setReverce] = useState(true);
     useEffect(() => {
@@ -49,15 +50,16 @@ const List = (props) => {
         // setMessagesState(res);
     }
     function renderListInterface() {
-        return <div className="row bg-light mt-1">
+        return <div className="row bg-light mt-1 p-0 w-100 m-0 ">
             <div className="col-1 "></div>
-            <a href="#" onClick={() => { sortMessages("question", reverce) }} className="btn col-7 fw-weight-bolder">Текст обращения</a>
-            <a href="#" onClick={() => { sortMessages("time_receipt", reverce) }} className="btn col-2 fw-weight-bolder">Время ответа </a>
-            <a href="#" onClick={() => { sortMessages("time_answering", reverce) }} className="btn col-2 fw-weight-bolder">Время поступления</a>
+            <div className=" col-6 text-center"><a href="#" onClick={() => { sortMessages("question", reverce) }} className="btn p-0">Текст обращения</a></div>
+            <div className="col-1 text-center"><a href="#" onClick={() => { sortMessages("time_receipt", reverce) }} className="btn p-0">Дата ответа </a></div>
+            <div className="col-2 text-center"><a href="#" onClick={() => { sortMessages("time_answering", reverce) }} className="btn p-0">Дата поступления</a></div>
+            <div className="col-2 text-center"><a href="#" onClick={() => { sortMessages("id_organization", reverce) }} className="btn p-0">Организация</a></div>
         </div>
     }
     function renderListFilters(filter_mode) {
-        return <form className="col-12 d-flex flex-row mt-1 ">
+        return <form className="col-12 d-flex flex-row mt-1 w-100">
             <div className="form-check ">
                 <label className="form-check-label" >
                     <input className="form-check-input" type="radio" onChange={() => { setFilterListMode("all") }} checked={filter_mode == "all"} name="allrequests" />
@@ -73,15 +75,25 @@ const List = (props) => {
         </form>
 
     }
-    function renderlist(message_state, filter_mode) {
-        let add, list = [];
+    function renderlist(message_state, filter_mode, organizations_info) {
+        let add, list = [], props;
         for (let i = 0; i < message_state.length; i++) {
             add = true
             if (filter_mode != "all" && message_state[i].time_answering) {
                 add = false
             }
             if (add) {
-                list.push(<ListElement props={message_state[i]} key={message_state[i].time_answering + "_" + message_state[i].time_receipt + "_" + i} />)
+
+                props = { ...message_state[i] };
+
+                if (organizations_info[props.id_organization]) {
+                    props.short_name = organizations_info[props.id_organization];
+                }
+
+                list.push(<ListElement
+                    props={props}
+                    key={message_state[i].time_answering + "_" + message_state[i].time_receipt + "_" + i}
+                />)
             }
         }
         return list;
@@ -104,10 +116,10 @@ const List = (props) => {
     return <div>
         {renderListFilters(filter_mode)}
         {renderListInterface()}
-        <ul className="col-sm list-group container   overflow-auto" style={{ maxHeight: "85vh" }} onScroll={onScroll} >
+        <ul className="container    w-100 p-0" style={{ maxHeight: "85vh", overflow: "overlay" }} onScroll={onScroll} >
 
             {loading ? <Loader /> : ""}
-            {renderlist(message_state, filter_mode)}
+            {renderlist(message_state, filter_mode, organizations_info)}
             <li className="mb-5"></li>
         </ul>
     </div>
