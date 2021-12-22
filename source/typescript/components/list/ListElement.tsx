@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getTime } from "../../lib/module_functions";
 export default ({ props }) => {
     const [open_modal, setModal] = useState(false);
-    console.log(typeof props.question, props.question);
+
     const question = props.question.slice(0, 400);
     return (
         <li className="row mt-3 border-bottom pb-2 m-0 w-100 " >

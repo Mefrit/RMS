@@ -1,8 +1,9 @@
 import * as React from "react"
 import { connect, useSelector } from 'react-redux'
-import { useState, useEffect } from "react";
-import Loader from '../Loader'
-import ListElement from "./ListElement";
+import { useState, useEffect } from 'react';
+import Loader from '../Loader';
+import Search from './Search';
+import ListElement from './ListElement';
 import { loadMoreElements } from '../../redux_project/actions/actionsList'
 const List = (props) => {
     const messages = useSelector((state: any): any => state.app.messages);
@@ -72,6 +73,7 @@ const List = (props) => {
                     Письма без ответа
                 </label>
             </div>
+            <Search />
         </form>
 
     }
@@ -83,13 +85,10 @@ const List = (props) => {
                 add = false
             }
             if (add) {
-
                 props = { ...message_state[i] };
-
                 if (organizations_info[props.id_organization]) {
                     props.short_name = organizations_info[props.id_organization];
                 }
-
                 list.push(<ListElement
                     props={props}
                     key={message_state[i].time_answering + "_" + message_state[i].time_receipt + "_" + i}
@@ -100,15 +99,11 @@ const List = (props) => {
     }
     const onScroll = (e) => {
         if (e.target.offsetHeight + e.target.scrollTop === e.target.scrollHeight) {
-            //   this.setState(({ items, numShow }) => ({
-            //     numShow: Math.min(numShow + 10, items.length),
-            //   }));
             props.loadMoreElements(message_state.length);
             console.log("LOADDD BEW ONE ", props);
         }
     }
-    // if (loading) {
-    //     return <Loader />
+
     if (!message_state.length) {
         return <p className="text-center">Сообщений пока нет</p>
     }
