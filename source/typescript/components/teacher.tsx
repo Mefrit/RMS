@@ -9,7 +9,9 @@ import LinkEditor from '../components/linkEditor'
 import { connect, useSelector } from 'react-redux'
 import { showLoader, hideLoader } from '../redux_project/actions/actionTeacher'
 import { postJSON } from "../lib/query"
-import { loadMessageById } from "../lib/module_functions"
+import { loadMessageById } from "../lib/module_functions";
+
+import { globalState } from "../interfaces/interfaces";
 // REACT.MEME
 // REACT.useCallBack
 // React.useMeme
@@ -20,7 +22,7 @@ function Teacher(props, dispatchProps) {
     const [mode, setTeachModeState] = useState(props.params.mode ? props.params.mode : 'teach');
     const [docs_list, setDocsList] = useState([]);
     const [type_resource, setTypeResource] = useState(props.type_resource);
-    const link_obj = useSelector((state: any): any => state.teacher.link_obj);
+    const link_obj = useSelector((state: globalState) => state.teacher.link_obj);
     const [letter, setLetter] = useState("");
 
     let user_docs_links = [];
@@ -28,8 +30,7 @@ function Teacher(props, dispatchProps) {
         height: "250px"
     };
     // == componentDidMount,
-    const loading = useSelector((state: any): any => state.teacher.loading);
-    console.log("Teacher props", props, "mode ,", mode);
+    const loading = useSelector((state: globalState) => state.teacher.loading);
     const loadLinksList = async () => {
 
         postJSON("/api", {
@@ -38,9 +39,9 @@ function Teacher(props, dispatchProps) {
             action: "GetDocsList"
         }).then((answer) => {
             props.hideLoader();
-            console.log("result FORM SERVER TEACHER", answer);
+
             if (answer.result) {
-                console.log("answer.list", answer.docs_links);
+
                 setDocsList(answer.docs_links);
             } else {
                 alert(answer.message);
@@ -50,7 +51,7 @@ function Teacher(props, dispatchProps) {
 
     };
     useEffect(() => {
-        console.log("MOUNT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n\n\n\n")
+
         checkParams(props.params).then(data => {
             if (mode == "teach") {
                 props.showLoader();
@@ -63,8 +64,6 @@ function Teacher(props, dispatchProps) {
         })
     }, []);
     useEffect(() => {
-        console.log("mode !!!!!!!!!!! \n\n\n\n", mode);
-
         if (mode == "teach") {
             props.showLoader();
             loadLinksList();
@@ -114,9 +113,7 @@ function Teacher(props, dispatchProps) {
             action: "Train"
         }).then((answer) => {
             props.hideLoader();
-            console.log("result FORM SERVER TEACHER", answer);
             if (answer.result) {
-                console.log("answer.list", answer.docs_links);
                 setDocsList(answer.docs_links);
                 if (answer.message) {
                     alert(answer.message);
@@ -130,7 +127,6 @@ function Teacher(props, dispatchProps) {
         });
     }
     const loadRecomendation = async (text = letter) => {
-        console.log("LOADDD  loadRecomendation\n\n \n", text);
         postJSON("/api", {
             letter: text,
             type_resource: type_resource,
@@ -141,7 +137,6 @@ function Teacher(props, dispatchProps) {
 
             if (answer.result) {
                 // props.setCacheMessages(answer.list);
-                console.log("answer.list", answer);
                 setDocsList(answer.links);
 
             } else {
@@ -150,12 +145,9 @@ function Teacher(props, dispatchProps) {
                     setDocsList([]);
                 }
             }
-            // answer.list.fo
-            // setContent('');
         });
     }
     const addLink2List = async (link_obj, mode) => {
-        console.log("addLink1List", link_obj);
         props.showLoader();
         postJSON("/api", {
             link_obj: link_obj,
@@ -166,9 +158,9 @@ function Teacher(props, dispatchProps) {
             props.hideLoader();
 
             if (answer.result) {
-                // props.setCacheMessages(answer.list);
+                //Fix ME 
                 console.log("answer.list addLink2List good", answer);
-                // setDocsList(answer.links);
+
 
             } else {
                 alert(answer.message);
@@ -186,25 +178,16 @@ function Teacher(props, dispatchProps) {
             if (mode == "recomendation") {
                 loadRecomendation();
             }
-            // else {
-            //     // addDocs
-            //     console.log("setTeachMode ===>>> ", mode, props);
-            //     // addLink2List(props.link_object, "add2list")
-            // }
-
         }
-
     }
     const setUsersLinks = (e) => {
         var options = e.target.options;
         var value = [];
         for (var i = 0, l = options.length; i < l; i++) {
             if (options[i].selected) {
-
                 value.push(options[i].value);
             }
         }
-        console.log(value);
         user_docs_links = value;
 
     }

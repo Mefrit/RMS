@@ -22,14 +22,26 @@ class Module_Stats extends ModuleDefault_1.Module_Default {
                 const answered_info = yield this.makeRequestSqliteDB(database, `SELECT  COUNT(*) as count, strftime('%d-%m-%Y', time_answering/1000, 'unixepoch') as date FROM questions WHERE time_answering>'${post_data.time_start}'
                 AND time_answering<'${post_data.time_end}' AND time_answering IS NOT NULL GROUP BY strftime('%d-%m-%Y', time_answering/1000, 'unixepoch') ORDER BY time_answering `);
                 if (answered_info.result && total_info.result) {
-                    resolve({ result: true, total_info: { cache: total_info.rows, line_title: "Все письма" }, answered_info: { cache: answered_info.rows, line_title: "Отвеченные письма" } });
+                    resolve({
+                        result: true,
+                        total_info: { cache: total_info.rows, line_title: "Все письма" },
+                        answered_info: { cache: answered_info.rows, line_title: "Отвеченные письма" },
+                    });
                 }
                 else {
                     if (!total_info.result) {
-                        resolve({ result: false, list: [], message: "Не удалось собрать данные для " + total_info.message });
+                        resolve({
+                            result: false,
+                            list: [],
+                            message: "Не удалось собрать данные для " + total_info.message,
+                        });
                     }
                     else {
-                        resolve({ result: false, list: [], message: "Не удалось собрать данные для " + answered_info.message });
+                        resolve({
+                            result: false,
+                            list: [],
+                            message: "Не удалось собрать данные для " + answered_info.message,
+                        });
                     }
                 }
             }));

@@ -15,16 +15,21 @@ class Module_Comments extends ModuleDefault_1.Module_Default {
     actionAddComment(post_data) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-                console.log("add Comment", post_data);
                 const database = this.db.getDBSqlite();
                 database.serialize(() => {
-                    database.run('INSERT INTO comments(id_user, comment, time_receipt, id_question) VALUES(?, ?, ?, ?)', [post_data.id_user, post_data.comment, post_data.time_receipt, post_data.id_question], (err, rows) => {
+                    database.run("INSERT INTO comments(id_user, comment, time_receipt, id_question) VALUES(?, ?, ?, ?)", [post_data.id_user, post_data.comment, post_data.time_receipt, post_data.id_question], (err, rows) => {
                         if (err) {
-                            return resolve({ result: false, message: "Не удалось добавить комментарий." + err.message });
+                            return resolve({
+                                result: false,
+                                message: "Не удалось добавить комментарий." + err.message,
+                            });
                         }
-                        database.all('SELECT MAX(id_comment ) as id from comments', function (err, last_id) {
+                        database.all("SELECT MAX(id_comment ) as id from comments", function (err, last_id) {
                             if (err) {
-                                return resolve({ result: false, message: "Не удалось добавить комментарий." + err.message });
+                                return resolve({
+                                    result: false,
+                                    message: "Не удалось добавить комментарий." + err.message,
+                                });
                             }
                             return resolve({ result: true, id_comment: last_id[0].id });
                         });
@@ -38,7 +43,6 @@ class Module_Comments extends ModuleDefault_1.Module_Default {
             return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
                 const db_sqlite = this.db.getDBSqlite();
                 const db_cis = this.db.getDBCis();
-                console.log("post_data comments", post_data);
                 const question_answ = yield this.makeRequestSqliteDB(db_sqlite, "SELECT question, time_receipt FROM questions WHERE id_question=" + post_data.id_question);
                 let question;
                 if (question_answ.result) {
@@ -67,7 +71,6 @@ class Module_Comments extends ModuleDefault_1.Module_Default {
                 else {
                     resolve({ result: false, message: "Не удалось загрузить комментарии к вопросу." });
                 }
-                console.log("!!!!!!!!!!!!!! comments", cache_id_users);
                 resolve({
                     result: true,
                     answer: { comments: comments, question: question, users_info: users_info, id_user: post_data.id_user },

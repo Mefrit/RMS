@@ -1,6 +1,6 @@
 import * as React from "react"
-import { useEffect, useState } from "react";
-import { connect, useSelector } from 'react-redux'
+import { useState } from "react";
+import { connect } from 'react-redux'
 import { addLink } from '../redux_project/actions/actionlinkEditor'
 const LinkEditor = (props) => {
 
@@ -10,18 +10,8 @@ const LinkEditor = (props) => {
     const [link, setLink] = useState(props.link_obj.link);
     const [type_resource, setTypeResource] = useState('cms');
 
-    console.log("linkEditor Props ", props);
-    useEffect(() => {
-        console.log("useEffect props LinkEditor", props);
-        // props.addLink({
-        //     title: "NEWWWWWWWWWWWWWWWW",
-        //     link: "https:\/\/cms2.edu.yar.ru\/\/docs\/index.php?p=NEWWWWWWWWWWWWWWWW",
-        //     description: "NEWWWWWWWWWWWWWWWW DESCRIPTRION "
-        // });
-        // loadLinksList();
-    }, []);
     const addLink2List = () => {
-        console.log(title, description, link, type_resource)
+
         props.addLink({
             title: title.trim(),
             link: link.trim(),

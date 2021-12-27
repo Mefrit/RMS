@@ -8,7 +8,7 @@ import { connect, useSelector } from 'react-redux'
 import { showLoaderComments, hideLoaderComments, loadInfoComments, updateComments } from '../redux_project/actions/actionComments'
 import { postJSON } from "../lib/query"
 import { getTime } from "lib/module_functions";
-
+import { globalState } from "../interfaces/interfaces";
 // REACT.MEME
 // REACT.useCallBack
 // React.useMeme
@@ -17,18 +17,17 @@ import { getTime } from "lib/module_functions";
 function Comments(props, dispatchProps) {
 
     const [id_question, setIdQuestion] = useState(props.params.id_question);
-    const comments = useSelector((state: any): any => state.comments.comments);
-    const users_info = useSelector((state: any): any => state.comments.users_info);
-    const question = useSelector((state: any): any => state.comments.question);
+    const comments = useSelector((state: globalState) => state.comments.comments);
+    const users_info = useSelector((state: globalState) => state.comments.users_info);
+    const question = useSelector((state: globalState) => state.comments.question);
     const [id_user, setIdUser] = useState(props.params.id_user);
     const [user_comment, setUserComment] = useState("");
-    const loading = useSelector((state: any): any => state.comments.loading);
+    const loading = useSelector((state: globalState) => state.comments.loading);
     useEffect(() => {
         props.showLoaderComments();
 
         loadComments(id_question)
         const timer = setInterval(() => {
-            // console.log("messages_end_element222222222", messages_end_element)
             loadComments(id_question)
         }, 3000);
         // clearing interval
@@ -52,7 +51,7 @@ function Comments(props, dispatchProps) {
                 });
                 if (res.answer.id_user && id_user === undefined) {
                     setIdUser(res.answer.id_user);
-                    console.log("result FORM SERVER Comments WHERE id_question =", res, id_user);
+
                 }
             } else {
                 alert(res.message);
@@ -71,7 +70,7 @@ function Comments(props, dispatchProps) {
             action: "AddComment"
         }).then((res) => {
             props.hideLoaderComments();
-            console.log("AddComments=", res);
+
             if (res.result) {
                 new_comments = comments;
                 new_comments.push({
@@ -81,7 +80,6 @@ function Comments(props, dispatchProps) {
                     time_receipt: curent_time
                 });
                 props.updateComments(new_comments)
-                console.log("add commetn ", comments);
             } else {
                 alert(res.message);
             }
@@ -122,9 +120,6 @@ function Comments(props, dispatchProps) {
         })
         return name_author;
     }
-    // const scrollToBottom = (messages_end_element) => {
-    //     messages_end_element.scrollIntoView({ behavior: "smooth" });
-    // }
     if (loading) {
         return <Loader />
     }
@@ -140,9 +135,6 @@ function Comments(props, dispatchProps) {
 
         <ul style={{ height: "500px" }} className=" w-100 p-2 list-group  d-flex  bg-light border overflow-auto">
             {renderComments(comments)}
-            {/* <div style={{ float: "left", clear: "both" }}
-                ref={handleDomNodeChange}>
-            </div> */}
         </ul>
         {id_user ? <div className="w-100"> <textarea onChange={(ev) => { setUserComment(ev.target.value) }} className="form-control mt-3" value={user_comment} ></textarea>
             <input type="button" onClick={addComment} className="btn btn-primary mt-2 mb-5" value="Отправить" /></div> : ""}

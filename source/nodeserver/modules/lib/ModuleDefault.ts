@@ -1,4 +1,3 @@
-
 export class Module_Default {
     db: any;
     db_cis: any;
@@ -7,7 +6,6 @@ export class Module_Default {
     }
     // все актион связанные с БД возвращают Promise?
     runtAction(name_action, data) {
-
         return this["action" + name_action](data);
     }
 
@@ -15,7 +13,6 @@ export class Module_Default {
         // await ...
         return new Promise((resolve, reject) => {
             database.query(sql, (err, res) => {
-
                 if (err) {
                     resolve({ result: false, message: err.message });
                 }
@@ -26,8 +23,8 @@ export class Module_Default {
                     resolve({ result: true, rows: [] });
                 }
 
-                database.end()
-            })
+                database.end();
+            });
         });
     };
     makeRequestSqliteDB = async (database, sql) => {

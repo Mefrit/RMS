@@ -1,5 +1,3 @@
-// import { postJSON } from "../lib/query"
-
 import * as React from 'react';
 import Loader from '../components/loader';
 import { postJSON } from "../lib/query";
@@ -22,7 +20,6 @@ function Stats(props) {
         if (stats_total_data.cache.length == 0) {
             props.showLoaderStats();
         }
-
         postJSON("/api", {
             module: "Stats",
             action: "GetStats",
@@ -33,7 +30,6 @@ function Stats(props) {
                 props.hideLoaderStats();
             }
             if (res.result) {
-                console.log("res.result answer", res);
                 setStatsTotalData(res.total_info)
                 setStatsAnsweredData(res.answered_info)
             } else {
@@ -41,18 +37,6 @@ function Stats(props) {
             }
         });
     }, [time_limit_start, time_limit_end]);
-    // function getStatsSeriesFromState(mode, stats_total_data, stats_answered_data) {
-    //     let result = [];
-    //     switch (mode) {
-    //         case "all":
-    //             result = stats_total_data.map(elem => elem.count);
-    //             break;
-    //         case "answered":
-    //             result = stats_answered_data.map(elem => elem.count);
-    //             break;
-    //     }
-    //     return result
-    // }
     function getStatsCache(mode, stats_total_data, stats_answered_data) {
         let result = [];
         switch (mode) {
@@ -65,29 +49,12 @@ function Stats(props) {
         }
         return result
     }
-    // let categories = stats_total_data, series_data: any = getStatsSeriesFromState(mode, stats_total_data, stats_answered_data);
+
     let stats_data: any = getStatsCache(mode, stats_total_data, stats_answered_data)
-    // let categories = stats_total_data.map((item) => {
-    //     return item.date;
-    // }), series_data: any = stats_answered_data.map(elem => elem.count_answered);
-    // // {
-    //     type: 'line',
-    //         name: 'Ответы',
-    //             data: stats_answered_data.map(elem => elem.count_answered)
-    // }, {
-    //     type: 'line',
-    //         name: 'Обращения',
-    //             data: stats_total_data.map(elem => elem.count_request)
-    // }
     const options: Highcharts.Options = {
         title: {
             text: 'Статистика по обращениям пользователей'
         },
-        // {
-        //     type: 'line',
-        //     name: 'Обращения',
-        //     data: stats_total_data.map(elem => elem.count_request)
-        // },
         series: [{
             type: 'line',
             name: stats_data.line_title,
@@ -108,10 +75,7 @@ function Stats(props) {
         exporting: {
             enabled: true
         }
-
     }
-    // stats_data.map(elem => elem.time_receipt)
-
     if (loading) {
         return <Loader />
     }
@@ -140,21 +104,10 @@ function Stats(props) {
 const mapDispatchToProps = {
     showLoaderStats,
     hideLoaderStats
-    // showLoaderAnswer,
-    // hideLoaderAnswer
-    // hideLoaderComments,
-    // loadInfoComments,
-    // updateComments
 }
 // измененеие в пропсах, когда поменялся state
 const mapStateToProps = state => ({
     loading: false,
-
-    // question: state.comments.question,
-    // user_comment: state.comments.user_comment,
-
-    // users_info: state.comments.users_info,
-    // comments: state.comments.comments,
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Stats)
 

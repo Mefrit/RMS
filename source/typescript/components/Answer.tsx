@@ -4,24 +4,18 @@ import { useEffect, useState } from "react";
 
 import { showLoaderAnswer, hideLoaderAnswer } from '../redux_project/actions/actionAnswer'
 import * as React from "react"
-import Loader from '../components/loader'
+import Loader from '../components/loader';
+import { globalState } from "../interfaces/interfaces";
 function Answer(props, dispatchProps) {
-    const loading = useSelector((state: any): any => state.comments.loading);
+    const loading = useSelector((state: globalState) => state.comments.loading);
     const [id_question, setIdQuestion] = useState(props.params.id_question);
-    // const question = useSelector((state: any): any => state.comments.question);
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
-    console.log("props", props);
     useEffect(() => {
         props.showLoaderAnswer();
 
         loadQuestion(id_question)
-        // const timer = setInterval(() => {
-        // console.log("messages_end_element222222222", messages_end_element)
-        // loadQuestion(id_question)
-        // }, 3000);
-        // clearing interval
-        // return () => clearInterval(timer);
+
     }, [id_question]);
     const loadQuestion = async (id_question) => {
 
@@ -35,48 +29,12 @@ function Answer(props, dispatchProps) {
             if (res.result) {
                 console.log("res.result answer", res);
                 setQuestion(res.answer.question)
-                // props.loadInfoComments({
-                //     comments: res.answer.comments,
-                //     question: res.answer.question,
-                //     users_info: res.answer.users_info,
-                // });
-                // if (res.answer.id_user && id_user === undefined) {
-                //     setIdUser(res.answer.id_user);
-                //     console.log("result FORM SERVER Comments WHERE id_question =", res, id_user);
-                // }
+
             } else {
                 alert(res.message);
             }
         });
     };
-    // const send = () => {
-    //     console.log(answer);
-    //     postJSON("/api", {
-    //         id_question: id_question,
-    //         answer: answer,
-    //         module: "Answer",
-    //         action: "SentAnswer"
-
-    //     }).then((res) => {
-    //         props.hideLoaderAnswer();
-    //         if (res.result) {
-    //             console.log("res.result sentAnswer", res);
-    //             // setQuestion(res.answer.question)
-    //             // props.loadInfoComments({
-    //             //     comments: res.answer.comments,
-    //             //     question: res.answer.question,
-    //             //     users_info: res.answer.users_info,
-    //             // });
-    //             // if (res.answer.id_user && id_user === undefined) {
-    //             //     setIdUser(res.answer.id_user);
-    //             //     console.log("result FORM SERVER Comments WHERE id_question =", res, id_user);
-    //             // }
-    //         } else {
-    //             alert(res.message);
-    //         }
-    //     });
-    // }
-
 
     if (loading) {
         return <Loader />
@@ -119,21 +77,14 @@ function Answer(props, dispatchProps) {
 const mapDispatchToProps = {
     showLoaderAnswer,
     hideLoaderAnswer
-    // hideLoaderComments,
-    // loadInfoComments,
-    // updateComments
+
 }
 // измененеие в пропсах, когда поменялся state
 const mapStateToProps = state => ({
     loading: false,
     question: state.comments.question,
-    // user_comment: state.comments.user_comment,
 
-    // users_info: state.comments.users_info,
-    // comments: state.comments.comments,
 })
 // связка данных and exports
 export default connect(mapStateToProps, mapDispatchToProps)(Answer)
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Comments)
 

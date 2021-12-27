@@ -4,10 +4,11 @@ import { Module_Teacher } from "./modules/ModuleTeacher";
 import { Module_Comments } from "./modules/ModuleComments";
 import { Module_Answer } from "./modules/ModuleAnswer";
 import { Module_Stats } from "./modules/ModuleStats";
-// import { rejects } from "assert";
+
+import { cis_connect, get_db_connection_answer } from "./interfaces/interface";
 export class Application {
     db: any;
-    cis_connect: any
+    cis_connect: cis_connect;
     path2dbsqlite: string;
     constructor(path2dbsqlite, cis_connect) {
         this.db = new DataBase();
@@ -25,14 +26,11 @@ export class Application {
             case "Answer":
                 return Module_Answer;
             case "Stats":
-                return Module_Stats
+                return Module_Stats;
             default:
                 return undefined;
         }
     }
-    // getDbCis() {
-    //     const db_cis = this.db.getDBCis();
-    // }
     getDbConnection() {
         return new Promise(async (resolve, reject) => {
             const answ_sqlite = await this.db.initDBSqlite(this.path2dbsqlite);
@@ -49,10 +47,7 @@ export class Application {
     }
     loadModule(post_data) {
         return new Promise(async (resolve, reject) => {
-            // const answ_sqlite = await this.db.initDBSqlite(this.path2dbsqlite);
-            // const answ_cis = await this.db.initDBCis(this.cis_connect);
-            console.log("post_data ==>>> ", post_data);
-            this.getDbConnection().then((data: any) => {
+            this.getDbConnection().then((data: get_db_connection_answer) => {
                 if (data.result) {
                     const Module = this.getModule(post_data.module);
                     if (Module) {
@@ -66,8 +61,7 @@ export class Application {
                 } else {
                     resolve(data);
                 }
-            })
-
+            });
         });
     }
 }

@@ -1,4 +1,12 @@
-import { ADD_MESSAGE, SHOW_LOADER, HIDE_LOADER, SET_CACHE_MESSAGE, LOAD_MORE_ELEMENTS, SET_ORGANIZATIONS_INFO } from "../types";
+import {
+    ADD_MESSAGE,
+    SHOW_LOADER,
+    HIDE_LOADER,
+    SET_CACHE_MESSAGE,
+    LOAD_MORE_ELEMENTS,
+    SET_ORGANIZATIONS_INFO,
+    START_SEARCH,
+} from "../types";
 
 export function addMessage(message) {
     return {
@@ -30,9 +38,15 @@ export function setOrganizationInfo(organization_info) {
     };
 }
 export function loadMoreElements(curent_count) {
-    console.log("loadMoreElementsloadMoreElements +++>>>> ", curent_count);
     return {
         type: LOAD_MORE_ELEMENTS,
-        payload: curent_count
+        payload: curent_count,
+    };
+}
+
+export function startSearch(params) {
+    return {
+        type: START_SEARCH,
+        payload: params,
     };
 }

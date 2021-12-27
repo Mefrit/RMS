@@ -55,7 +55,6 @@ class Application {
     }
     loadModule(post_data) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            console.log("post_data ==>>> ", post_data);
             this.getDbConnection().then((data) => {
                 if (data.result) {
                     const Module = this.getModule(post_data.module);

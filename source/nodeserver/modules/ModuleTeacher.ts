@@ -1,12 +1,10 @@
 import { Module_Default } from "./lib/ModuleDefault";
 import { Bayes } from "../modules/lib/bayes";
-// import console = require("console");
+import { teacher_get_docs_list_post } from "../interfaces/interface";
 export class Module_Teacher extends Module_Default {
-    actionGetDocsList = (post_data: any) => {
+    actionGetDocsList = (post_data: teacher_get_docs_list_post) => {
         return new Promise((resolve, reject) => {
-            console.log("getDocsList");
             const database = this.db.getDBSqlite();
-            console.log("post_data ==> ", post_data);
             if (post_data.type_resource == "cms") {
                 this.getDocsLinks(database, `SELECT * FROM links`).then((answer: any) => {
                     if (answer.result) {
@@ -43,44 +41,60 @@ export class Module_Teacher extends Module_Default {
     addNewLink(database, link_obj, id_platform) {
         return new Promise((resolve, reject) => {
             database.serialize(() => {
-
-                database.run('INSERT INTO links(url, title,description) VALUES(?, ?, ?)', [link_obj.link, link_obj.title, link_obj.description], (err, rows) => {
-                    if (err) {
-                        return resolve({ result: false, message: err.message })
-                    }
-                    database.all('SELECT MAX(id_link )as id from links', function (err, last_id) {
+                database.run(
+                    "INSERT INTO links(url, title,description) VALUES(?, ?, ?)",
+                    [link_obj.link, link_obj.title, link_obj.description],
+                    (err, rows) => {
                         if (err) {
-                            resolve({ result: false, message: "Ошибка при добавлении новой ссылки." + err.message });
+                            return resolve({ result: false, message: err.message });
                         }
-                        console.log("last_id", last_id[0].id)
-                        database.run('INSERT INTO platforms_links_access(id_link,id_platform) VALUES(?, ?)', [last_id[0].id, id_platform], (err) => {
+                        database.all("SELECT MAX(id_link )as id from links", function (err, last_id) {
                             if (err) {
-                                return resolve({ result: false, message: "Ошибка при добавлении новой ссылки." + err.message })
+                                resolve({
+                                    result: false,
+                                    message: "Ошибка при добавлении новой ссылки." + err.message,
+                                });
                             }
-                            console.log('Row was added to the table: ${this.lastID}', id_platform, last_id[0].id);
-                            return resolve({ result: true })
-                        })
-                    });
-                })
+
+                            database.run(
+                                "INSERT INTO platforms_links_access(id_link,id_platform) VALUES(?, ?)",
+                                [last_id[0].id, id_platform],
+                                (err) => {
+                                    if (err) {
+                                        return resolve({
+                                            result: false,
+                                            message: "Ошибка при добавлении новой ссылки." + err.message,
+                                        });
+                                    }
+
+                                    return resolve({ result: true });
+                                }
+                            );
+                        });
+                    }
+                );
             });
         });
     }
-    actionEditListLinks(post_data) {
+    actionEditListLinks(post_data: any) {
         return new Promise((resolve, reject) => {
             const database = this.db.getDBSqlite();
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${post_data.link_obj.type_resource}" `;
-            console.log("query", query)
+
             this.getDocsLinks(database, query).then((answer: any) => {
                 if (answer.result) {
-                    console.log("post_data", post_data, this.checkLinks(answer.rows, post_data.link_obj.link));
                     if (!this.checkLinks(answer.rows, post_data.link_obj.link)) {
-                        resolve(this.addNewLink(database, post_data.link_obj, post_data.link_obj.type_resource == "cms" ? 1 : 2));
+                        resolve(
+                            this.addNewLink(
+                                database,
+                                post_data.link_obj,
+                                post_data.link_obj.type_resource == "cms" ? 1 : 2
+                            )
+                        );
                     } else {
                         resolve({ result: false, message: "Ссылка уже существует в списке" });
                     }
-
-                    // resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
                 }
                 resolve({ result: false, message: "Не удалось изменить список ссылок" });
             });
@@ -90,17 +104,14 @@ export class Module_Teacher extends Module_Default {
     }
     actionGetRecomendation(post_data: any) {
         return new Promise((resolve, reject) => {
-            console.log("actionGetRecomendation", post_data);
             const train_byes = new Bayes("");
             const database = this.db.getDBSqlite();
             const type_resource = post_data.type_resource;
-
             const query = `SELECT l.* FROM links as l JOIN platforms_links_access as pla ON l.id_link = 
             pla.id_link JOIN platforms as pl ON pl.id_platform = pla.id_platform WHERE  pl.title="${type_resource}" `;
+
             this.getDocsLinks(database, query).then((answer: any) => {
                 if (answer.result) {
-                    console.log("post_data", post_data);
-
                     resolve({ result: true, links: train_byes.getRecomendation(post_data.letter, answer.rows) });
                 }
                 resolve({ result: false, message: "Не удалось получить рекомендации." });
@@ -116,8 +127,7 @@ export class Module_Teacher extends Module_Default {
             pla.id_link JOIN platforms as pl ON pl.id_platform =  pla.id_platform WHERE  pl.title="${type_resource}" `;
             this.getDocsLinks(database, query).then((answer: any) => {
                 if (answer.result) {
-                    console.log("post_data", post_data);
-                    console.log(train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links));
+                    train_byes.trainByLetter(post_data.letter, answer.rows, post_data.user_docs_links);
                 }
                 resolve({ result: true, message: "Алгоритм успешно переобучен." });
             });
