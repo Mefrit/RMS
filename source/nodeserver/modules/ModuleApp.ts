@@ -7,20 +7,10 @@ export class Module_App extends Module_Default {
             const db_cis = this.db.getDBCis();
             // const numb_record_start = (post_data.page - 1) * post_data.on_page;
             const on_page = post_data.on_page;
-            // database.serialize(() => {
-            //     database.all(
-            //         `SELECT  id_question,question,time_receipt,time_answering,num_question FROM questions ORDER BY ${post_data.order} LIMIT ${0}, ${on_page + 6}`,
-            //         function (err, rows) {
-            //             if (err) {
-            //                 resolve({ result: false, list: [], message: err.message, on_page: on_page + 6 });
-            //             }
-            //             resolve({ result: true, list: rows });
-            //         }
-            //     );
-            // });
+
             const questions: any = await this.makeRequestSqliteDB(
                 database,
-                `SELECT  id_question,question,time_receipt,time_answering,num_question, id_organization FROM questions ORDER BY ${post_data.order} LIMIT ${0}, ${on_page + 6}`
+                `SELECT  id_question,question,time_receipt,time_answering,num_question, id_organization FROM questions ORDER BY ${post_data.order} DESC LIMIT ${0}, ${on_page + 6}`
             );
             let id_organizations = [];
             questions.rows.forEach(elem => {
@@ -28,13 +18,11 @@ export class Module_App extends Module_Default {
                     id_organizations.push(elem.id_organization)
                 }
             })
-            // console.log(id_organizations.join(","));
             const organizations_db: any = await this.makeRequestCisDB(
                 db_cis,
                 `SELECT short_name, id_organization FROM k_organization WHERE id_organization IN (${id_organizations.join(",")}) `
             );
 
-            // console.log(organizations);
 
             if (questions.result && organizations_db.result) {
                 let organzations = this.prepareOrganizations(organizations_db.rows);
@@ -54,6 +42,21 @@ export class Module_App extends Module_Default {
 
         });
         return organzations;
+    }
+    actionSetQuestionToRms = (post_data: any) => {
+        return new Promise((resolve, reject) => {
+            resolve({ result: true });
+            const database = this.db.getDBSqlite();
+            database.serialize(() => {
+                database.run('INSERT INTO questions(question, time_receipt, id_organization, type_platform, num_question,email_questioner) VALUES(?, ?, ?, ?, ?, ?)',
+                    [post_data.question, post_data.time_receipt, post_data.id_organization, post_data.type_platform, post_data.num_question, post_data.email_questioner], (err, rows) => {
+                        if (err) {
+                            return resolve({ result: false, message: "Не удалось добавить обращение." + err.message })
+                        }
+                        resolve({ result: true })
+                    })
+            });
+        });
     }
     actionGetMessage = (post_data: any) => {
         return new Promise((resolve, reject) => {
