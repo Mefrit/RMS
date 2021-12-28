@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const session = require("express-session");
@@ -6,6 +15,7 @@ const Application_1 = require("./Application");
 const bodyParser = require("body-parser");
 const settings_1 = require("./settings");
 const functions_1 = require("./modules/lib/functions");
+const md5 = require("md5");
 const file_system_1 = require("file-system");
 const multer = require("multer");
 const path = require("path");
@@ -76,25 +86,51 @@ router.get(settings_1.addition_path + "/public/index.html", (req, res, next) => 
 router.get(settings_1.addition_path + "/api_cms", (req, res) => {
     console.log("HERE APICMS GET");
 });
-router.post("/api_cms", upload.array("uploaded_files"), (request, response, next) => {
+router.post("/api_files", upload.array("uploaded_files"), (request, response, next) => {
     if (request.method == "POST") {
-        var body = "";
         const files = request.files;
-        console.log(files);
+        const url_params_file = (0, functions_1.getUrlInfo)(request.url.split("?")[1]);
         if (!files) {
             const error = new Error("Please choose files");
             error.httpStatusCode = 400;
             return next(error);
         }
-        files.forEach((element) => {
-            file_system_1.fs.writeFile(`./server/download/image.jpg`, element.buffer, () => console.log("finished downloading!"));
-        });
-        response.send(JSON.stringify({ result: false }));
-        response.end();
+        let path_to_file = "";
+        application.getDbConnection().then((data) => __awaiter(void 0, void 0, void 0, function* () {
+            const sqlite = data.db_sqlite;
+            const sql = "INSERT INTO files( name, num_question, path, time_receipt) VALUES(?, ?, ?, ?)";
+            let have_dir, d1, d2;
+            sqlite.serialize(() => {
+                files.forEach((element, key, arr) => __awaiter(void 0, void 0, void 0, function* () {
+                    path_to_file = md5(element.buffer) + path.extname(element.originalname);
+                    d1 = path_to_file.slice(0, 2);
+                    d2 = path_to_file.slice(2, 4);
+                    have_dir = yield (0, functions_1.checkDir)(settings_1.path_to_download, d1, d2);
+                    if (have_dir.result) {
+                        file_system_1.fs.writeFile("." + settings_1.path_to_download + d1 + "/" + d2 + "/" + path_to_file, element.buffer, () => {
+                            console.log("finished downloading!");
+                            sqlite.run(sql, [element.originalname, url_params_file.num_request, path_to_file, url_params_file.time_receipt], (err, rows) => {
+                                if (!err) {
+                                    console.log("\nfinished insert SQL!\n");
+                                }
+                                else {
+                                    console.log("\nfERORRO\n", err);
+                                }
+                            });
+                        });
+                    }
+                    else {
+                        response.send(JSON.stringify({ result: false, message: 'Не удалось создать папку' }));
+                        response.end();
+                    }
+                }));
+            });
+            response.send(JSON.stringify({ result: true }));
+            response.end();
+        }));
     }
 });
 router.post("/api", (request, response) => {
-    console.log("request.files", request);
     if (request.method == "POST") {
         var body = "";
         request.on("data", function (data) {
@@ -104,6 +140,7 @@ router.post("/api", (request, response) => {
         });
         request.on("end", function () {
             var post_data = JSON.parse(body);
+            console.log("post_data ==> ", post_data);
             if (request.session.user) {
                 post_data.id_user = request.session.user.id_user;
             }

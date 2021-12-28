@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Module_App = void 0;
 const ModuleDefault_1 = require("./lib/ModuleDefault");
+const functions_1 = require("./lib/functions");
 class Module_App extends ModuleDefault_1.Module_Default {
     constructor() {
         super(...arguments);
@@ -41,31 +42,73 @@ class Module_App extends ModuleDefault_1.Module_Default {
                 const database = this.db.getDBSqlite();
                 const db_cis = this.db.getDBCis();
                 let sql_search = { sqlite_filter: "", cis_filter: "" };
+                let organzations = {};
                 const on_page = post_data.on_page;
                 if (post_data.search_url_params) {
                     sql_search = this.getSqlSearchObj(post_data.search_url_params);
                 }
-                const sql_sqlite = `SELECT id_question,question,time_receipt,time_answering,num_question, id_organization FROM questions ${sql_search.sqlite_filter} ORDER BY ${post_data.order} LIMIT ${0}, ${on_page + 12}`;
-                const questions = yield this.makeRequestSqliteDB(database, sql_sqlite);
-                let id_organizations = [];
-                questions.rows.forEach((elem) => {
-                    if (id_organizations.indexOf(elem.id_organization) == -1) {
-                        id_organizations.push(elem.id_organization);
+                try {
+                    const sql_sqlite = `SELECT id_question,question,time_receipt,time_answering,num_question, id_organization 
+                FROM questions ${sql_search.sqlite_filter} ORDER BY ${post_data.order} LIMIT ${0}, ${on_page + 12}`;
+                    const questions = yield this.makeRequestSqliteDB(database, sql_sqlite);
+                    let id_organizations = [], num_questions = [], files_info = [];
+                    if (questions.result) {
+                        questions.rows.forEach((elem) => {
+                            if (id_organizations.indexOf(elem.id_organization) == -1) {
+                                id_organizations.push(elem.id_organization);
+                                num_questions.push(elem.num_question);
+                            }
+                        });
+                        const sql_cis = `SELECT short_name, id_organization FROM k_organization WHERE id_organization IN (${id_organizations.join(",")}) ${sql_search.cis_filter} `;
+                        if (id_organizations.length > 0) {
+                            const organizations_db = yield this.makeRequestCisDB(db_cis, sql_cis);
+                            if (organizations_db.result) {
+                                organzations = this.prepareOrganizations(organizations_db.rows);
+                            }
+                            else {
+                                resolve({
+                                    result: false,
+                                    list: [],
+                                    message: "Ошибка при загрузке ДБ  " + organizations_db.message,
+                                    on_page: on_page + 12,
+                                    organizations: [],
+                                });
+                            }
+                        }
+                        if (num_questions.length > 0) {
+                            const sql_sqlite_files = `SELECT name, path, num_question FROM files WHERE num_question IN (${num_questions.join(",")}) `;
+                            const files_db = yield this.makeRequestSqliteDB(database, sql_sqlite_files);
+                            if (files_db.result) {
+                                files_info = this.prepareFiles(files_db.rows);
+                            }
+                            else {
+                                resolve({
+                                    result: false,
+                                    list: [],
+                                    message: "Ошибка при загрузке ДБ, файлы.  " + files_db.message,
+                                    on_page: on_page + 12,
+                                    organizations: [],
+                                });
+                            }
+                        }
+                        const list = this.mergeInformationToList(organzations, files_info, questions.rows);
+                        resolve({ result: true, list: list, on_page: on_page + 12, organizations: organzations });
                     }
-                });
-                const sql_cis = `SELECT short_name, id_organization FROM k_organization WHERE id_organization IN (${id_organizations.join(",")} ) ${sql_search.cis_filter} `;
-                const organizations_db = yield this.makeRequestCisDB(db_cis, sql_cis);
-                console.log("organizations_db", organizations_db);
-                if (questions.result && organizations_db.result) {
-                    const organzations = this.prepareOrganizations(organizations_db.rows);
-                    const list = this.mergeOrganizationsToList(organzations, questions.rows);
-                    resolve({ result: true, list: list, on_page: on_page + 12, organizations: organzations });
+                    else {
+                        resolve({
+                            result: false,
+                            list: [],
+                            message: "Ошибка при загрузке ДБ, организации " + questions.message,
+                            on_page: on_page + 12,
+                            organizations: [],
+                        });
+                    }
                 }
-                else {
+                catch (e) {
                     resolve({
                         result: false,
                         list: [],
-                        message: "Ошибка при загрузке ДБ  " + questions.message ? questions.message : organizations_db.message,
+                        message: "Ошибка при загрузке ДБ  " + e.message,
                         on_page: on_page + 12,
                         organizations: [],
                     });
@@ -77,7 +120,7 @@ class Module_App extends ModuleDefault_1.Module_Default {
                 const database = this.db.getDBSqlite();
                 const id_question = post_data.id_question;
                 database.serialize(() => {
-                    database.all(`SELECT  question FROM questions WHERE id_question=${id_question}`, function (err, rows) {
+                    database.all(`SELECT  question FROM questions WHERE id_question=${id_question} `, function (err, rows) {
                         if (err) {
                             resolve({ result: false, message: err.message });
                         }
@@ -109,11 +152,28 @@ class Module_App extends ModuleDefault_1.Module_Default {
             });
         }));
     }
-    mergeOrganizationsToList(organizations_info, list) {
-        let result = [];
+    mergeInformationToList(organizations_info, files, list) {
+        let result = [], tmp;
         list.forEach((elem) => {
-            if (organizations_info[elem.id_organization])
-                result.push(Object.assign(Object.assign({}, elem), { short_name: organizations_info[elem.id_organization].short_name }));
+            if (organizations_info[elem.id_organization]) {
+                tmp = Object.assign(Object.assign({}, elem), { short_name: organizations_info[elem.id_organization].short_name, files: [] });
+                if (files[tmp.num_question]) {
+                    tmp.files = files[tmp.num_question];
+                }
+                result.push(tmp);
+            }
+        });
+        return result;
+    }
+    prepareFiles(files) {
+        let result = {};
+        console.log(" !++++++++++++++ > ", files);
+        files.forEach((element) => {
+            console.log(result[element.num_question]);
+            if (!Array.isArray(result[element.num_question])) {
+                result[element.num_question] = [];
+            }
+            result[element.num_question].push({ path: (0, functions_1.createUrlLink2File)(element.path), name: element.name });
         });
         return result;
     }

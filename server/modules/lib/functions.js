@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.authenticate = exports.sendEmail = exports.isStatic = exports.getUrlInfo = exports.load_static_file = void 0;
+exports.checkDir = exports.createUrlLink2File = exports.authenticate = exports.sendEmail = exports.isStatic = exports.getUrlInfo = exports.load_static_file = void 0;
 const fs = require("fs");
 const path = require("path");
 const md5 = require("md5");
@@ -28,6 +28,7 @@ const mimeTypes = {
     ".map": "application/json",
 };
 const nodemailer = require("nodemailer");
+const settings_1 = require("../../settings");
 function load_static_file(response, uri) {
     response.setHeader("Content-Type", "text/html; charset=utf-8;");
     const filePath = ".." + uri.pathname;
@@ -101,5 +102,26 @@ function authenticate(login, password, application) {
     }));
 }
 exports.authenticate = authenticate;
+function createUrlLink2File(db_path) {
+    return settings_1.base_path + settings_1.addition_path + settings_1.path_to_download + db_path.slice(0, 2) + "/" + db_path.slice(2, 4) + "/" + db_path;
+}
+exports.createUrlLink2File = createUrlLink2File;
+function checkDir(path2dir, d1, d2) {
+    return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+        try {
+            if (!fs.existsSync("." + path2dir + d1 + "/")) {
+                fs.mkdirSync("." + path2dir + d1 + "/");
+            }
+            if (!fs.existsSync("." + path2dir + d1 + "/" + d2 + "/")) {
+                fs.mkdirSync("." + path2dir + d1 + "/" + d2 + "/");
+            }
+            resolve({ result: true });
+        }
+        catch (err) {
+            resolve({ result: false });
+        }
+    }));
+}
+exports.checkDir = checkDir;
 
 //# sourceMappingURL=../../maps/modules/lib/functions.js.map

@@ -2,13 +2,14 @@ import * as express from "express";
 import * as session from "express-session";
 import { Application } from "./Application";
 import * as bodyParser from "body-parser";
-import { transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path } from "./settings";
+import { transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path, path_to_download } from "./settings";
 //
-import { multer } from "multer";
+
+// import { multer } from "multer";
 import { authenticate_answer, send_email_answer } from "./interfaces/interface";
-import { sendEmail, authenticate } from "./modules/lib/functions";
-import { resolve } from "path/posix";
-//
+import { sendEmail, authenticate, checkDir, getUrlInfo } from "./modules/lib/functions";
+const md5 = require("md5");
+
 import { fs } from "file-system";
 const multer = require("multer");
 const path = require("path");
@@ -86,49 +87,96 @@ router.get(addition_path + "/public/index.html", (req, res, next) => {
 router.get(addition_path + "/api_cms", (req, res) => {
     console.log("HERE APICMS GET");
 });
+// router.post(
+//     "/api_files",
+//     upload.array("uploaded_files" /* name attribute of <file> element in your form */),
+//     (request, response, next) => {
+//         if (request.method == "POST") {
+//             console.log("\n\n equest.test \n\n ", request.test)
+//             const files = request.files;
+//             console.log(files);
+//             // let body = "";
+//             // request.on("data", function (data) {
+//             //     body += data;
+//             //     if (body.length > 1e6) request.connection.destroy();
+//             // });
+//             if (!files) {
+//                 const error: any = new Error("Please choose files");
+//                 error.httpStatusCode = 400;
+//                 return next(error);
+//             }
+//             files.forEach((element) => {
+//                 console.log("\n\n", path_to_download + element.originalname);
+//                 fs.writeFile("." + path_to_download + element.originalname, element.buffer, () => console.log("finished downloading!"));
+//             });
+//             response.send(JSON.stringify({ result: true }));
+//             response.end();
+//         }
+//     }
+// );
 router.post(
-    "/api_cms",
+    "/api_files",
     upload.array("uploaded_files" /* name attribute of <file> element in your form */),
     (request, response, next) => {
         if (request.method == "POST") {
-            var body = "";
             const files = request.files;
-            console.log(files);
-
+            const url_params_file: any = getUrlInfo(request.url.split("?")[1]);
             if (!files) {
                 const error: any = new Error("Please choose files");
                 error.httpStatusCode = 400;
-
                 return next(error);
             }
-            files.forEach((element) => {
-                fs.writeFile(`./server/download/image.jpg`, element.buffer, () => console.log("finished downloading!"));
-            });
-            response.send(JSON.stringify({ result: false }));
-            response.end();
-            // request.on("data", function (data) {
-            //     body += data;
-            //     if (body.length > 1e6) request.connection.destroy();
-            // });
-            // request.on("end", function () {
-            //     console.log("body", body);
-            //     // resolve({ result: false });
-            //     // var post_data = JSON.parse(body);
-            //     // if (request.session.user) {
-            //     //     post_data.id_user = request.session.user.id_user;
-            //     // }
-            //     // application.loadModule(post_data).then((data) => {
-            //     // response.send(JSON.stringify(data));
-            //     response.send(JSON.stringify({ result: false }));
+            let path_to_file = "";
 
-            //     response.end();
-            //     // });
-            // });
+            application.getDbConnection().then(async (data: any) => {
+                const sqlite = data.db_sqlite;
+                const sql = "INSERT INTO files( name, num_question, path, time_receipt) VALUES(?, ?, ?, ?)";
+                // const date = new Date();
+
+                let have_dir: any, d1, d2;
+
+                sqlite.serialize(() => {
+                    files.forEach(async (element, key, arr) => {
+                        path_to_file = md5(element.buffer) + path.extname(element.originalname)
+                        d1 = path_to_file.slice(0, 2);
+                        d2 = path_to_file.slice(2, 4);
+                        have_dir = await checkDir(path_to_download, d1, d2);
+                        if (have_dir.result) {
+
+                            fs.writeFile("." + path_to_download + d1 + "/" + d2 + "/" + path_to_file, element.buffer, () => {
+                                console.log("finished downloading!");
+                                sqlite.run(
+                                    sql,
+                                    [element.originalname, url_params_file.num_request, path_to_file, url_params_file.time_receipt],
+                                    (err, rows) => {
+                                        if (!err) {
+                                            console.log("\nfinished insert SQL!\n");
+                                        } else {
+                                            console.log("\nfERORRO\n", err);
+                                        }
+                                    }
+                                );
+                            });
+                        } else {
+                            response.send(JSON.stringify({ result: false, message: 'Не удалось создать папку' }));
+                            response.end();
+                        }
+                    })
+
+                });
+                response.send(JSON.stringify({ result: true }));
+                // } else {
+                //     response.send(JSON.stringify({ result: false, message: 'Не удалось создать папку' }));
+                // }
+                response.end();
+            });
+
+
         }
     }
 );
 router.post("/api", (request, response) => {
-    console.log("request.files", request);
+
     if (request.method == "POST") {
         var body = "";
         request.on("data", function (data) {
@@ -136,7 +184,9 @@ router.post("/api", (request, response) => {
             if (body.length > 1e6) request.connection.destroy();
         });
         request.on("end", function () {
+
             var post_data = JSON.parse(body);
+            console.log("post_data ==> ", post_data);
             if (request.session.user) {
                 post_data.id_user = request.session.user.id_user;
             }
@@ -186,8 +236,8 @@ router.post(
                 } else {
                     response.redirect(
                         request.baseUrl +
-                            addition_path +
-                            `/public/answer.html?id_question=${request.body.id_question}&message=${data.message}`
+                        addition_path +
+                        `/public/answer.html?id_question=${request.body.id_question}&message=${data.message}`
                     );
                     response.end();
                 }

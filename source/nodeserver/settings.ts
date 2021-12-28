@@ -1,4 +1,4 @@
-const path2db_sqlite = "./database.db3";
+const path2db_sqlite = "./server/stable/database.db3";
 const dsn_cis = {
     user: "cis",
     host: "localhost",
@@ -9,6 +9,8 @@ const dsn_cis = {
 const port = 8000;
 const base_path = "http://localhost:8000";
 const addition_path = "";
+const path_to_stable_folder = `/server/stable/`
+const path_to_download = path_to_stable_folder + "download/";
 const transport_obj = {
     service: "gmail",
     auth: {
@@ -16,4 +18,4 @@ const transport_obj = {
         pass: "56189968",
     },
 };
-export { transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path };
+export { checkDirб path_to_download, path_to_stable_folder, transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path };

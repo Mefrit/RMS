@@ -16,7 +16,9 @@ const mimeTypes = {
     ".map": "application/json",
 };
 import * as nodemailer from "nodemailer";
+// import { resolve } from "path/posix";
 import { get_db_connection_answer } from "../../interfaces/interface";
+import { base_path, addition_path, path_to_download } from "../../settings"
 export function load_static_file(response, uri) {
     response.setHeader("Content-Type", "text/html; charset=utf-8;");
 
@@ -39,6 +41,7 @@ export function load_static_file(response, uri) {
     });
 }
 export function getUrlInfo(url) {
+
     var result = {};
     url.split("&").forEach(function (part) {
         var item = part.split("=");
@@ -88,4 +91,26 @@ export function authenticate(login, password, application) {
             }
         });
     });
+}
+
+export function createUrlLink2File(db_path) {
+    return base_path + addition_path + path_to_download + db_path.slice(0, 2) + "/" + db_path.slice(2, 4) + "/" + db_path
+}
+export function checkDir(path2dir, d1, d2) {
+    return new Promise(async (resolve, reject) => {
+        try {
+
+            if (!fs.existsSync("." + path2dir + d1 + "/")) {
+                fs.mkdirSync("." + path2dir + d1 + "/")
+
+            }
+            if (!fs.existsSync("." + path2dir + d1 + "/" + d2 + "/")) {
+                fs.mkdirSync("." + path2dir + d1 + "/" + d2 + "/")
+
+            }
+            resolve({ result: true })
+        } catch (err) {
+            resolve({ result: false })
+        }
+    })
 }
