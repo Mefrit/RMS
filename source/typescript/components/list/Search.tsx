@@ -12,13 +12,16 @@ const Search = (props) => {
     const [time_limit_end, setTimeLimitEnd] = useState(date.getTime());
     const [time_limit_start, setTimeLimitStart] = useState(0);
     useEffect(() => {
-        props.startSearch({
-            time_limit_start: time_limit_start,
-            time_limit_end: time_limit_end,
-            name_organization: name_organization,
-            num_question: num_question,
-            mode: mode
-        })
+        if (mode != "none") {
+            props.startSearch({
+                time_limit_start: time_limit_start,
+                time_limit_end: time_limit_end,
+                name_organization: name_organization,
+                num_question: num_question,
+                mode: mode
+            })
+        }
+
 
     }, [time_limit_start, time_limit_end, name_organization, num_question, mode]);
     const renderSearchInterface = (mode) => {

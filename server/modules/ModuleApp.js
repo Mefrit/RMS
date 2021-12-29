@@ -56,8 +56,8 @@ class Module_App extends ModuleDefault_1.Module_Default {
                         questions.rows.forEach((elem) => {
                             if (id_organizations.indexOf(elem.id_organization) == -1) {
                                 id_organizations.push(elem.id_organization);
-                                num_questions.push(elem.num_question);
                             }
+                            num_questions.push(elem.num_question);
                         });
                         const sql_cis = `SELECT short_name, id_organization FROM k_organization WHERE id_organization IN (${id_organizations.join(",")}) ${sql_search.cis_filter} `;
                         if (id_organizations.length > 0) {
@@ -76,10 +76,10 @@ class Module_App extends ModuleDefault_1.Module_Default {
                             }
                         }
                         if (num_questions.length > 0) {
-                            const sql_sqlite_files = `SELECT name, path, num_question FROM files WHERE num_question IN (${num_questions.join(",")}) `;
+                            const sql_sqlite_files = `SELECT name,id_file, path, num_question FROM files WHERE num_question IN (${num_questions.join(",")}) GROUP BY id_file `;
                             const files_db = yield this.makeRequestSqliteDB(database, sql_sqlite_files);
                             if (files_db.result) {
-                                files_info = this.prepareFiles(files_db.rows);
+                                files_info = this.prepareFiles(files_db.rows, num_questions);
                             }
                             else {
                                 resolve({
@@ -130,10 +130,19 @@ class Module_App extends ModuleDefault_1.Module_Default {
             });
         };
     }
+    prepareFiles(files, num_questions) {
+        let result = {};
+        files.forEach((element) => {
+            if (!Array.isArray(result[element.num_question])) {
+                result[element.num_question] = [];
+            }
+            result[element.num_question].push({ path: (0, functions_1.createUrlLink2File)(element.path), name: element.name });
+        });
+        return result;
+    }
     actionSetQuestionToRms(post_data) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const database = this.db.getDBSqlite();
-            console.log("post_data set questions ", post_data);
             database.run("INSERT INTO questions(question, id_organization, time_receipt, email_questioner,num_question,type_platform) VALUES(?, ?, ?, ?, ?, ?)", [
                 post_data.question,
                 post_data.id_organization,
@@ -162,18 +171,6 @@ class Module_App extends ModuleDefault_1.Module_Default {
                 }
                 result.push(tmp);
             }
-        });
-        return result;
-    }
-    prepareFiles(files) {
-        let result = {};
-        console.log(" !++++++++++++++ > ", files);
-        files.forEach((element) => {
-            console.log(result[element.num_question]);
-            if (!Array.isArray(result[element.num_question])) {
-                result[element.num_question] = [];
-            }
-            result[element.num_question].push({ path: (0, functions_1.createUrlLink2File)(element.path), name: element.name });
         });
         return result;
     }

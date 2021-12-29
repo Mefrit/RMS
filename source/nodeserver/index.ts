@@ -5,7 +5,6 @@ import * as bodyParser from "body-parser";
 import { transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path, path_to_download } from "./settings";
 //
 
-// import { multer } from "multer";
 import { authenticate_answer, send_email_answer } from "./interfaces/interface";
 import { sendEmail, authenticate, checkDir, getUrlInfo } from "./modules/lib/functions";
 const md5 = require("md5");
@@ -46,12 +45,12 @@ router.use((req, res, next) => {
 });
 router.post(addition_path + "/login", (req, res) => {
     authenticate(req.body.username, req.body.password, application).then((answ: authenticate_answer) => {
-        console.log("Here");
+
         if (answ.result) {
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
                 if (req.url.indexOf("public") == -1) {
-                    console.log("Here");
+
                     res.redirect(req.query.back || req.baseUrl + addition_path + "/public/index.html");
                 } else {
                     res.redirect(req.query.back || req.baseUrl + req.url);
@@ -84,36 +83,7 @@ router.get(addition_path + "/public/index.html", (req, res, next) => {
     req.session.comments = undefined;
     next();
 });
-router.get(addition_path + "/api_cms", (req, res) => {
-    console.log("HERE APICMS GET");
-});
-// router.post(
-//     "/api_files",
-//     upload.array("uploaded_files" /* name attribute of <file> element in your form */),
-//     (request, response, next) => {
-//         if (request.method == "POST") {
-//             console.log("\n\n equest.test \n\n ", request.test)
-//             const files = request.files;
-//             console.log(files);
-//             // let body = "";
-//             // request.on("data", function (data) {
-//             //     body += data;
-//             //     if (body.length > 1e6) request.connection.destroy();
-//             // });
-//             if (!files) {
-//                 const error: any = new Error("Please choose files");
-//                 error.httpStatusCode = 400;
-//                 return next(error);
-//             }
-//             files.forEach((element) => {
-//                 console.log("\n\n", path_to_download + element.originalname);
-//                 fs.writeFile("." + path_to_download + element.originalname, element.buffer, () => console.log("finished downloading!"));
-//             });
-//             response.send(JSON.stringify({ result: true }));
-//             response.end();
-//         }
-//     }
-// );
+
 router.post(
     "/api_files",
     upload.array("uploaded_files" /* name attribute of <file> element in your form */),
@@ -131,8 +101,6 @@ router.post(
             application.getDbConnection().then(async (data: any) => {
                 const sqlite = data.db_sqlite;
                 const sql = "INSERT INTO files( name, num_question, path, time_receipt) VALUES(?, ?, ?, ?)";
-                // const date = new Date();
-
                 let have_dir: any, d1, d2;
 
                 sqlite.serialize(() => {
@@ -144,15 +112,16 @@ router.post(
                         if (have_dir.result) {
 
                             fs.writeFile("." + path_to_download + d1 + "/" + d2 + "/" + path_to_file, element.buffer, () => {
-                                console.log("finished downloading!");
+
                                 sqlite.run(
                                     sql,
                                     [element.originalname, url_params_file.num_request, path_to_file, url_params_file.time_receipt],
                                     (err, rows) => {
-                                        if (!err) {
-                                            console.log("\nfinished insert SQL!\n");
-                                        } else {
-                                            console.log("\nfERORRO\n", err);
+
+                                        if (err) {
+                                            console.log("ERROR \n", err);
+                                            response.send(JSON.stringify({ result: false, message: 'Не удалось сохранить файл: ' + err.message }));
+                                            response.end();
                                         }
                                     }
                                 );
@@ -165,9 +134,7 @@ router.post(
 
                 });
                 response.send(JSON.stringify({ result: true }));
-                // } else {
-                //     response.send(JSON.stringify({ result: false, message: 'Не удалось создать папку' }));
-                // }
+
                 response.end();
             });
 
@@ -178,15 +145,13 @@ router.post(
 router.post("/api", (request, response) => {
 
     if (request.method == "POST") {
-        var body = "";
+        let body = "";
         request.on("data", function (data) {
             body += data;
             if (body.length > 1e6) request.connection.destroy();
         });
         request.on("end", function () {
-
-            var post_data = JSON.parse(body);
-            console.log("post_data ==> ", post_data);
+            let post_data = JSON.parse(body);
             if (request.session.user) {
                 post_data.id_user = request.session.user.id_user;
             }
@@ -251,7 +216,6 @@ function restrict(req, res, next) {
     } else {
         if (req.url != addition_path + "/login" && req.url != addition_path + "/public/login.html") {
             var url = req.baseUrl + addition_path + "/login";
-            console.log("Here222", url);
             res.redirect(url);
         } else {
             res.render("login", {

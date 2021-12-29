@@ -116,7 +116,6 @@ export class Bayes {
     }
     getRecomendation(letter, links_docs) {
         // replace JS
-        console.log("getRecomendation");
         let cache_words = this.getWordsFromLetter(letter, this.symvols),
             cache_find_links = [],
             inf_word,
@@ -124,11 +123,10 @@ export class Bayes {
             probability;
         const total_links_inf = JSON.parse(fs.readFileSync("./server/data/total_links_inf.json"));
         const total_result = JSON.parse(fs.readFileSync("./server/data/total_result.json"));
-        // const about_links = JSON.parse(fs.readFileSync("./server/data/about_links.json"));
-        // cache_words = this.getStemElements(cache_words);
+
 
         cache_words.forEach((word) => {
-            console.log(word);
+
             inf_word = total_result[stem(word)];
             cache_find_links = [];
             if (inf_word == undefined) {
@@ -138,9 +136,8 @@ export class Bayes {
             if (inf_word != undefined) {
                 inf_word.links.forEach((elem_link) => {
                     probability = elem_link.count_documents / (Object.keys(total_links_inf).length - 1);
-                    // console.log("probability", elem_link.link, elem_link.count_documents, probability, "  Object.keys(total_links_inf).length", Object.keys(total_links_inf).length)
+
                     cache_find_links.push(elem_link.link);
-                    // console.log("word_inf ==:>>> " + word, inf_word);
                     if (!cache_probability_links[elem_link.link]) {
                         cache_probability_links[elem_link.link] = probability;
                     }
@@ -191,16 +188,10 @@ export class Bayes {
     }
     prepareDocsLinks(cache_chosen_links, links_docs) {
         let result = [];
-        // console.log("about_links", about_links);
-        // console.log("cache_chosen_links", cache_chosen_links);
+
         for (let link in cache_chosen_links) {
             links_docs.forEach((link_obj) => {
-                // console.log("link_obj =>  ", link_obj.title);
-
                 if (link_obj.url == link) {
-                    // link_obj.url = link_obj.link;
-                    // link_obj.mark = cache_chosen_links[link];
-                    // delete link_obj.link;
                     result.push(link_obj);
                 }
             });
@@ -258,13 +249,11 @@ export class Bayes {
         try {
             new_total_links_inf = { ...JSON.parse(total_links_inf) };
             new_total_result = { ...JSON.parse(total_result) };
-            // console.log("Load File cache_words", cache_words);
-
             cache_words.forEach((word) => {
                 if (this.prepositions.indexOf(word) == -1) {
-                    // new_file[elem].links.forEach(link_elem => {
+
                     if (!new_total_result.hasOwnProperty(word)) {
-                        // console.log("HEREEE", word, new_total_result[word])
+
                         tmp = {};
                         tmp.count = 0;
                         tmp.links = [];
@@ -287,8 +276,7 @@ export class Bayes {
                             }
                             return elem_link_result;
                         });
-                        console.log(user_link + " is added &", find_link);
-                        // new_links.push(elem_link_result);
+
                         if (!find_link) {
                             find_link = false;
                             if (!new_total_links_inf[user_link] || !Array.isArray(new_total_links_inf[user_link])) {
@@ -301,8 +289,7 @@ export class Bayes {
                             tmp.link = user_link;
 
                             new_links.push(tmp);
-                            // console.log(new_links);
-                            // console.log("\n\n");
+
                             new_total_result[word].count += 1;
                         }
                     });
@@ -327,7 +314,7 @@ export class Bayes {
             });
             return { result: true };
         } catch (err) {
-            console.log("errr", err);
+
             return { result: false, message: "Не удалось обработать файл с данными для обучения. " + err };
         }
     }
@@ -339,7 +326,7 @@ export class Bayes {
         let result = {},
             new_links;
         for (let key in new_total_result) {
-            console.log(Number(key));
+
             if (isNaN(Number(key))) {
                 if (!result[stem(key)]) {
                     result[stem(key)] = { count: 0, links: [] };

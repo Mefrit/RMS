@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addition_path = exports.port = exports.base_path = exports.path2db_sqlite = exports.dsn_cis = exports.transport_obj = exports.path_to_stable_folder = exports.path_to_download = exports.checkDirб = void 0;
+exports.addition_path = exports.port = exports.base_path = exports.path2db_sqlite = exports.dsn_cis = exports.transport_obj = exports.path_to_stable_folder = exports.path_to_download = void 0;
 const path2db_sqlite = "./server/stable/database.db3";
 exports.path2db_sqlite = path2db_sqlite;
 const dsn_cis = {

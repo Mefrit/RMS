@@ -68,9 +68,7 @@ function Answer(props, dispatchProps) {
         <input type="hidden" name="id_question" value={id_question} />
         <textarea name="content" className="w-100 form-control" onChange={(ev) => { setAnswer(ev.target.value) }} value={answer} cols={30} rows={10}></textarea>
         <div className="row justify-content-md-center mt-3">
-            <input type="submit" onClick={() => {
-                console.log("click")
-            }} className="col-5 btn btn-primary" value="Отправить" />
+            <input type="submit" className="col-5 btn btn-primary" value="Отправить" />
         </div>
     </form>
 }

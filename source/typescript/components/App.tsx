@@ -43,6 +43,7 @@ function App(props, dispatchProps) {
         return { ...default_params, search_url_params };
     }
     const fetchData = async (url_params) => {
+
         postJSON("/api", url_params).then((answer) => {
             props.hideLoader();
             if (answer.result) {
@@ -58,10 +59,11 @@ function App(props, dispatchProps) {
     };
     useEffect(() => {
         props.showLoader();
-        console.log("APP", on_page)
+
         const url_params = buildUrlParamsGetList(on_page, search_params);
         fetchData(url_params);
         const timer = setInterval(() => {
+
             fetchData(url_params);
         }, 60000);
         return () => clearInterval(timer);

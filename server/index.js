@@ -43,12 +43,10 @@ router.use((req, res, next) => {
 });
 router.post(settings_1.addition_path + "/login", (req, res) => {
     (0, functions_1.authenticate)(req.body.username, req.body.password, application).then((answ) => {
-        console.log("Here");
         if (answ.result) {
             req.session.regenerate(() => {
                 req.session.user = { id_user: answ.id_user };
                 if (req.url.indexOf("public") == -1) {
-                    console.log("Here");
                     res.redirect(req.query.back || req.baseUrl + settings_1.addition_path + "/public/index.html");
                 }
                 else {
@@ -83,9 +81,6 @@ router.get(settings_1.addition_path + "/public/index.html", (req, res, next) => 
     req.session.comments = undefined;
     next();
 });
-router.get(settings_1.addition_path + "/api_cms", (req, res) => {
-    console.log("HERE APICMS GET");
-});
 router.post("/api_files", upload.array("uploaded_files"), (request, response, next) => {
     if (request.method == "POST") {
         const files = request.files;
@@ -108,13 +103,11 @@ router.post("/api_files", upload.array("uploaded_files"), (request, response, ne
                     have_dir = yield (0, functions_1.checkDir)(settings_1.path_to_download, d1, d2);
                     if (have_dir.result) {
                         file_system_1.fs.writeFile("." + settings_1.path_to_download + d1 + "/" + d2 + "/" + path_to_file, element.buffer, () => {
-                            console.log("finished downloading!");
                             sqlite.run(sql, [element.originalname, url_params_file.num_request, path_to_file, url_params_file.time_receipt], (err, rows) => {
-                                if (!err) {
-                                    console.log("\nfinished insert SQL!\n");
-                                }
-                                else {
-                                    console.log("\nfERORRO\n", err);
+                                if (err) {
+                                    console.log("ERROR \n", err);
+                                    response.send(JSON.stringify({ result: false, message: 'Не удалось сохранить файл: ' + err.message }));
+                                    response.end();
                                 }
                             });
                         });
@@ -132,15 +125,14 @@ router.post("/api_files", upload.array("uploaded_files"), (request, response, ne
 });
 router.post("/api", (request, response) => {
     if (request.method == "POST") {
-        var body = "";
+        let body = "";
         request.on("data", function (data) {
             body += data;
             if (body.length > 1e6)
                 request.connection.destroy();
         });
         request.on("end", function () {
-            var post_data = JSON.parse(body);
-            console.log("post_data ==> ", post_data);
+            let post_data = JSON.parse(body);
             if (request.session.user) {
                 post_data.id_user = request.session.user.id_user;
             }
@@ -197,7 +189,6 @@ function restrict(req, res, next) {
     else {
         if (req.url != settings_1.addition_path + "/login" && req.url != settings_1.addition_path + "/public/login.html") {
             var url = req.baseUrl + settings_1.addition_path + "/login";
-            console.log("Here222", url);
             res.redirect(url);
         }
         else {

@@ -4,9 +4,6 @@ import { getTime } from "../../lib/module_functions";
 export default ({ props }) => {
     const [open_modal, setModal] = useState(false);
     const [open_modal_files, setModalFiles] = useState(false);
-    if (props.files.length > 0) {
-        console.log(props.files);
-    }
     const menu = [{
         path: "./comments.html?id_question=" + props.id_question, name: "Посмотреть комментарии"
     }, {
@@ -28,9 +25,7 @@ export default ({ props }) => {
                 </button>
                 <ul className={open_modal ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton1">
                     {renderDrobButtonElem(menu)}
-                    {/* <li><a className="dropdown-item" href={"./comments.html?id_question=" + props.id_question}>Посмотреть комментарии</a></li>
-                    <li><a className="dropdown-item" href={"./teach.html?id_question=" + props.id_question}>Обучить алгоритм по письму</a></li>
-                    <li><a className="dropdown-item" href={"./teach.html?id_question=" + props.id_question + "&mode=recomendation"}>Посмотреть, рекомендации системы по этому вопросу</a></li> */}
+
                 </ul>
             </div>
             <div className="col-6 d-flex flex-column align-items-start ">

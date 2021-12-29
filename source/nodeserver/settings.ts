@@ -18,4 +18,4 @@ const transport_obj = {
         pass: "56189968",
     },
 };
-export { checkDirб path_to_download, path_to_stable_folder, transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path };
+export { path_to_download, path_to_stable_folder, transport_obj, dsn_cis, path2db_sqlite, base_path, port, addition_path };

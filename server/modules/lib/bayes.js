@@ -101,12 +101,10 @@ class Bayes {
         });
     }
     getRecomendation(letter, links_docs) {
-        console.log("getRecomendation");
         let cache_words = this.getWordsFromLetter(letter, this.symvols), cache_find_links = [], inf_word, cache_probability_links = [], probability;
         const total_links_inf = JSON.parse(file_system_1.fs.readFileSync("./server/data/total_links_inf.json"));
         const total_result = JSON.parse(file_system_1.fs.readFileSync("./server/data/total_result.json"));
         cache_words.forEach((word) => {
-            console.log(word);
             inf_word = total_result[(0, stemmer_1.stem)(word)];
             cache_find_links = [];
             if (inf_word == undefined) {
@@ -225,7 +223,6 @@ class Bayes {
                             }
                             return elem_link_result;
                         });
-                        console.log(user_link + " is added &", find_link);
                         if (!find_link) {
                             find_link = false;
                             if (!new_total_links_inf[user_link] || !Array.isArray(new_total_links_inf[user_link])) {
@@ -262,7 +259,6 @@ class Bayes {
             return { result: true };
         }
         catch (err) {
-            console.log("errr", err);
             return { result: false, message: "Не удалось обработать файл с данными для обучения. " + err };
         }
     }
@@ -273,7 +269,6 @@ class Bayes {
         let json_total_key_words = Object.assign({}, JSON.parse(total_key_words));
         let result = {}, new_links;
         for (let key in new_total_result) {
-            console.log(Number(key));
             if (isNaN(Number(key))) {
                 if (!result[(0, stemmer_1.stem)(key)]) {
                     result[(0, stemmer_1.stem)(key)] = { count: 0, links: [] };
